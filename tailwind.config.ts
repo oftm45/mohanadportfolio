@@ -19,7 +19,9 @@ export default {
 		},
 		extend: {
 			fontFamily: {
-				'poppins': ['Poppins', 'sans-serif'],
+				'display': ['Instrument Serif', 'serif'],
+				'sans': ['Work Sans', 'sans-serif'],
+				'poppins': ['Work Sans', 'sans-serif'],
 				'cairo': ['Cairo', 'sans-serif'],
 			},
 			colors: {
