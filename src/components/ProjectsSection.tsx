@@ -68,7 +68,7 @@ export const ProjectsSection = () => {
         : ['Internal climate monitoring', 'Integrated security system', '100% renewable energy', 'Mobile application', 'Zero-Downtime', 'Dual controller task division'],
       technologies: ['ESP32', 'Arduino', 'DHT22', 'Buzzer', 'LED Light', 'Gas Sensor', 'Fan'],
       tags: ['IoT', 'Security', 'Zero-Downtime'],
-      status: 'in-progress',
+      status: 'completed',
       glowClass: 'glow-purple',
       color: 'text-purple-400',
     },
@@ -184,13 +184,13 @@ export const ProjectsSection = () => {
           className="mt-16 grid grid-cols-3 gap-6 max-w-2xl mx-auto"
         >
           <div className="text-center">
-            <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">2</div>
+            <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">3</div>
             <p className="text-sm text-muted-foreground">
               {language === 'ar' ? 'مشاريع مكتملة' : 'Completed Projects'}
             </p>
           </div>
           <div className="text-center">
-            <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">1</div>
+            <div className="text-3xl font-bold gradient-primary bg-clip-text text-transparent">0</div>
             <p className="text-sm text-muted-foreground">
               {language === 'ar' ? 'قيد التنفيذ' : 'In Progress'}
             </p>
