@@ -197,12 +197,21 @@ const translations = {
   }
 };
 
+const fallbackLanguageContext: LanguageContextType = {
+  language: 'en',
+  toggleLanguage: () => undefined,
+  t: (key: string) => translations.en[key as keyof typeof translations['en']] || key,
+};
+
 export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [language, setLanguage] = useState<Language>('en');
 
   const toggleLanguage = () => {
-    setLanguage(prev => prev === 'en' ? 'ar' : 'en');
-    document.dir = language === 'en' ? 'rtl' : 'ltr';
+    setLanguage(prev => {
+      const nextLanguage = prev === 'en' ? 'ar' : 'en';
+      document.dir = nextLanguage === 'ar' ? 'rtl' : 'ltr';
+      return nextLanguage;
+    });
   };
 
   const t = (key: string): string => {
@@ -220,8 +229,5 @@ export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ chil
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);
-  if (context === undefined) {
-    throw new Error('useLanguage must be used within a LanguageProvider');
-  }
-  return context;
+  return context ?? fallbackLanguageContext;
 };
