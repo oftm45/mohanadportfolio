@@ -1,6 +1,7 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
-import { User, MapPin, Calendar, GraduationCap, Code, Heart } from 'lucide-react';
+import { User, MapPin, Calendar, GraduationCap, Code, Heart, Award, ExternalLink } from 'lucide-react';
+
 import { motion } from 'framer-motion';
 
 const containerVariants = {
@@ -106,7 +107,28 @@ export const AboutSection = () => {
                 </div>
             </CardContent>
             </Card>
+
+            {/* ICSC Ambassador */}
+            <Card className="glass glow-blue hover:glow-purple transition-smooth border-primary/30">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-4 flex items-center text-primary">
+                  <Award className="w-6 h-6 mr-3" />
+                  {t('ambassadorTitle')}
+                </h3>
+                <p className="text-muted-foreground mb-5">{t('ambassadorDesc')}</p>
+                <a
+                  href="https://icscompetition.org/en/mabubaker"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 px-5 py-2.5 rounded-lg bg-primary/10 border border-primary/30 text-primary hover:bg-primary/20 transition-smooth font-medium"
+                >
+                  {t('ambassadorCta')}
+                  <ExternalLink className="w-4 h-4" />
+                </a>
+              </CardContent>
+            </Card>
           </motion.div>
+
 
           {/* Education Timeline */}
           <motion.div variants={itemVariants}>

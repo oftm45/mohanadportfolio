@@ -91,8 +91,14 @@ const translations = {
     copyEmail: 'Copy Email',
     emailCopied: 'Email copied to clipboard!',
     
+    // Ambassador
+    ambassadorTitle: 'ICSC Ambassador',
+    ambassadorDesc: 'Proud to serve as an official Ambassador for the International Coding & Sustainability Competition (ICSC).',
+    ambassadorCta: 'View My ICSC Page',
+
     // Footer
     footerText: 'Made with ❤ by Mohanad',
+
   },
   ar: {
     // Navigation
@@ -174,8 +180,14 @@ const translations = {
     copyEmail: 'نسخ البريد الإلكتروني',
     emailCopied: 'تم نسخ البريد الإلكتروني!',
     
+    // Ambassador
+    ambassadorTitle: 'سفير ICSC',
+    ambassadorDesc: 'فخور بأنني سفير رسمي لمسابقة ICSC الدولية للبرمجة والاستدامة.',
+    ambassadorCta: 'زيارة صفحتي في ICSC',
+
     // Footer
     footerText: 'صُنع بـ ❤ بواسطة مهند',
+
   }
 };
 
