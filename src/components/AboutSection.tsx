@@ -25,7 +25,9 @@ export const AboutSection = () => {
     { icon: MapPin, label: t('nationality'), value: t('nationalityValue') },
     { icon: Calendar, label: t('age'), value: t('ageValue') },
     { icon: Calendar, label: t('dateOfBirth'), value: t('dobValue') },
+    { icon: Award, label: t('role'), value: t('roleValue') },
   ];
+
 
   const educationSteps = [
     { text: t('grade1to3') },
