@@ -116,7 +116,7 @@ const translations = {
     // Hero Section
     heroTitle: 'مرحباً، أنا مهند',
     heroSubtitle: 'شاب مهتم في البرمجة وتطوير المواقع',
-    heroDescription: 'مطور عمره 17 سنة من السودان، أدرس حالياً في الإمارات.',
+    heroDescription: 'مطور عمره 17 سنة من السودان، أدرس حالياً في الإمارات. سفير رسمي لمسابقة ICSC الدولية.',
     viewCertificates: 'عرض الشهادات',
     contactMe: 'تواصل معي',
     
@@ -132,6 +132,9 @@ const translations = {
     ageValue: '17 سنة',
     dateOfBirth: 'تاريخ الميلاد',
     dobValue: '30/11/2008',
+    role: 'الصفة',
+    roleValue: 'سفير ICSC',
+
     
     // Education
     educationTitle: 'رحلة التعليم',
