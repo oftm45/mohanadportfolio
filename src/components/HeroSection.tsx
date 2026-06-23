@@ -152,6 +152,7 @@ export const HeroSection = () => {
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('about')}
+              aria-label={language === 'ar' ? 'انتقل إلى قسم نبذة عني' : 'Scroll to about section'}
               className="p-2 rounded-full glass hover:glow-blue transition-smooth animate-bounce"
             >
               <ArrowDown className="w-6 h-6 text-primary" />

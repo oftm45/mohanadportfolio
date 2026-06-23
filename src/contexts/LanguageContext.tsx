@@ -22,7 +22,7 @@ const translations = {
     dashboard: 'Dashboard',
     
     // Hero Section
-    heroTitle: "Hi, I'm Mohanad",
+    heroTitle: "Hi, I'm Mohanad — IoT Developer & Web Enthusiast",
     heroSubtitle: 'Programming & Web Development Enthusiast',
     heroDescription: '17-year-old developer from Sudan, currently studying in UAE. Official ICSC Ambassador, passionate about creating innovative solutions through code.',
     viewCertificates: 'View Certificates',
@@ -114,7 +114,7 @@ const translations = {
     dashboard: 'لوحة التحكم',
     
     // Hero Section
-    heroTitle: 'مرحباً، أنا مهند',
+    heroTitle: 'مرحباً، أنا مهند — مطور إنترنت الأشياء والويب',
     heroSubtitle: 'شاب مهتم في البرمجة وتطوير المواقع',
     heroDescription: 'مطور عمره 17 سنة من السودان، أدرس حالياً في الإمارات. سفير رسمي لمسابقة ICSC الدولية.',
     viewCertificates: 'عرض الشهادات',

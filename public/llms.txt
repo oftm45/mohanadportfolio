@@ -1,0 +1,10 @@
+# Mohanad Abubaker — Personal Portfolio
+
+> Personal portfolio of Mohanad Abubaker Abdullah Abdelgalli — a 17-year-old IoT and web developer from Sudan, studying in the UAE, and an official ICSC Ambassador.
+
+The site showcases personal information, programming and web-development projects, IoT builds, certificates, and contact details.
+
+## Pages
+
+- [Home](/): About Mohanad, skills, featured projects, certificates, and contact info.
+- [Smart Greenhouse Guide](/projects/smart-greenhouse): Technical walkthrough for an Arduino/ESP32 + DHT22 smart greenhouse with MQTT.
