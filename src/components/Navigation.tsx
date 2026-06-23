@@ -1,9 +1,9 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { LanguageToggle } from './LanguageToggle';
-import { Menu, X, LayoutDashboard } from 'lucide-react';
+import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
-import { Link } from 'react-router-dom';
+
 
 export const Navigation = () => {
   const { t, language } = useLanguage();
@@ -114,14 +114,6 @@ export const Navigation = () => {
                 </button>
               ))}
               
-              {/* Dashboard Link */}
-              <Link
-                to="/dashboard"
-                className="flex items-center gap-2 px-4 py-2 rounded-lg text-foreground/80 hover:text-primary hover:bg-primary/10 transition-smooth"
-              >
-                <LayoutDashboard className="w-4 h-4" />
-                {t('dashboard')}
-              </Link>
             </div>
 
             {/* Right side: Language Toggle + Mobile Menu */}
@@ -184,21 +176,6 @@ export const Navigation = () => {
                   </motion.button>
                 ))}
                 
-                {/* Dashboard Link - Mobile */}
-                <motion.div
-                  initial={{ opacity: 0, x: language === 'ar' ? 20 : -20 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ delay: navItems.length * 0.1 }}
-                >
-                  <Link
-                    to="/dashboard"
-                    onClick={() => setIsMobileMenuOpen(false)}
-                    className="flex items-center gap-2 px-4 py-3 rounded-xl text-lg font-medium text-foreground/80 hover:bg-primary/10 hover:text-primary transition-smooth"
-                  >
-                    <LayoutDashboard className="w-5 h-5" />
-                    {t('dashboard')}
-                  </Link>
-                </motion.div>
               </div>
             </motion.div>
           </>
