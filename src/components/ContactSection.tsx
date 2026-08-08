@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -34,6 +34,26 @@ export const ContactSection = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    const existingScript = document.querySelector<HTMLScriptElement>(
+      'script[src="https://platform.linkedin.com/badges/js/profile.js"]'
+    );
+
+    if (existingScript) {
+      existingScript.remove();
+    }
+
+    const script = document.createElement('script');
+    script.src = 'https://platform.linkedin.com/badges/js/profile.js';
+    script.async = true;
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      script.remove();
+    };
+  }, []);
 
   const emails = [
     'MohanadAbubaker1@gmail.com',
@@ -133,6 +153,26 @@ export const ContactSection = () => {
                     </div>
                   </div>
                 ))}
+              </div>
+              <div className="mt-6 flex justify-center overflow-hidden rounded-lg">
+                <div
+                  className="badge-base LI-profile-badge"
+                  data-locale="en_US"
+                  data-size="large"
+                  data-theme="dark"
+                  data-type="VERTICAL"
+                  data-vanity="mohanadabubakerabdallh"
+                  data-version="v1"
+                >
+                  <a
+                    className="badge-base__link LI-simple-link"
+                    href="https://www.linkedin.com/in/mohanadabubakerabdallh/?trk=profile-badge"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Mohanad Abubaker on LinkedIn
+                  </a>
+                </div>
               </div>
             </CardContent>
           </Card>
