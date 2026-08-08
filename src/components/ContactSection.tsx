@@ -51,7 +51,7 @@ export const ContactSection = () => {
     {
       name: 'LinkedIn',
       icon: Linkedin,
-      url: 'https://www.linkedin.com/in/mohanad-abubaker-564043374',
+      url: 'https://www.linkedin.com/in/mohanadabubakerabdallh',
       color: 'hover:text-blue-500',
       username: 'Mohanad Abubaker'
     }
