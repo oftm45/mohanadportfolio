@@ -36,7 +36,7 @@ export const Footer = () => {
               <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-purple-400 transition-colors" />
             </a>
             <a
-              href="https://www.linkedin.com/in/mohanad-abubaker-564043374"
+              href="https://www.linkedin.com/in/mohanadabubakerabdallh/"
               target="_blank"
               rel="noopener noreferrer"
               className="group w-12 h-12 rounded-full glass flex items-center justify-center hover:glow-blue hover:scale-110 transition-spring border border-primary/20 hover:border-blue-500/50"
