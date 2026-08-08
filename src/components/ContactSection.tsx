@@ -134,22 +134,24 @@ export const ContactSection = () => {
                   </div>
                 ))}
               </div>
-              <a
-                href="https://www.linkedin.com/in/mohanadabubakerabdallh/"
-                target="_blank"
-                rel="noopener noreferrer"
-                aria-label="Open Mohanad Abubaker's LinkedIn profile"
-                className="mt-6 flex items-center gap-4 border border-border/50 p-5 transition-smooth hover:border-primary/60 hover:bg-primary/5"
+              <Button
+                type="button"
+                size="lg"
+                onClick={() =>
+                  window.open(
+                    'https://www.linkedin.com/in/mohanadabubakerabdallh/',
+                    '_blank',
+                    'noopener,noreferrer'
+                  )
+                }
+                aria-label="Open Mohanad Abubaker's LinkedIn profile in a new tab"
+                className="mt-6 w-full gap-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth"
               >
-                <span className="flex h-14 w-14 flex-shrink-0 items-center justify-center bg-foreground text-background">
-                  <Linkedin className="h-7 w-7" />
-                </span>
-                <span className="min-w-0 flex-1">
-                  <span className="block text-lg font-semibold text-foreground">Mohanad Abubaker</span>
-                  <span className="block truncate text-sm text-muted-foreground">linkedin.com/in/mohanadabubakerabdallh</span>
-                </span>
-                <ExternalLink className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
-              </a>
+                <Linkedin className="h-5 w-5 flex-shrink-0" />
+                <span className="truncate">Connect on LinkedIn</span>
+                <ExternalLink className="h-4 w-4 flex-shrink-0 opacity-80" />
+              </Button>
+
             </CardContent>
           </Card>
           </motion.div>
