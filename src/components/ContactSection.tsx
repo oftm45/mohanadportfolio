@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -34,26 +34,6 @@ export const ContactSection = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
-
-  useEffect(() => {
-    const existingScript = document.querySelector<HTMLScriptElement>(
-      'script[src="https://platform.linkedin.com/badges/js/profile.js"]'
-    );
-
-    if (existingScript) {
-      existingScript.remove();
-    }
-
-    const script = document.createElement('script');
-    script.src = 'https://platform.linkedin.com/badges/js/profile.js';
-    script.async = true;
-    script.defer = true;
-    document.body.appendChild(script);
-
-    return () => {
-      script.remove();
-    };
-  }, []);
 
   const emails = [
     'MohanadAbubaker1@gmail.com',
@@ -154,26 +134,22 @@ export const ContactSection = () => {
                   </div>
                 ))}
               </div>
-              <div className="mt-6 flex justify-center overflow-hidden rounded-lg">
-                <div
-                  className="badge-base LI-profile-badge"
-                  data-locale="en_US"
-                  data-size="large"
-                  data-theme="dark"
-                  data-type="VERTICAL"
-                  data-vanity="mohanadabubakerabdallh"
-                  data-version="v1"
-                >
-                  <a
-                    className="badge-base__link LI-simple-link"
-                    href="https://www.linkedin.com/in/mohanadabubakerabdallh/?trk=profile-badge"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
-                    Mohanad Abubaker on LinkedIn
-                  </a>
-                </div>
-              </div>
+              <a
+                href="https://www.linkedin.com/in/mohanadabubakerabdallh/"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Open Mohanad Abubaker's LinkedIn profile"
+                className="mt-6 flex items-center gap-4 border border-border/50 p-5 transition-smooth hover:border-primary/60 hover:bg-primary/5"
+              >
+                <span className="flex h-14 w-14 flex-shrink-0 items-center justify-center bg-foreground text-background">
+                  <Linkedin className="h-7 w-7" />
+                </span>
+                <span className="min-w-0 flex-1">
+                  <span className="block text-lg font-semibold text-foreground">Mohanad Abubaker</span>
+                  <span className="block truncate text-sm text-muted-foreground">linkedin.com/in/mohanadabubakerabdallh</span>
+                </span>
+                <ExternalLink className="h-5 w-5 flex-shrink-0 text-muted-foreground" />
+              </a>
             </CardContent>
           </Card>
           </motion.div>
