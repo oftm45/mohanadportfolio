@@ -47,13 +47,6 @@ export const ContactSection = () => {
       url: 'https://www.instagram.com/mo_n5d?igsh=MXM3d2xtajlvMHBscw==',
       color: 'hover:text-pink-500',
       username: '@mo_n5d'
-    },
-    {
-      name: 'LinkedIn',
-      icon: Linkedin,
-      url: 'https://www.linkedin.com/in/mohanadabubakerabdallh/',
-      color: 'hover:text-blue-500',
-      username: 'Mohanad Abubaker'
     }
   ];
 
@@ -134,24 +127,6 @@ export const ContactSection = () => {
                   </div>
                 ))}
               </div>
-              <Button
-                type="button"
-                size="lg"
-                onClick={() =>
-                  window.open(
-                    'https://www.linkedin.com/in/mohanadabubakerabdallh/',
-                    '_blank',
-                    'noopener,noreferrer'
-                  )
-                }
-                aria-label="Open Mohanad Abubaker's LinkedIn profile in a new tab"
-                className="mt-6 w-full gap-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth"
-              >
-                <Linkedin className="h-5 w-5 flex-shrink-0" />
-                <span className="truncate">Connect on LinkedIn</span>
-                <ExternalLink className="h-4 w-4 flex-shrink-0 opacity-80" />
-              </Button>
-
             </CardContent>
           </Card>
           </motion.div>
@@ -185,12 +160,29 @@ export const ContactSection = () => {
                           {social.username}
                         </p>
                       </div>
-                    </div>
-                    <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth" />
-                  </a>
-                ))}
-              </div>
-            </CardContent>
+                </div>
+                <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth" />
+              </a>
+            ))}
+            <Button
+              type="button"
+              size="lg"
+              onClick={() =>
+                window.open(
+                  'https://www.linkedin.com/in/mohanadabubakerabdallh/',
+                  '_blank',
+                  'noopener,noreferrer'
+                )
+              }
+              aria-label="Open Mohanad Abubaker's LinkedIn profile in a new tab"
+              className="mt-2 w-full gap-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth"
+            >
+              <Linkedin className="h-5 w-5 flex-shrink-0" />
+              <span className="truncate">Connect on LinkedIn</span>
+              <ExternalLink className="h-4 w-4 flex-shrink-0 opacity-80" />
+            </Button>
+          </div>
+        </CardContent>
           </Card>
           </motion.div>
         </motion.div>
