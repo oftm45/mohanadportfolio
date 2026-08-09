@@ -133,57 +133,57 @@ export const ContactSection = () => {
 
           {/* Social Media Section */}
           <motion.div variants={cardVariantsRight}>
-          <Card className="glass glow-purple hover:glow-blue transition-smooth h-full">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6 flex items-center text-accent">
-                <ExternalLink className="w-6 h-6 mr-3" />
-                {t('socialTitle')}
-              </h3>
-              <div className="space-y-4">
-                {socialLinks.map((social, index) => (
-                  <a
-                    key={index}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="glass p-4 rounded-lg border border-border/50 hover:border-primary/30 transition-smooth group flex items-center justify-between hover:scale-105"
+            <Card className="glass glow-purple hover:glow-blue transition-smooth h-full">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold mb-6 flex items-center text-accent">
+                  <ExternalLink className="w-6 h-6 mr-3" />
+                  {t('socialTitle')}
+                </h3>
+                <div className="space-y-4">
+                  {socialLinks.map((social, index) => (
+                    <a
+                      key={index}
+                      href={social.url}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="glass p-4 rounded-lg border border-border/50 hover:border-primary/30 transition-smooth group flex items-center justify-between hover:scale-105"
+                    >
+                      <div className="flex items-center space-x-4 rtl:space-x-reverse">
+                        <div className="w-12 h-12 rounded-full glass flex items-center justify-center group-hover:glow-blue">
+                          <social.icon className={`w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth ${social.color}`} />
+                        </div>
+                        <div>
+                          <p className="font-semibold text-foreground group-hover:text-primary transition-smooth">
+                            {social.name}
+                          </p>
+                          <p className="text-sm text-muted-foreground">
+                            {social.username}
+                          </p>
+                        </div>
+                      </div>
+                      <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth" />
+                    </a>
+                  ))}
+                  <Button
+                    type="button"
+                    size="lg"
+                    onClick={() =>
+                      window.open(
+                        'https://www.linkedin.com/in/mohanadabubakerabdallh/',
+                        '_blank',
+                        'noopener,noreferrer'
+                      )
+                    }
+                    aria-label="Open Mohanad Abubaker's LinkedIn profile in a new tab"
+                    className="mt-2 w-full gap-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth"
                   >
-                    <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                      <div className="w-12 h-12 rounded-full glass flex items-center justify-center group-hover:glow-blue">
-                        <social.icon className={`w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth ${social.color}`} />
-                      </div>
-                      <div>
-                        <p className="font-semibold text-foreground group-hover:text-primary transition-smooth">
-                          {social.name}
-                        </p>
-                        <p className="text-sm text-muted-foreground">
-                          {social.username}
-                        </p>
-                      </div>
+                    <Linkedin className="h-5 w-5 flex-shrink-0" />
+                    <span className="truncate">Connect on LinkedIn</span>
+                    <ExternalLink className="h-4 w-4 flex-shrink-0 opacity-80" />
+                  </Button>
                 </div>
-                <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth" />
-              </a>
-            ))}
-            <Button
-              type="button"
-              size="lg"
-              onClick={() =>
-                window.open(
-                  'https://www.linkedin.com/in/mohanadabubakerabdallh/',
-                  '_blank',
-                  'noopener,noreferrer'
-                )
-              }
-              aria-label="Open Mohanad Abubaker's LinkedIn profile in a new tab"
-              className="mt-2 w-full gap-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth"
-            >
-              <Linkedin className="h-5 w-5 flex-shrink-0" />
-              <span className="truncate">Connect on LinkedIn</span>
-              <ExternalLink className="h-4 w-4 flex-shrink-0 opacity-80" />
-            </Button>
-          </div>
-        </CardContent>
-          </Card>
+              </CardContent>
+            </Card>
           </motion.div>
         </motion.div>
         {/* Call to Action */}
