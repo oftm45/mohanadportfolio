@@ -42,6 +42,8 @@ const translations = {
     dobValue: '30/11/2008',
     role: 'Role',
     roleValue: 'ICSC Ambassador',
+    role2: 'Role',
+    role2Value: 'Student – Team Sudan, FIRST Global Challenge (FGC)',
 
     
     // Education
@@ -134,6 +136,8 @@ const translations = {
     dobValue: '30/11/2008',
     role: 'الصفة',
     roleValue: 'سفير ICSC',
+    role2: 'الصفة',
+    role2Value: 'طالب – فريق السودان في تحدي فيرست العالمي (FGC)',
 
     
     // Education

@@ -26,6 +26,7 @@ export const AboutSection = () => {
     { icon: Calendar, label: t('age'), value: t('ageValue') },
     { icon: Calendar, label: t('dateOfBirth'), value: t('dobValue') },
     { icon: Award, label: t('role'), value: t('roleValue') },
+    { icon: Award, label: t('role2'), value: t('role2Value') },
   ];
 
 
