@@ -83,6 +83,18 @@ const translations = {
     cert9Desc: 'Programming Proficiency Assessment',
     cert10Title: 'Second Place – Industrial Engineering',
     cert10Desc: 'Rochester Institute of Technology (RIT) Competition',
+    cert11Title: 'Certificate of Participation – Safe AI Cup 2026',
+    cert11Desc: 'Generative AI in Education – University of Dubai',
+    cert12Title: 'Introduction to Critical Infrastructure Protection',
+    cert12Desc: 'OPSWAT Academy – ICIP Program',
+    cert13Title: 'Claude Code in Action',
+    cert13Desc: 'Anthropic – Certificate of Completion',
+    cert14Title: 'Claude Code 101',
+    cert14Desc: 'Anthropic – Certificate of Completion',
+    cert15Title: 'Claude 101',
+    cert15Desc: 'Anthropic – Certificate of Completion',
+    cert16Title: 'Oratory & Diction Course',
+    cert16Desc: 'M3aarf Platform – Yasmine El Baz',
     
     // Button actions
     viewButton: 'View',
