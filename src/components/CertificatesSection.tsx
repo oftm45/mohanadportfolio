@@ -4,6 +4,12 @@ import { Badge } from '@/components/ui/badge';
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 import { Trophy, Medal, Award, Brain, Leaf } from 'lucide-react';
 import { motion } from 'framer-motion';
+import safeAiCup from '@/assets/certificates/safe-ai-cup.pdf.asset.json';
+import opswatIcip from '@/assets/certificates/opswat-icip.png.asset.json';
+import claudeCodeInAction from '@/assets/certificates/claude-code-in-action.pdf.asset.json';
+import claudeCode101 from '@/assets/certificates/claude-code-101.pdf.asset.json';
+import claude101 from '@/assets/certificates/claude-101.pdf.asset.json';
+import m3aarfOratory from '@/assets/certificates/m3aarf-oratory.pdf.asset.json';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -131,6 +137,72 @@ export const CertificatesSection = () => {
       glowClass: 'glow-purple',
       badgeVariant: 'outline' as const,
       viewUrl: 'https://drive.google.com/file/d/1vO76G25cwioRII4Zoiwx91fKm7Y4ky6m/view',
+    },
+    {
+      id: 11,
+      icon: Brain,
+      title: t('cert11Title'),
+      description: t('cert11Desc'),
+      type: 'Participation',
+      color: 'text-blue-400',
+      glowClass: 'glow-blue',
+      badgeVariant: 'outline' as const,
+      viewUrl: safeAiCup.url,
+    },
+    {
+      id: 12,
+      icon: Award,
+      title: t('cert12Title'),
+      description: t('cert12Desc'),
+      type: 'Course',
+      color: 'text-cyan-400',
+      glowClass: 'glow-blue',
+      badgeVariant: 'outline' as const,
+      viewUrl: opswatIcip.url,
+    },
+    {
+      id: 13,
+      icon: Brain,
+      title: t('cert13Title'),
+      description: t('cert13Desc'),
+      type: 'Course',
+      color: 'text-green-400',
+      glowClass: 'glow-green',
+      badgeVariant: 'outline' as const,
+      viewUrl: claudeCodeInAction.url,
+    },
+    {
+      id: 14,
+      icon: Brain,
+      title: t('cert14Title'),
+      description: t('cert14Desc'),
+      type: 'Course',
+      color: 'text-green-400',
+      glowClass: 'glow-green',
+      badgeVariant: 'outline' as const,
+      viewUrl: claudeCode101.url,
+    },
+    {
+      id: 15,
+      icon: Brain,
+      title: t('cert15Title'),
+      description: t('cert15Desc'),
+      type: 'Course',
+      color: 'text-green-400',
+      glowClass: 'glow-green',
+      badgeVariant: 'outline' as const,
+      viewUrl: claude101.url,
+    },
+    {
+      id: 16,
+      icon: Award,
+      title: t('cert16Title'),
+      description: t('cert16Desc'),
+      type: 'Course',
+      color: 'text-purple-400',
+      glowClass: 'glow-purple',
+      badgeVariant: 'outline' as const,
+      viewUrl: m3aarfOratory.url,
     },
   ];
 
