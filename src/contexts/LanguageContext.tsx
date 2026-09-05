@@ -189,6 +189,18 @@ const translations = {
     cert9Desc: 'تقييم كفاءة البرمجة',
     cert10Title: 'المركز الثاني – الهندسة الصناعية',
     cert10Desc: 'مسابقة معهد روتشستر للتكنولوجيا (RIT)',
+    cert11Title: 'شهادة مشاركة – كأس الذكاء الاصطناعي الآمن 2026',
+    cert11Desc: 'الذكاء الاصطناعي التوليدي في التعليم – جامعة دبي',
+    cert12Title: 'مقدمة في حماية البنية التحتية الحيوية',
+    cert12Desc: 'أكاديمية OPSWAT – برنامج ICIP',
+    cert13Title: 'Claude Code in Action',
+    cert13Desc: 'Anthropic – شهادة إتمام',
+    cert14Title: 'Claude Code 101',
+    cert14Desc: 'Anthropic – شهادة إتمام',
+    cert15Title: 'Claude 101',
+    cert15Desc: 'Anthropic – شهادة إتمام',
+    cert16Title: 'دورة فن الإلقاء والخطابة',
+    cert16Desc: 'منصة معارف – ياسمين الباز',
     
     // Button actions
     viewButton: 'عرض',
