@@ -4,6 +4,12 @@ import { Badge } from '@/components/ui/badge';
 import { InteractiveHoverButton } from '@/components/ui/interactive-hover-button';
 import { Trophy, Medal, Award, Brain, Leaf } from 'lucide-react';
 import { motion } from 'framer-motion';
+import safeAiCup from '@/assets/certificates/safe-ai-cup.pdf.asset.json';
+import opswatIcip from '@/assets/certificates/opswat-icip.png.asset.json';
+import claudeCodeInAction from '@/assets/certificates/claude-code-in-action.pdf.asset.json';
+import claudeCode101 from '@/assets/certificates/claude-code-101.pdf.asset.json';
+import claude101 from '@/assets/certificates/claude-101.pdf.asset.json';
+import m3aarfOratory from '@/assets/certificates/m3aarf-oratory.pdf.asset.json';
 
 const containerVariants = {
   hidden: { opacity: 0 },
