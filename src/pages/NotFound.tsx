@@ -39,7 +39,7 @@ const NotFound = () => {
         }}
       />
 
-      <div className="relative z-10 px-6 text-center animate-fade-in">
+      <div className="relative z-10 px-6 text-center animate-fade-in-up">
         {/* Giant 404 */}
         <h1 className="font-display text-[26vw] sm:text-[12rem] leading-none select-none bg-gradient-to-b from-foreground via-foreground/70 to-foreground/10 bg-clip-text text-transparent tracking-tight">
           {t("notFoundCode")}
