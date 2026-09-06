@@ -106,12 +106,17 @@ export default {
 						transform: "translate(-50%,-40%) scale(1)",
 					},
 				},
+				'fade-in-up': {
+					"0%": { opacity: '0', transform: "translateY(16px)" },
+					"100%": { opacity: '1', transform: "translateY(0)" },
+				},
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
 				'accordion-up': 'accordion-up 0.2s ease-out',
 				rainbow: "rainbow var(--speed, 2s) infinite linear",
 				spotlight: "spotlight 2s ease .75s 1 forwards",
+				'fade-in-up': "fade-in-up 0.7s cubic-bezier(0.22, 1, 0.36, 1) both",
 			}
 		}
 	},
