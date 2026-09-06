@@ -26,12 +26,16 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<Index />} />
-            <Route path="/projects/smart-greenhouse" element={<SmartGreenhouse />} />
-            {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+          {isMaintenance ? (
+            <MaintenancePage />
+          ) : (
+            <Routes>
+              <Route path="/" element={<Index />} />
+              <Route path="/projects/smart-greenhouse" element={<SmartGreenhouse />} />
+              {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          )}
         </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>
