@@ -116,6 +116,11 @@ const translations = {
     // Footer
     footerText: 'Made with ❤ by Mohanad',
 
+    // 404
+    notFoundCode: '404',
+    notFoundTitle: 'Page Not Found',
+    notFoundDesc: "The page you're looking for doesn't exist or has been moved.",
+    notFoundCta: 'Back to Home',
   },
   ar: {
     // Navigation
@@ -222,6 +227,11 @@ const translations = {
     // Footer
     footerText: 'صُنع بـ ❤ بواسطة مهند',
 
+    // 404
+    notFoundCode: '٤٠٤',
+    notFoundTitle: 'الصفحة غير موجودة',
+    notFoundDesc: 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.',
+    notFoundCta: 'العودة للرئيسية',
   }
 };
 
