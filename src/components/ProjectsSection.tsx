@@ -86,8 +86,8 @@ export const ProjectsSection = () => {
       <div className="container mx-auto max-w-6xl relative z-10">
         {/* Section Header */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9, filter: "blur(12px)" }}
+          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
           className="text-center mb-16"
@@ -113,8 +113,8 @@ export const ProjectsSection = () => {
           {projects.map((project, index) => (
             <motion.div
               key={project.id}
-              initial={{ opacity: 0, y: 30 }}
-              whileInView={{ opacity: 1, y: 0 }}
+              initial={{ opacity: 0, scale: 0.9, filter: "blur(12px)" }}
+              whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
               viewport={{ once: true }}
             >
@@ -177,8 +177,8 @@ export const ProjectsSection = () => {
 
         {/* Stats */}
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9, filter: "blur(12px)" }}
+          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.6, delay: 0.3 }}
           viewport={{ once: true }}
           className="mt-16 grid grid-cols-3 gap-6 max-w-2xl mx-auto"
