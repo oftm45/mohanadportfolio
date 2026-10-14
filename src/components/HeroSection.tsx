@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Mail, Award } from 'lucide-react';
+import { ArrowDown, Mail } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { TypingWords } from '@/components/ui/typing-effect';
