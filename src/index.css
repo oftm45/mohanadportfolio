@@ -2,72 +2,59 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Elegant Black & White Portfolio Design System - Mohanad's Portfolio
+/* Blue Trustworthy Portfolio Design System - Mohanad's Portfolio
 All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
 */
 
 @layer base {
   :root {
-    /* Monochrome — Pure Black & White */
-    --background: 0 0% 4%;
-    --foreground: 0 0% 96%;
-
-    --card: 0 0% 7%;
-    --card-foreground: 0 0% 96%;
-
-    --popover: 0 0% 6%;
-    --popover-foreground: 0 0% 96%;
-
-    --primary: 0 0% 98%;
-    --primary-foreground: 0 0% 5%;
-
-    --secondary: 0 0% 75%;
-    --secondary-foreground: 0 0% 5%;
-
-    --accent: 0 0% 60%;
-    --accent-foreground: 0 0% 5%;
-
-    --muted: 0 0% 12%;
-    --muted-foreground: 0 0% 60%;
-
-    --destructive: 0 0% 40%;
-    --destructive-foreground: 0 0% 96%;
-
-    --border: 0 0% 18%;
-    --input: 0 0% 12%;
-    --ring: 0 0% 85%;
-
+    /* Blue palette: #030460 #0078B5 #02B4D8 #93E2F1 */
+    --background: 239 94% 8%;
+    --foreground: 190 76% 94%;
+    --card: 239 94% 12%;
+    --card-foreground: 190 76% 94%;
+    --popover: 239 94% 11%;
+    --popover-foreground: 190 76% 94%;
+    --primary: 190 98% 43%;
+    --primary-foreground: 239 94% 10%;
+    --secondary: 200 100% 35%;
+    --secondary-foreground: 190 76% 96%;
+    --accent: 190 76% 76%;
+    --accent-foreground: 239 94% 12%;
+    --muted: 239 70% 16%;
+    --muted-foreground: 190 40% 72%;
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 190 76% 96%;
+    --border: 220 80% 22%;
+    --input: 239 70% 16%;
+    --ring: 190 98% 43%;
     --radius: 0.75rem;
 
-    /* Portfolio accent tokens (monochrome) */
-    --electric-blue: 0 0% 90%;
-    --neon-green: 0 0% 75%;
-    --purple-start: 0 0% 70%;
-    --purple-end: 0 0% 50%;
+    --electric-blue: 190 98% 43%;
+    --neon-green: 190 76% 76%;
+    --purple-start: 200 100% 35%;
+    --purple-end: 239 94% 20%;
 
-    /* Glassmorphism */
-    --glass-bg: 0 0% 8% / 0.85;
-    --glass-border: 0 0% 25% / 0.4;
-    --glass-shadow: 0 25px 50px -12px hsl(0 0% 0% / 0.6);
+    --glass-bg: 239 94% 12% / 0.7;
+    --glass-border: 190 98% 43% / 0.25;
+    --glass-shadow: 0 25px 50px -12px hsl(239 94% 4% / 0.7);
 
-    /* Glows */
-    --glow-blue: 0 0 30px hsl(0 0% 100% / 0.18);
-    --glow-green: 0 0 30px hsl(0 0% 100% / 0.14);
-    --glow-purple: 0 0 30px hsl(0 0% 100% / 0.12);
+    --glow-blue: 0 0 30px hsl(190 98% 43% / 0.35);
+    --glow-green: 0 0 30px hsl(190 76% 76% / 0.3);
+    --glow-purple: 0 0 30px hsl(200 100% 35% / 0.35);
 
-    /* Gradients */
-    --gradient-primary: linear-gradient(135deg, hsl(0 0% 98%), hsl(0 0% 70%));
-    --gradient-purple: linear-gradient(135deg, hsl(0 0% 85%), hsl(0 0% 45%));
-    --gradient-dark: linear-gradient(135deg, hsl(0 0% 4%), hsl(0 0% 9%));
+    --gradient-primary: linear-gradient(135deg, hsl(190 76% 76%), hsl(190 98% 43%), hsl(200 100% 35%));
+    --gradient-purple: linear-gradient(135deg, hsl(200 100% 35%), hsl(239 94% 20%));
+    --gradient-dark: linear-gradient(135deg, hsl(239 94% 8%), hsl(239 94% 14%));
 
     --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     --transition-spring: all 0.5s cubic-bezier(0.34, 1.56, 0.64, 1);
 
-    --color-1: 0 0% 98%;
-    --color-2: 0 0% 85%;
-    --color-3: 0 0% 70%;
-    --color-4: 0 0% 55%;
-    --color-5: 0 0% 40%;
+    --color-1: 190 76% 76%;
+    --color-2: 190 98% 43%;
+    --color-3: 200 100% 35%;
+    --color-4: 239 94% 20%;
+    --color-5: 190 98% 43%;
 
     /* Sidebar */
     --sidebar-background: 0 0% 98%;
@@ -137,12 +124,12 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
   }
 
   .glass:hover {
-    background: hsl(0 0% 12% / 0.95);
-    border-color: hsl(0 0% 40% / 0.6);
+    background: hsl(239 94% 15% / 0.85);
+    border-color: hsl(190 98% 43% / 0.5);
     box-shadow: 
       0 0 0 1px hsl(0 0% 100% / 0.1),
-      0 25px 50px -12px hsl(0 0% 0% / 0.6),
-      0 0 40px hsl(0 0% 100% / 0.08);
+      0 25px 50px -12px hsl(239 94% 4% / 0.6),
+      0 0 40px hsl(190 98% 43% / 0.15);
     transform: translateY(-4px);
   }
 
@@ -172,10 +159,10 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
   }
 
   .card-hover:hover {
-    border-color: hsl(0 0% 50% / 0.5);
+    border-color: hsl(190 98% 43% / 0.45);
     box-shadow: 
-      0 0 0 1px hsl(0 0% 100% / 0.08),
-      0 20px 40px -15px hsl(0 0% 0% / 0.5),
+      0 0 0 1px hsl(190 98% 43% / 0.15),
+      0 20px 40px -15px hsl(239 94% 4% / 0.5),
       inset 0 1px 0 hsl(0 0% 100% / 0.1);
     transform: translateY(-6px) scale(1.01);
   }
@@ -202,7 +189,7 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
   }
 
   .hover-glow:hover {
-    box-shadow: 0 0 30px hsl(0 0% 100% / 0.15);
+    box-shadow: 0 0 30px hsl(190 98% 43% / 0.3);
   }
 
   /* Subtle shine effect */
