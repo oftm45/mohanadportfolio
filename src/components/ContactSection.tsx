@@ -22,12 +22,12 @@ const containerVariants = {
 
 const cardVariants = {
   hidden: { opacity: 0, scale: 0.9, filter: "blur(12px)" },
-  visible: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
+  visible: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } }
 };
 
 const cardVariantsRight = {
   hidden: { opacity: 0, scale: 0.9, filter: "blur(12px)" },
-  visible: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] } }
+  visible: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } }
 };
 
 export const ContactSection = () => {
