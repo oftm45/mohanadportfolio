@@ -119,15 +119,6 @@ export const HeroSection = () => {
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
             <Button
-              onClick={() => scrollToSection('certificates')}
-              size="lg"
-              className="group relative overflow-hidden gradient-primary text-primary-foreground hover:scale-105 transition-spring min-w-[200px] glow-blue"
-            >
-              <Award className="w-5 h-5 mr-2 group-hover:rotate-12 transition-spring" />
-              {t('viewCertificates')}
-            </Button>
-
-            <Button
               onClick={() => scrollToSection('contact')}
               variant="outline"
               size="lg"
