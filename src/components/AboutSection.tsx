@@ -13,8 +13,8 @@ const containerVariants = {
 };
 
 const itemVariants = {
-  hidden: { opacity: 0, y: 30 },
-  visible: { opacity: 1, y: 0, transition: { duration: 0.5 } }
+  hidden: { opacity: 0, scale: 0.9, filter: "blur(12px)" },
+  visible: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } }
 };
 
 export const AboutSection = () => {
@@ -42,8 +42,8 @@ export const AboutSection = () => {
       <div className="container mx-auto px-6">
         {/* Section Header */}
         <motion.div 
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
+          initial={{ opacity: 0, scale: 0.9, filter: "blur(12px)" }}
+          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
