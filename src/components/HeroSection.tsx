@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
-import { ArrowDown, Mail, Award } from 'lucide-react';
+import { ArrowDown, Mail } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { TypingWords } from '@/components/ui/typing-effect';
@@ -118,15 +118,6 @@ export const HeroSection = () => {
             transition={{ duration: 0.6, delay: 0.5 }}
             className="flex flex-col sm:flex-row gap-4 justify-center items-center mb-12"
           >
-            <Button
-              onClick={() => scrollToSection('certificates')}
-              size="lg"
-              className="group relative overflow-hidden gradient-primary text-primary-foreground hover:scale-105 transition-spring min-w-[200px] glow-blue"
-            >
-              <Award className="w-5 h-5 mr-2 group-hover:rotate-12 transition-spring" />
-              {t('viewCertificates')}
-            </Button>
-
             <Button
               onClick={() => scrollToSection('contact')}
               variant="outline"
