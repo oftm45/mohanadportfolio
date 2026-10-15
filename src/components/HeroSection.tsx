@@ -59,7 +59,7 @@ export const HeroSection = () => {
       </motion.div>
 
       <motion.div 
-        style={{ opacity, scale }}
+        style={{}}
         className="container mx-auto px-6 text-center relative z-10"
       >
         {/* Main Content */}

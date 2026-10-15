@@ -7,6 +7,10 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import SmartGreenhouse from "./pages/SmartGreenhouse";
 import NotFound from "./pages/NotFound";
+import { MotionGlobalConfig } from "framer-motion";
+
+// Plain site: disable all motion animations globally
+MotionGlobalConfig.skipAnimations = true;
 
 const queryClient = new QueryClient();
 
