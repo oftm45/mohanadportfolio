@@ -35,6 +35,7 @@ export const AboutSection = () => {
     { text: t('grade4to8') },
     { text: t('grade9to10') },
     { text: t('grade11') },
+    { text: t('grade12') },
   ];
 
   return (

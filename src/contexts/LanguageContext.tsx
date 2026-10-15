@@ -49,7 +49,8 @@ const translations = {
     grade1to3: 'Grades 1-3: British Curriculum Schools – Sudan',
     grade4to8: 'Grades 4-8: Al-Qabas Private Schools – Sudan',
     grade9to10: 'Grades 9-10: Manarat Al Sharjah School – Sharjah, UAE',
-    grade11: 'Grade 11 (Current): Manarat Al Sharjah School – Sharjah',
+    grade11: 'Grade 11: Manarat Al Sharjah School – Sharjah',
+    grade12: 'Grade 12 – Senior (Current): Manarat Al Sharjah School – Sharjah',
     
     // Skills & Interests
     skillsTitle: 'Skills & Interests',
@@ -123,7 +124,8 @@ const translations = {
     grade1to3: 'الصفوف 1-3: مدارس التعليم البريطاني – السودان',
     grade4to8: 'الصفوف 4-8: مدارس القبس الخاصة – السودان',
     grade9to10: 'الصفوف 9-10: مدرسة منارة الشارقة – الإمارات',
-    grade11: 'الصف 11 (حالياً): مدرسة منارة الشارقة',
+    grade11: 'الصف 11: مدرسة منارة الشارقة',
+    grade12: 'الصف 12 (حالياً): مدرسة منارة الشارقة',
     
     // Skills & Interests
     skillsTitle: 'المهارات والاهتمامات',
