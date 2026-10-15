@@ -21,7 +21,7 @@ const translations = {
     dashboard: 'Dashboard',
     
     // Hero Section
-    heroTitle: "Hi, I'm Mohanad — IoT Developer & Web Enthusiast",
+    heroTitle: "Hi, I'm Mohanad \n\n",
     heroSubtitle: 'Programming & Web Development Enthusiast',
     heroDescription: '17-year-old developer from Sudan, currently studying in UAE. Official ICSC Ambassador, passionate about creating innovative solutions through code.',
     contactMe: 'Contact Me',
@@ -31,7 +31,7 @@ const translations = {
     aboutSubtitle: 'Getting to know me',
     personalInfo: 'Personal Information',
     fullName: 'Full Name',
-    nameValue: 'Mohanad Abubaker Abdullah Abdelgalli',
+    nameValue: 'Mohanad Abubaker Osman',
     nationality: 'Nationality',
     nationalityValue: 'Sudan',
     age: 'Age',
@@ -49,15 +49,15 @@ const translations = {
     grade1to3: 'Grades 1-3: British Curriculum Schools – Sudan',
     grade4to8: 'Grades 4-8: Al-Qabas Private Schools – Sudan',
     grade9to10: 'Grades 9-10: Manarat Al Sharjah School – Sharjah, UAE',
-    grade11: 'Grade 11: Manarat Al Sharjah School – Sharjah',
-    grade12: 'Grade 12 – Senior (Current): Manarat Al Sharjah School – Sharjah',
+    grade11: 'Grade 11: Manarat Al Sharjah School – Sharjah, UAE',
+    grade12: 'Grade 12 – Senior (Current): Manarat Al Sharjah School – Sharjah, UAE',
     
     // Skills & Interests
     skillsTitle: 'Skills & Interests',
     interests: 'Interests',
-    interestsValue: 'Programming and Web Development',
+    interestsValue: 'Programming , cyber security , vibe coding , Ai , web',
     technicalSkills: 'Technical Skills',
-    skillsValue: 'Beginner in Python and C++',
+    skillsValue: ' Python , C++ and vibe coding',
     
     
     // Button actions
@@ -74,7 +74,7 @@ const translations = {
     
     // Ambassador
     ambassadorTitle: 'ICSC Ambassador',
-    ambassadorDesc: 'Proud to serve as an official Ambassador for the International Coding & Sustainability Competition (ICSC).',
+    ambassadorDesc: 'Proud to be an official Ambassador for International Computer Science Competition (ICSC).',
     ambassadorCta: 'View My ICSC Page',
 
     // Footer

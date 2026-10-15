@@ -60,7 +60,7 @@ export const Footer = () => {
             </p>
             <p className="text-muted-foreground/50 text-xs flex items-center justify-center gap-2">
               <Code2 className="w-3 h-3" />
-              React • TypeScript • Tailwind CSS
+              
             </p>
           </div>
         </div>
