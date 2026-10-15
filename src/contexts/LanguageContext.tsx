@@ -49,7 +49,8 @@ const translations = {
     grade1to3: 'Grades 1-3: British Curriculum Schools – Sudan',
     grade4to8: 'Grades 4-8: Al-Qabas Private Schools – Sudan',
     grade9to10: 'Grades 9-10: Manarat Al Sharjah School – Sharjah, UAE',
-    grade11: 'Grade 11 (Current): Manarat Al Sharjah School – Sharjah',
+    grade11: 'Grade 11: Manarat Al Sharjah School – Sharjah',
+    grade12: 'Grade 12 – Senior (Current): Manarat Al Sharjah School – Sharjah',
     
     // Skills & Interests
     skillsTitle: 'Skills & Interests',
