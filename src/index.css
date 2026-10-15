@@ -310,3 +310,16 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
     100% { transform: rotate(360deg); }
   }
 }
+/* Plain mode: no effects anywhere */
+*, *::before, *::after {
+  animation: none !important;
+  transition: none !important;
+  text-shadow: none !important;
+  backdrop-filter: none !important;
+}
+body::before { display: none !important; }
+.glass, .glass:hover { box-shadow: none !important; transform: none !important; background: hsl(var(--card)) !important; border-color: hsl(var(--border)) !important; }
+.card-hover:hover, .hover-glow:hover, .glow-blue, .glow-green, .glow-purple, .pulse-glow { box-shadow: none !important; transform: none !important; }
+.card-hover::before, .hover-glow::after, .hover-shine::before { display: none !important; }
+.animated-gradient { background: hsl(var(--background)) !important; }
+.blur-3xl, .blur-2xl, .blur-xl { display: none !important; }
