@@ -27,7 +27,7 @@ export const HeroSection = () => {
 
   const typingWords = language === 'ar' 
     ? ['مطور IoT', 'مبتكر', 'مهندس إلكترونيات', 'مبرمج']
-    : ['IoT Developer', 'Innovator', 'Electronics Engineer', 'Programmer'];
+    : ['IoT Developer', 'Innovator', 'Electronics ', 'Programmer'];
 
   return (
     <section ref={ref} id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden animated-gradient">
