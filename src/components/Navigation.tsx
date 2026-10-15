@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
-import { LanguageToggle } from './LanguageToggle';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
 
@@ -23,7 +22,7 @@ export const Navigation = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ['hero', 'about', 'projects', 'contact'];
+      const sections = ['hero', 'about', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -63,7 +62,6 @@ export const Navigation = () => {
 
   const navItems = [
     { id: 'about', label: t('about') },
-    { id: 'projects', label: t('projects') },
     { id: 'contact', label: t('contact') },
   ];
 
@@ -117,7 +115,6 @@ export const Navigation = () => {
 
             {/* Right side: Language Toggle + Mobile Menu */}
             <div className="flex items-center gap-4">
-              <LanguageToggle />
               
               {/* Mobile Menu Button */}
               <button
