@@ -186,38 +186,6 @@ export const ContactSection = () => {
             </Card>
           </motion.div>
         </motion.div>
-        {/* Call to Action */}
-        <motion.div 
-          initial={{ opacity: 0, scale: 0.9, filter: "blur(12px)" }}
-          whileInView={{ opacity: 1, scale: 1, filter: "blur(0px)" }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="text-center mt-16"
-        >
-          <Card className="glass glow-green max-w-2xl mx-auto">
-            <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-4 gradient-primary bg-clip-text text-transparent">
-                Let's Build Something Amazing Together!
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Whether you want to collaborate on a project, discuss technology, or just say hello, 
-                I'd love to hear from you. Feel free to reach out through any of the channels above.
-              </p>
-              <div className="flex flex-wrap gap-4 justify-center">
-                {emails.map((email, index) => (
-                  <Button
-                    key={index}
-                    onClick={() => window.open(`mailto:${email}`, '_blank')}
-                    className="gradient-primary hover:scale-105 transition-spring"
-                  >
-                    <Mail className="w-4 h-4 mr-2" />
-                    Send Email
-                  </Button>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-        </motion.div>
       </div>
 
       {/* Background Decorations */}
