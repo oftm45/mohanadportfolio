@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { TypingWords } from '@/components/ui/typing-effect';
 import TechText from '@/components/ui/TechText';
-import ShapeWaves from '@/components/ui/ShapeWaves';
 
 export const HeroSection = () => {
   const { t, language } = useLanguage();
@@ -32,20 +31,7 @@ export const HeroSection = () => {
     : ['IoT Developer', 'Innovator', 'Electronics ', 'Programmer'];
 
   return (
-    <section ref={ref} id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden animated-gradient">
-      <div className="absolute inset-0 opacity-20" aria-hidden="true">
-        <ShapeWaves
-          shapes="mixed"
-          cellSize={14}
-          speed={0.6}
-          scale={1.4}
-          fade={0.35}
-          interactive
-          glow={0}
-          intro={false}
-        />
-      </div>
-
+    <section ref={ref} id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
       <motion.div 
         style={{}}
         className="container mx-auto px-6 text-center relative z-10"

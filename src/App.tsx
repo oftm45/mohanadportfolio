@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import SmartGreenhouse from "./pages/SmartGreenhouse";
 import NotFound from "./pages/NotFound";
 import { MotionGlobalConfig } from "framer-motion";
+import ShapeWaves from "@/components/ui/ShapeWaves";
 
 // Plain site: disable all motion animations globally
 MotionGlobalConfig.skipAnimations = true;
@@ -21,12 +22,29 @@ const App = () => (
         <Toaster />
         <Sonner />
         <BrowserRouter>
+          <div className="site-shell">
+            <div className="site-waves" aria-hidden="true">
+              <ShapeWaves
+                shapes="mixed"
+                cellSize={14}
+                speed={0.7}
+                flow={0.12}
+                scale={1.4}
+                fade={0.25}
+                glow={0.15}
+                interactive={false}
+                intro={false}
+              />
+            </div>
+            <div className="site-content">
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/projects/smart-greenhouse" element={<SmartGreenhouse />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+            </div>
+          </div>
         </BrowserRouter>
       </LanguageProvider>
     </TooltipProvider>
