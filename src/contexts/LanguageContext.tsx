@@ -23,7 +23,7 @@ const translations = {
     // Hero Section
     heroTitle: "Hi, I'm Mohanad \n\n",
     heroSubtitle: 'Programming & Web Development Enthusiast',
-    heroDescription: '17-year-old developer from Sudan, currently studying in UAE. Official ICSC Ambassador, passionate about creating innovative solutions through code.',
+    heroDescription: '18-year-old developer from Sudan, currently studying in UAE. Official ICSC Ambassador, passionate about creating innovative solutions through code.',
     contactMe: 'Contact Me',
     
     // About Section
@@ -35,7 +35,7 @@ const translations = {
     nationality: 'Nationality',
     nationalityValue: 'Sudan',
     age: 'Age',
-    ageValue: '17 years old',
+    ageValue: '18 years old',
     dateOfBirth: 'Date of Birth',
     dobValue: '30/11/2008',
     role: 'Role',
