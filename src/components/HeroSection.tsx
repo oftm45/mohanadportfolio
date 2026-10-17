@@ -4,6 +4,7 @@ import { ArrowDown, Mail } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { TypingWords } from '@/components/ui/typing-effect';
+import TechText from '@/components/ui/TechText';
 
 export const HeroSection = () => {
   const { t, language } = useLanguage();
@@ -85,11 +86,25 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2 }}
-            className="text-5xl md:text-7xl font-bold mb-6 text-glow"
+            className="mb-6 font-display text-primary"
           >
-            <span className="gradient-primary bg-clip-text text-transparent">
-              {t('heroTitle')}
-            </span>
+            <span className="sr-only">{t('heroTitle')}</span>
+            <div aria-hidden="true" className="h-32 w-full md:h-40">
+              <TechText
+                text={t('heroTitle').trim()}
+                fontWeight={400}
+                fontSize={72}
+                letterSpacing={0}
+                reveal="letter"
+                dashLength={4}
+                dashGap={2}
+                specks={15}
+                intro="none"
+                sweep={false}
+                clickKick
+                guides={false}
+              />
+            </div>
           </motion.h1>
 
           {/* Typing Words Effect */}
