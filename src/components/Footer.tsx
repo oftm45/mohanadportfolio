@@ -21,7 +21,7 @@ export const Footer = () => {
               Mohanad Abubaker
             </h3>
             <p className="text-muted-foreground">
-              {language === 'ar' ? 'شغوف بالبرمجة وتطوير المواقع' : 'Programming & Web Development Enthusiast'}
+              {language === 'ar' ? 'شغوف بالبرمجة وتطوير المواقع' : '\n'}
             </p>
           </div>
 
