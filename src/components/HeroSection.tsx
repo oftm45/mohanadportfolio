@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { TypingWords } from '@/components/ui/typing-effect';
 import TechText from '@/components/ui/TechText';
+import ShapeWaves from '@/components/ui/ShapeWaves';
 
 export const HeroSection = () => {
   const { t, language } = useLanguage();
@@ -32,32 +33,18 @@ export const HeroSection = () => {
 
   return (
     <section ref={ref} id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden animated-gradient">
-      {/* Parallax Background Decorations */}
-      <motion.div style={{ y }} className="absolute inset-0 opacity-20">
-        <motion.div 
-          animate={{ 
-            x: [0, 30, 0],
-            y: [0, -20, 0],
-          }}
-          transition={{ duration: 8, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-20 left-20 w-32 h-32 rounded-full bg-primary/30 blur-3xl" 
+      <div className="absolute inset-0 opacity-20" aria-hidden="true">
+        <ShapeWaves
+          shapes="mixed"
+          cellSize={14}
+          speed={0.6}
+          scale={1.4}
+          fade={0.35}
+          interactive
+          glow={0}
+          intro={false}
         />
-        <motion.div 
-          animate={{ 
-            x: [0, -30, 0],
-            y: [0, 20, 0],
-          }}
-          transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute bottom-20 right-20 w-40 h-40 rounded-full bg-secondary/30 blur-3xl" 
-        />
-        <motion.div 
-          animate={{ 
-            scale: [1, 1.2, 1],
-          }}
-          transition={{ duration: 6, repeat: Infinity, ease: "easeInOut" }}
-          className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-60 h-60 rounded-full bg-accent/20 blur-3xl" 
-        />
-      </motion.div>
+      </div>
 
       <motion.div 
         style={{}}
