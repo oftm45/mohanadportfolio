@@ -8,7 +8,7 @@ import './ShapeWaves.css';
 import ShapeWavesFallback from './ShapeWavesFallback';
 
 const SHAPE_MODES = { mixed: 0, squares: 1, circles: 2, triangles: 3 };
-const MAX_DPR = 2;
+const MAX_DPR = 1;
 const MAX_MASK_SIZE = 1024;
 const NOISE_CELLS = 32;
 const TIME_RATE = 0.1;
@@ -850,7 +850,7 @@ export default function ShapeWaves({
       aria-hidden="true"
     >
       <canvas ref={canvasRef} className="shape-waves__canvas" />
-      {fallback && <ShapeWavesFallback speed={speed} interactive={interactive} glow={glow} />}
+      {fallback && <ShapeWavesFallback speed={speed} interactive={interactive} />}
     </div>
   );
 }
