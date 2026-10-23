@@ -850,7 +850,7 @@ export default function ShapeWaves({
       aria-hidden="true"
     >
       <canvas ref={canvasRef} className="shape-waves__canvas" />
-      {fallback && <ShapeWavesFallback />}
+      {fallback && <ShapeWavesFallback speed={speed} interactive={interactive} glow={glow} />}
     </div>
   );
 }

@@ -73,7 +73,8 @@ export const HeroSection = () => {
                 dashGap={2}
                 specks={15}
                 intro="none"
-                sweep={false}
+                sweep
+                speed={1}
                 clickKick
                 guides={false}
               />

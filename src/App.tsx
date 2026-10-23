@@ -32,7 +32,9 @@ const App = () => (
                 scale={1.4}
                 fade={0.25}
                 glow={0.15}
-                interactive={false}
+                interactive
+                splashRadius={60}
+                splashStrength={0.5}
                 intro={false}
               />
             </div>
