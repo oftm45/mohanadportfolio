@@ -8,7 +8,7 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
 
 @layer base {
   :root {
-    /* Blue palette: #030460 #0078B5 #02B4D8 #93E2F1 */
+    /* Palette: black + burgundy */
     --background: 0 0% 0%;
     --foreground: 0 0% 96%;
     --card: 345 40% 5%;
@@ -125,12 +125,12 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
   }
 
   .glass:hover {
-    background: hsl(239 94% 15% / 0.85);
-    border-color: hsl(190 98% 43% / 0.5);
+    background: hsl(345 40% 6% / 0.85);
+    border-color: hsl(345 100% 25% / 0.5);
     box-shadow: 
       0 0 0 1px hsl(0 0% 100% / 0.1),
-      0 25px 50px -12px hsl(239 94% 4% / 0.6),
-      0 0 40px hsl(190 98% 43% / 0.15);
+      0 25px 50px -12px hsl(0 0% 0% / 0.6),
+      0 0 40px hsl(345 100% 25% / 0.15);
     transform: translateY(-4px);
   }
 
@@ -160,10 +160,10 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
   }
 
   .card-hover:hover {
-    border-color: hsl(190 98% 43% / 0.45);
+    border-color: hsl(345 100% 25% / 0.45);
     box-shadow: 
-      0 0 0 1px hsl(190 98% 43% / 0.15),
-      0 20px 40px -15px hsl(239 94% 4% / 0.5),
+      0 0 0 1px hsl(345 100% 25% / 0.15),
+      0 20px 40px -15px hsl(0 0% 0% / 0.5),
       inset 0 1px 0 hsl(0 0% 100% / 0.1);
     transform: translateY(-6px) scale(1.01);
   }
@@ -190,7 +190,7 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
   }
 
   .hover-glow:hover {
-    box-shadow: 0 0 30px hsl(190 98% 43% / 0.3);
+    box-shadow: 0 0 30px hsl(345 100% 25% / 0.3);
   }
 
   /* Subtle shine effect */
