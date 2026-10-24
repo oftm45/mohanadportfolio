@@ -26,7 +26,7 @@ export const HeroSection = () => {
     }
   };
 
-  const typingWords = ['IoT Developer', 'Innovator', 'Robotics Builder'];
+  const typingWords = ['Grade 12 ADV Student', 'IoT Developer', 'Innovator', 'Robotics Builder'];
 
   return (
     <section ref={ref} id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
