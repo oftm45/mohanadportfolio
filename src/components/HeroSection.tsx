@@ -47,6 +47,10 @@ export const HeroSection = () => {
               <img 
                 src="/lovable-uploads/profile.webp"
                 alt="Mohanad Abubaker"
+                width={176}
+                height={176}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
