@@ -10,8 +10,10 @@ import {
   Linkedin, 
   Copy,
   Check,
-  ExternalLink 
+  ExternalLink,
+  Send
 } from 'lucide-react';
+import { ContactForm } from '@/components/ContactForm';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -192,6 +194,26 @@ export const ContactSection = () => {
               </CardContent>
             </Card>
           </motion.div>
+        </motion.div>
+
+        {/* Direct contact form */}
+        <motion.div
+          initial={{ opacity: 0, y: 24 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6 }}
+          viewport={{ once: true, margin: "-100px" }}
+          className="max-w-6xl mx-auto mt-12"
+        >
+          <Card className="glass glow-primary transition-smooth">
+            <CardContent className="p-6 sm:p-8">
+              <h3 className="text-2xl font-bold mb-2 flex items-center text-primary">
+                <Send className="w-6 h-6 mr-3" />
+                Send a message
+              </h3>
+              <p className="text-muted-foreground mb-6">Write to me directly from here — no need to leave the site.</p>
+              <ContactForm />
+            </CardContent>
+          </Card>
         </motion.div>
       </div>
 

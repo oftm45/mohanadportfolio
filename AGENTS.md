@@ -11,3 +11,4 @@
 - Project content lives once in `src/data/projects.ts`; the home cards and the `/projects/:slug` page both read it, so a new project needs only a data entry plus a line in `public/sitemap.xml` and `public/llms.txt`.
 - Per-page title, description, canonical and share tags go through `usePageMeta`, which restores the previous values on leave so the home page never keeps a sub-page's canonical.
 - The share preview image is a static 1200x630 file in `public/` referenced by absolute URL in `index.html`, because link-preview crawlers don't run JavaScript.
+- Contact form messages go through the `contact-submit` backend function (validation, honeypot, per-IP rate limit) into `contact_submissions`, which has no client access; email forwarding is optional via a Formspree form ID secret so stored messages never depend on a third party.
