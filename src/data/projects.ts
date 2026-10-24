@@ -72,7 +72,7 @@ export const PROJECTS: Project[] = [
         '3D model of the Agri-Shield 4.0 prototype as built: model silo, fan unit, solar panel, charge controller, relays, breadboards with the ESP32, buzzer box and PIR sensor.',
       downloadName: 'agri-shield-silo.glb',
       motion: 'fan',
-      camera: [2.6, 3.4, 3.8],
+      camera: [2.3, 2.9, 3.3],
       target: [0, 0.25, 0],
     },
     sections: [

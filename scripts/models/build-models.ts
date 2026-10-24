@@ -149,16 +149,16 @@ function buildSilo() {
 
   // Model silo: smooth white cylinder with a folded dome lid
   const S = at(760, 380);
-  const R = 0.46;
-  const H = 0.95;
+  const R = 0.52;
+  const H = 1.1;
   const silo = group(root, S);
   add(silo, cyl(R, R, H, 64), card, [0, H / 2, 0]);
-  add(silo, new THREE.SphereGeometry(R * 1.02, 48, 16, 0, Math.PI * 2, 0, Math.PI / 2.6), card, [0, H - 0.04, 0]);
+  add(silo, new THREE.SphereGeometry(R * 1.02, 48, 16, 0, Math.PI * 2, 0, Math.PI / 2.6).scale(1, 0.75, 1), card, [0, H - 0.03, 0]);
   add(silo, new THREE.TorusGeometry(R * 1.005, 0.008, 6, 64), cardShade, [0, H, 0], [Math.PI / 2, 0, 0]);
   add(silo, box(0.008, H, 0.01), cardShade, [0, H / 2, R + 0.001], [0, 0, 0]);
   for (let i = 0; i < 4; i++) {
     const g = group(silo, [0, H - 0.04, 0], [0, (i / 4) * Math.PI * 2 + 0.4, 0]);
-    add(g, new THREE.TorusGeometry(R * 1.02, 0.005, 4, 32, Math.PI / 2.6), cardShade, [0, 0, 0], [0, Math.PI / 2, Math.PI / 2]);
+    add(g, new THREE.TorusGeometry(R * 1.02, 0.005, 4, 32, Math.PI / 2.6).rotateX(Math.PI / 2).rotateZ(Math.PI / 2).scale(1, 0.75, 1), cardShade, [0, 0.01, 0]);
   }
   // DHT22 and MQ-135 on the silo wall facing the wiring
   const wallSensors = group(silo, [0, 0, 0], [0, Math.PI * 0.85, 0]);
