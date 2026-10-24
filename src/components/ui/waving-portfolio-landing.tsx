@@ -791,7 +791,7 @@ function Signature({ lines, color }: { lines: string[]; color: string }) {
   )
 }
 
-function Character({
+export function Character({
   ink,
   paper,
   shirtId,
