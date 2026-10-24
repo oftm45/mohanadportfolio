@@ -276,3 +276,46 @@
   }
 }
 
+
+/* Touch & readability */
+.folder-float__trigger {
+  touch-action: manipulation;
+  cursor: pointer;
+}
+
+.folder-float[data-live] .folder-float__item {
+  touch-action: none;
+}
+
+.folder-float__item:focus-visible,
+.folder-float__trigger:focus-visible {
+  outline: 2px solid var(--ff-front);
+  outline-offset: 3px;
+}
+
+.folder-float__item {
+  user-select: none;
+  -webkit-user-select: none;
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.35), inset 0 0 0 1.5px var(--ff-front);
+}
+
+@media (max-width: 1023px) {
+  .folder-float {
+    font-size: 15px;
+  }
+
+  .folder-float__item {
+    height: 42px;
+    padding: 0 18px;
+    border-radius: 21px;
+    font-weight: 600;
+  }
+
+  .folder-float__label {
+    font-size: 16px;
+  }
+
+  .folder-float__sub {
+    font-size: 12px;
+  }
+}
