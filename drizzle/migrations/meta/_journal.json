@@ -15,6 +15,13 @@
       "when": 1792841125418,
       "tag": "0001_drop_public_certificate_read",
       "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792853687577,
+      "tag": "0002_create_contact_submissions",
+      "breakpoints": true
     }
   ]
 }
