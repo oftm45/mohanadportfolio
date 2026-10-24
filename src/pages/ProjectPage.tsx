@@ -1,4 +1,4 @@
-import { useEffect } from 'react';
+import { lazy, Suspense, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getProject, PROJECTS, type Project, type ProjectSection } from '@/data/projects';
@@ -7,6 +7,9 @@ import { usePageMeta } from '@/lib/usePageMeta';
 import NotFound from './NotFound';
 
 const SITE = 'https://mohanadportfolio.lovable.app';
+
+// three.js is large, so the 3D viewer loads only on pages that have a model.
+const ModelViewer = lazy(() => import('@/components/ModelViewer'));
 
 const Section = ({ s }: { s: ProjectSection }) => (
   <section className="rounded-2xl border border-primary/40 bg-background/70 p-6 md:p-8">
@@ -136,6 +139,14 @@ const ProjectDetail = ({ project }: { project: Project }) => {
             </a>
           )}
         </header>
+
+        {project.model && (
+          <Suspense
+            fallback={<div className="mb-12 h-[420px] rounded-2xl border border-primary/50 sm:h-[520px]" aria-hidden="true" />}
+          >
+            <ModelViewer {...project.model} />
+          </Suspense>
+        )}
 
         {project.image && (
           <figure className="mb-12">
