@@ -1,4 +1,4 @@
-"use client";
+
 import React, { useRef } from "react";
 import { useScroll, useTransform, motion, MotionValue } from "framer-motion";
 
@@ -83,11 +83,11 @@ export const Card = ({
         rotateX: rotate,
         scale,
         boxShadow:
-          "0 0 40px rgba(128, 0, 32, 0.35), 0 9px 20px #00000080, 0 37px 37px #00000066, 0 84px 50px #00000040",
+          "0 0 40px hsl(var(--primary) / 0.35), 0 9px 20px hsl(var(--background) / 0.5), 0 37px 37px hsl(var(--background) / 0.4), 0 84px 50px hsl(var(--background) / 0.25)",
       }}
-      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-2 border-[#800020] p-2 md:p-5 bg-[#0a0003] rounded-[30px] shadow-2xl"
+      className="max-w-5xl -mt-12 mx-auto h-[30rem] md:h-[40rem] w-full border-2 border-primary p-2 md:p-5 bg-card rounded-[30px] shadow-2xl"
     >
-      <div className="h-full w-full overflow-hidden rounded-2xl bg-[#000000] border border-[#800020]/40 md:rounded-2xl md:p-4">
+      <div className="h-full w-full overflow-hidden rounded-2xl bg-background border border-primary/40 md:rounded-2xl md:p-4">
         {children}
       </div>
     </motion.div>
