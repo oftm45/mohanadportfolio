@@ -169,6 +169,8 @@ const ProjectDetail = ({ project }: { project: Project }) => {
           ))}
         </div>
 
+        <RightsNotice owner={project.team ?? 'Mohanad Abubaker'} className="mt-12" />
+
         <footer className="mt-16 border-t border-primary/30 pt-8">
           <h2 className="font-display text-2xl mb-4">More projects</h2>
           <ul className="grid gap-4 sm:grid-cols-2">
