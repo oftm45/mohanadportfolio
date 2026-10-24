@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Award, FileText, ExternalLink, Trophy } from 'lucide-react';
-import { supabase } from '@/integrations/supabase/client';
 
 type Certificate = {
   title: string;
@@ -40,20 +38,11 @@ export const sortCertificates = (list: Certificate[]) =>
 
 const ordered = sortCertificates(CERTIFICATES);
 
+/** Files are served by a backend function that redirects to a short-lived link; the storage bucket stays private. */
+const fileUrl = (file: string) =>
+  `${import.meta.env.VITE_SUPABASE_URL}/functions/v1/certificate-file?file=${encodeURIComponent(file)}`;
+
 export const CertificatesSection = () => {
-  const [urls, setUrls] = useState<Record<string, string>>({});
-
-  useEffect(() => {
-    supabase.storage
-      .from('certificate')
-      .createSignedUrls(ordered.map((c) => c.file), 60 * 60 * 6)
-      .then(({ data }) => {
-        const map: Record<string, string> = {};
-        data?.forEach((d) => { if (d.path && d.signedUrl) map[d.path] = d.signedUrl; });
-        setUrls(map);
-      });
-  }, []);
-
   return (
     <section id="certificates" className="py-20">
       <div className="container mx-auto px-6 max-w-6xl">
@@ -62,7 +51,7 @@ export const CertificatesSection = () => {
         <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-5">
           {ordered.map((c, i) => {
             const Icon = c.award ? Trophy : c.file.endsWith('.png') ? Award : FileText;
-            const url = urls[c.file];
+            const url = fileUrl(c.file);
             return (
               <motion.div
                 key={c.file}
@@ -83,8 +72,7 @@ export const CertificatesSection = () => {
                   href={url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  aria-disabled={!url}
-                  className={`mt-auto inline-flex items-center justify-center gap-2 rounded-full border border-primary px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-primary hover:text-primary-foreground ${url ? '' : 'pointer-events-none opacity-50'}`}
+                  className={`mt-auto inline-flex items-center justify-center gap-2 rounded-full border border-primary px-5 py-2.5 text-sm font-medium text-foreground transition-colors hover:bg-primary hover:text-primary-foreground`}
                 >
                   View <ExternalLink className="w-4 h-4" />
                 </a>
