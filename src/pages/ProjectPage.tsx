@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getProject, PROJECTS, type Project, type ProjectSection } from '@/data/projects';
+import { RightsNotice } from '@/components/RightsNotice';
 import { scrollToSection } from '@/lib/scrollToSection';
 import { usePageMeta } from '@/lib/usePageMeta';
 import NotFound from './NotFound';
