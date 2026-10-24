@@ -98,13 +98,14 @@ export const HeroSection = () => {
               order="left"
               align="center"
               tileStyle="board"
-              tileColor="hsl(var(--primary))"
+              tileColor="hsl(var(--card))"
               textColor="hsl(var(--foreground))"
-              glare={0.3}
+              glare={0.15}
               depth={0.5}
-              tileRadius={4}
+              tileRadius={6}
               gap="clamp(2px, 0.35vw, 5px)"
-              fontSize="clamp(11px, 3vw, 30px)"
+              fontSize="clamp(12px, 3vw, 30px)"
+              className="split-flap--site"
               padTo={0}
               loop
               intro

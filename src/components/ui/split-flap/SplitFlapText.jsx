@@ -368,7 +368,7 @@ const SplitFlapText = ({
       <span className="split-flap-text__sr">{label}</span>
       {tiles.map((tile, index) => (
         <span
-          className={`split-flap-text__tile${tile.flipping ? ' is-flipping' : ''}`}
+          className={`split-flap-text__tile${tile.flipping ? ' is-flipping' : ''}${!tile.flipping && tile.current === ' ' ? ' is-space' : ''}`}
           aria-hidden="true"
           key={`${index}-${tiles.length}`}
         >
