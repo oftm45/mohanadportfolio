@@ -75,7 +75,7 @@ export const CertificatesSection = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ duration: 0.45, delay: gi * 0.08 }}
-                className="flex items-end justify-center pt-[300px]"
+                className="flex items-end justify-center pt-[350px]"
               >
                 <FolderFloat
                   items={items.map((c) => ({ label: c.short, value: c.file }))}
