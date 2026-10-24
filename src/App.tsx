@@ -1,8 +1,10 @@
+import type React from "react";
 import { Toaster } from "@/components/ui/toaster";
 import { Toaster as Sonner } from "@/components/ui/sonner";
 import { TooltipProvider } from "@/components/ui/tooltip";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { BrowserRouter, Routes, Route, useLocation } from "react-router-dom";
+import { ErrorBoundary } from "@/components/ErrorBoundary";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import { lazy, Suspense } from "react";
@@ -11,6 +13,11 @@ const NotFound = lazy(() => import("./pages/NotFound"));
 import ShapeWaves from "@/components/ui/ShapeWaves";
 
 const queryClient = new QueryClient();
+
+const RouteErrorBoundary = ({ children }: { children: React.ReactNode }) => {
+  const { pathname } = useLocation();
+  return <ErrorBoundary resetKey={pathname}>{children}</ErrorBoundary>;
+};
 
 
 
@@ -38,6 +45,7 @@ const App = () => (
               />
             </div>
             <div className="site-content">
+          <RouteErrorBoundary>
           <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Index />} />
@@ -46,6 +54,7 @@ const App = () => (
             <Route path="*" element={<NotFound />} />
           </Routes>
           </Suspense>
+          </RouteErrorBoundary>
             </div>
           </div>
         </BrowserRouter>
