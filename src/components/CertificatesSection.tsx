@@ -16,6 +16,7 @@ const CERTIFICATES: Certificate[] = [
   { title: '1st Place – Smart Greenhouse Project', issuer: 'Manarat Al Sharjah Private School', date: '2024 – 2025', sort: '2025-03-01', file: 'First place.pdf', award: true },
   { title: '2nd Place – School Science Fair', issuer: 'Manarat Al Sharjah Private School', date: '2023 – 2024', sort: '2024-03-01', file: 'Second place.pdf', award: true },
 
+  { title: 'UAE AI Summer Camp 8.0 – Attendance', issuer: 'National Program for Coders & Coders HQ', date: 'Aug 17 – 29, 2026', sort: '2026-08-29', file: 'Certificate_AI_Summer_Camp.pdf' },
   { title: 'Safe AI Cup 2026 – Participation', issuer: 'University of Dubai', date: 'Jun 3, 2026', sort: '2026-06-03', file: 'SAFE AI CUP.pdf' },
   { title: 'Introduction to Critical Infrastructure Protection (ICIP)', issuer: 'OPSWAT Academy', date: 'May 30, 2026', sort: '2026-05-30', file: 'introduction_to_cip.png' },
   { title: 'Oratory and Diction Course', issuer: 'M3aarf', date: 'May 29, 2026', sort: '2026-05-29', file: 'M3aarf_Certificate (1).pdf' },
