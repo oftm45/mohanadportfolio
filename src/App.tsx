@@ -8,25 +8,9 @@ import Index from "./pages/Index";
 import SmartGreenhouse from "./pages/SmartGreenhouse";
 import NotFound from "./pages/NotFound";
 import ShapeWaves from "@/components/ui/ShapeWaves";
-import MaintenancePage from "@/components/MaintenancePage";
 
 const queryClient = new QueryClient();
 
-/**
- * Maintenance gate: public visitors (published site) see the maintenance page;
- * the Lovable editor preview and localhost keep the full site.
- * Append ?maintenance=1 to force the maintenance page anywhere.
- */
-const MAINTENANCE_MODE = true;
-const showMaintenance = (() => {
-  if (typeof window === "undefined") return false;
-  if (new URLSearchParams(window.location.search).has("maintenance")) return true;
-  if (!MAINTENANCE_MODE) return false;
-  const host = window.location.hostname;
-  const isOwnerPreview =
-    host.startsWith("id-preview") || host === "localhost" || host === "127.0.0.1";
-  return !isOwnerPreview;
-})();
 
 
 const App = () => (
@@ -53,16 +37,12 @@ const App = () => (
               />
             </div>
             <div className="site-content">
-          {showMaintenance ? (
-            <MaintenancePage />
-          ) : (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/projects/smart-greenhouse" element={<SmartGreenhouse />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
-          )}
             </div>
           </div>
         </BrowserRouter>
