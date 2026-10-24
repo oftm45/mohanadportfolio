@@ -1,0 +1,1 @@
+CREATE POLICY "Anyone can read certificate files" ON storage.objects FOR SELECT TO anon, authenticated USING (bucket_id = 'certificate');
