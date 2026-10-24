@@ -9,6 +9,7 @@ import {
   Instagram, 
   Linkedin, 
   Copy,
+  Check,
   ExternalLink 
 } from 'lucide-react';
 
@@ -58,8 +59,12 @@ export const ContactSection = () => {
         description: email,
       });
       setTimeout(() => setCopiedEmail(null), 2000);
-    } catch (err) {
-      console.error('Failed to copy email:', err);
+    } catch {
+      toast({
+        title: "Couldn't copy the email",
+        description: `Please copy it manually: ${email}`,
+        variant: 'destructive',
+      });
     }
   };
 

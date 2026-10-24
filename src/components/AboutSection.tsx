@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
-import { User, MapPin, Calendar, GraduationCap, Code, Heart, Award, ExternalLink } from 'lucide-react';
+import { User, MapPin, Calendar, GraduationCap, Award } from 'lucide-react';
 
 import { motion } from 'framer-motion';
 
