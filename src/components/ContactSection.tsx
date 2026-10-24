@@ -3,7 +3,7 @@ import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { useToast } from '@/hooks/use-toast';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { 
   Mail, 
   Instagram, 
@@ -11,7 +11,8 @@ import {
   Copy,
   Check,
   ExternalLink,
-  Send
+  Send,
+  X
 } from 'lucide-react';
 import { ContactForm } from '@/components/ContactForm';
 
@@ -37,6 +38,7 @@ export const ContactSection = () => {
   const { t } = useLanguage();
   const { toast } = useToast();
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
+  const [formOpen, setFormOpen] = useState(false);
 
   const emails = [
     'MohanadAbubaker5@gmail.com'
@@ -196,7 +198,7 @@ export const ContactSection = () => {
           </motion.div>
         </motion.div>
 
-        {/* Direct contact form */}
+        {/* Direct contact form – opens from a button */}
         <motion.div
           initial={{ opacity: 0, y: 24 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -204,16 +206,55 @@ export const ContactSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="max-w-6xl mx-auto mt-12"
         >
-          <Card className="glass glow-primary transition-smooth">
-            <CardContent className="p-6 sm:p-8">
-              <h3 className="text-2xl font-bold mb-2 flex items-center text-primary">
-                <Send className="w-6 h-6 mr-3" />
-                Send a message
-              </h3>
-              <p className="text-muted-foreground mb-6">Write to me directly from here — no need to leave the site.</p>
-              <ContactForm />
-            </CardContent>
-          </Card>
+          {!formOpen && (
+            <div className="flex justify-center">
+              <Button
+                size="lg"
+                onClick={() => setFormOpen(true)}
+                aria-expanded={formOpen}
+                aria-controls="contact-form-panel"
+                className="h-14 px-10 text-lg bg-primary text-primary-foreground hover:bg-primary/85 hover:shadow-[0_0_30px_hsl(var(--primary)/0.55)] transition-smooth"
+              >
+                <Send className="mr-2 h-5 w-5" /> Send me a message
+              </Button>
+            </div>
+          )}
+
+          <AnimatePresence initial={false}>
+            {formOpen && (
+              <motion.div
+                id="contact-form-panel"
+                key="contact-form"
+                initial={{ opacity: 0, height: 0 }}
+                animate={{ opacity: 1, height: 'auto' }}
+                exit={{ opacity: 0, height: 0 }}
+                transition={{ duration: 0.4, ease: [0.22, 1, 0.36, 1] }}
+                className="overflow-hidden"
+              >
+                <Card className="glass glow-primary transition-smooth">
+                  <CardContent className="p-6 sm:p-8">
+                    <div className="mb-2 flex items-start justify-between gap-4">
+                      <h3 className="text-2xl font-bold flex items-center text-primary">
+                        <Send className="w-6 h-6 mr-3" />
+                        Send a message
+                      </h3>
+                      <Button
+                        variant="ghost"
+                        size="icon"
+                        onClick={() => setFormOpen(false)}
+                        aria-label="Close the message form"
+                        className="h-10 w-10 shrink-0 hover:bg-primary/15"
+                      >
+                        <X className="h-5 w-5" />
+                      </Button>
+                    </div>
+                    <p className="text-muted-foreground mb-6">Write to me directly from here — no need to leave the site.</p>
+                    <ContactForm />
+                  </CardContent>
+                </Card>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </motion.div>
       </div>
 
