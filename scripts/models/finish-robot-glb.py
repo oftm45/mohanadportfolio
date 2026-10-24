@@ -1,3 +1,4 @@
+# Final touch for the converted robot: wrap in an upright "Robot" node and tone down metal/white glare.
 import json,struct,sys
 src,dst=sys.argv[1],sys.argv[2]
 d=open(src,'rb').read()

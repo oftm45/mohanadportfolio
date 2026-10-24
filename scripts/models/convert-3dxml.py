@@ -1,3 +1,6 @@
+# Converts a SOLIDWORKS/CATIA .3DXML export (unzipped into D) into one raw .glb, merged by colour.
+# Pipeline: unzip X.3DXML -d /tmp/robot -> python3 convert-3dxml.py -> npx gltfpack -i robot_raw.glb -o robot_s.glb -si 0.015 -sa -noq
+# -> python3 finish-robot-glb.py robot_s.glb robot_fixed.glb (stands it upright, softens materials) -> lovable-assets create.
 import os, sys, re, json, struct, numpy as np
 from lxml import etree
 D='/tmp/robot'
