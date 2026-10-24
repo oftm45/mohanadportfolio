@@ -23,7 +23,7 @@ const translations = {
     // Hero Section
     heroTitle: "Hi, I'm Mohanad \n\n",
     heroSubtitle: 'Programming & Web Development Enthusiast',
-    heroDescription: '18-year-old developer from Sudan, currently studying in UAE. Official ICSC Ambassador, passionate about creating innovative solutions through code.',
+    heroDescription: 'Grade 12 Advanced STEM student in the UAE (Class of 2027) building real-world solutions with Artificial Intelligence, Robotics and IoT. FIRST Global Gold Medalist with Team Sudan and Official ICSC Ambassador.',
     contactMe: 'Contact Me',
     
     // About Section
@@ -41,7 +41,7 @@ const translations = {
     role: 'Official Role',
     roleValue: 'Official ICSC Ambassador (International Computer Science Competition)',
     role2: 'Robotics Team',
-    role2Value: 'Team Sudan Representative – FIRST Global Challenge (FGC)',
+    role2Value: 'Team Sudan – FIRST Global Challenge (FGC), Gold Medal: Rajaâ Cherkaoui El Moursli Award for Courageous Achievement',
 
     
     // Education

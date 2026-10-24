@@ -11,7 +11,7 @@ export const AchievementsSection = () => (
           className="rounded-2xl border border-primary/60 bg-background/70 p-8 hover:shadow-[0_0_35px_hsl(var(--primary)/0.45)] transition-shadow">
           <Award className="w-8 h-8 text-primary mb-4" />
           <h3 className="font-display text-3xl mb-3 text-foreground">Official ICSC Ambassador</h3>
-          <p className="text-muted-foreground mb-6">Proud to be an official Ambassador for the International Computer Science Competition (ICSC).</p>
+          <p className="text-muted-foreground mb-6">Official Ambassador for the International Computer Science Competition (ICSC), encouraging students to explore competitive programming and computer science.</p>
           <Button asChild variant="outline" className="border-primary text-foreground hover:bg-primary/20">
             <a href="https://icscompetition.org/en/mabubaker" target="_blank" rel="noopener noreferrer">View my ICSC page <ExternalLink className="w-4 h-4 ml-2" /></a>
           </Button>
@@ -20,7 +20,7 @@ export const AchievementsSection = () => (
           className="rounded-2xl border border-primary/60 bg-background/70 p-8 hover:shadow-[0_0_35px_hsl(var(--primary)/0.45)] transition-shadow">
           <Cog className="w-8 h-8 text-primary mb-4" />
           <h3 className="font-display text-3xl mb-3 text-foreground">Team Sudan – FIRST Global Challenge (FGC)</h3>
-          <p className="text-muted-foreground">Representing Sudan in the FIRST Global Challenge, building and programming a competition robot with the national team.</p>
+          <p className="text-muted-foreground">Represented Sudan at the FIRST Global Challenge and won the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement.</p>
         </motion.div>
       </div>
     </div>

@@ -17,6 +17,12 @@ const itemVariants = {
   visible: { opacity: 1, scale: 1, filter: "blur(0px)", transition: { duration: 0.7, ease: [0.22, 1, 0.36, 1] as const } }
 };
 
+const BIO = [
+  'I am a Grade 12 Advanced STEM student in the UAE (Class of 2027), passionate about building real-world solutions using Artificial Intelligence, Robotics and the Internet of Things (IoT).',
+  'I had the honor of representing Team Sudan at the FIRST Global Challenge, where we won the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement. Alongside robotics, I serve as an Ambassador for the International Computer Science Competition (ICSC), encouraging students to explore competitive programming and computer science.',
+  'I look forward to pursuing higher education in Computer Science & AI and collaborating on innovative tech projects.',
+];
+
 export const AboutSection = () => {
   const { t } = useLanguage();
 
@@ -25,7 +31,7 @@ export const AboutSection = () => {
     { icon: MapPin, label: t('nationality'), value: t('nationalityValue') },
     { icon: Calendar, label: t('age'), value: t('ageValue') },
     // { icon: Calendar, label: t('dateOfBirth'), value: t('dobValue') },
-    { icon: Award, label: 'Current Status', value: 'Grade 12 ADV Student' },
+    { icon: Award, label: 'Current Status', value: 'Grade 12 Advanced STEM Student – Class of 2027' },
     { icon: Award, label: t('role'), value: t('roleValue') },
     { icon: Award, label: t('role2'), value: t('role2Value') },
   ];
@@ -59,6 +65,14 @@ export const AboutSection = () => {
         >
           {/* Personal Information */}
           <motion.div variants={itemVariants} className="space-y-8">
+            <Card className="glass glow-primary transition-smooth">
+              <CardContent className="p-5 sm:p-8 space-y-4 text-muted-foreground leading-relaxed">
+                {BIO.map((para) => (
+                  <p key={para.slice(0, 24)}>{para}</p>
+                ))}
+              </CardContent>
+            </Card>
+
             <Card className="glass glow-primary hover:glow-primary transition-smooth">
               <CardContent className="p-5 sm:p-8">
                 <h3 className="text-xl sm:text-2xl font-bold mb-6 flex items-center break-words text-primary">
