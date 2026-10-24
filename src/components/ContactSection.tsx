@@ -169,21 +169,20 @@ export const ContactSection = () => {
                     </a>
                   ))}
                   <Button
-                    type="button"
+                    asChild
                     size="lg"
-                    onClick={() =>
-                      window.open(
-                        'https://www.linkedin.com/in/mohanadabubakerabdallh/',
-                        '_blank',
-                        'noopener,noreferrer'
-                      )
-                    }
-                    aria-label="Open Mohanad Abubaker's LinkedIn profile in a new tab"
                     className="mt-2 w-full gap-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth"
                   >
-                    <Linkedin className="h-5 w-5 flex-shrink-0" />
-                    <span className="truncate">Connect on LinkedIn</span>
-                    <ExternalLink className="h-4 w-4 flex-shrink-0 opacity-80" />
+                    <a
+                      href="https://www.linkedin.com/in/mohanadabubakerabdallh/"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      aria-label="Open Mohanad Abubaker's LinkedIn profile in a new tab"
+                    >
+                      <Linkedin className="h-5 w-5 flex-shrink-0" />
+                      <span className="truncate">Connect on LinkedIn</span>
+                      <ExternalLink className="h-4 w-4 flex-shrink-0 opacity-80" />
+                    </a>
                   </Button>
                 </div>
               </CardContent>
