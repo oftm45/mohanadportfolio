@@ -6,3 +6,4 @@
 - TechText on the name heading sweeps automatically when the pointer is not over it, so the effect plays without hovering.
 - Certificate files stay in a private storage bucket with no client read rule; the site links to a backend function that redirects to a short-lived signed link, so files can be viewed but the bucket can't be listed.
 - Certificates are shown as FolderFloat (matter-js) folders grouped by category; pills open files through the certificate backend function, and a screen-reader-only list keeps every certificate link indexable.
+- Sections below the hero and secondary pages are lazy-loaded; in-page jumps must go through `src/lib/scrollToSection.ts`, which waits for the target to mount, so early clicks still work.
