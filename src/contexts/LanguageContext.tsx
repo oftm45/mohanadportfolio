@@ -1,6 +1,6 @@
-import React, { createContext, useContext, useState } from 'react';
+import React, { createContext, useContext } from 'react';
 
-type Language = 'en' | 'ar';
+type Language = 'en';
 
 interface LanguageContextType {
   language: Language;
@@ -78,88 +78,12 @@ const translations = {
     ambassadorCta: 'View My ICSC Page',
 
     // Footer
-    footerText: 'Made with ❤ by Mohanad',
 
     // 404
     notFoundCode: '404',
     notFoundTitle: 'Page Not Found',
     notFoundDesc: "The page you're looking for doesn't exist or has been moved.",
     notFoundCta: 'Back to Home',
-  },
-  ar: {
-    // Navigation
-    about: 'نبذة عني',
-    skills: 'المهارات',
-    timeline: 'رحلتي',
-    projects: 'المشاريع',
-    contact: 'التواصل',
-    dashboard: 'لوحة التحكم',
-    
-    // Hero Section
-    heroTitle: 'مرحباً، أنا مهند — مطور إنترنت الأشياء والويب',
-    heroSubtitle: 'شاب مهتم في البرمجة وتطوير المواقع',
-    heroDescription: 'مطور عمره 17 سنة من السودان، أدرس حالياً في الإمارات. سفير رسمي لمسابقة ICSC الدولية.',
-    contactMe: 'تواصل معي',
-    
-    // About Section
-    aboutTitle: 'نبذة عني',
-    aboutSubtitle: 'تعرف علي أكثر',
-    personalInfo: 'المعلومات الشخصية',
-    fullName: 'الاسم الكامل',
-    nameValue: 'مهند أبوبكر عبدالله عبد الجليل',
-    nationality: 'الجنسية',
-    nationalityValue: 'السودان',
-    age: 'العمر',
-    ageValue: '17 سنة',
-    dateOfBirth: 'تاريخ الميلاد',
-    dobValue: '30/11/2008',
-    role: 'الصفة',
-    roleValue: 'سفير ICSC',
-    role2: 'الصفة',
-    role2Value: 'طالب – فريق السودان في تحدي فيرست العالمي (FGC)',
-
-    
-    // Education
-    educationTitle: 'رحلة التعليم',
-    grade1to3: 'الصفوف 1-3: مدارس التعليم البريطاني – السودان',
-    grade4to8: 'الصفوف 4-8: مدارس القبس الخاصة – السودان',
-    grade9to10: 'الصفوف 9-10: مدرسة منارة الشارقة – الإمارات',
-    grade11: 'الصف 11: مدرسة منارة الشارقة',
-    grade12: 'الصف 12 (حالياً): مدرسة منارة الشارقة',
-    
-    // Skills & Interests
-    skillsTitle: 'المهارات والاهتمامات',
-    interests: 'الاهتمامات',
-    interestsValue: 'البرمجة وتطوير المواقع',
-    technicalSkills: 'المهارات التقنية',
-    skillsValue: 'مبتدئ في Python و C++',
-    
-    
-    // Button actions
-    viewButton: 'عرض',
-    downloadButton: 'تحميل',
-    
-    // Contact
-    contactTitle: 'تواصل معي',
-    contactSubtitle: 'دعنا نتواصل ونتعاون',
-    emailTitle: 'عناوين البريد الإلكتروني',
-    socialTitle: 'وسائل التواصل الاجتماعي',
-    copyEmail: 'نسخ البريد الإلكتروني',
-    emailCopied: 'تم نسخ البريد الإلكتروني!',
-    
-    // Ambassador
-    ambassadorTitle: 'سفير ICSC',
-    ambassadorDesc: 'فخور بأنني سفير رسمي لمسابقة ICSC الدولية للبرمجة والاستدامة.',
-    ambassadorCta: 'زيارة صفحتي في ICSC',
-
-    // Footer
-    footerText: 'صُنع بـ ❤ بواسطة مهند',
-
-    // 404
-    notFoundCode: '٤٠٤',
-    notFoundTitle: 'الصفحة غير موجودة',
-    notFoundDesc: 'الصفحة التي تبحث عنها غير موجودة أو تم نقلها.',
-    notFoundCta: 'العودة للرئيسية',
   }
 };
 
@@ -169,29 +93,9 @@ const fallbackLanguageContext: LanguageContextType = {
   t: (key: string) => translations.en[key as keyof typeof translations['en']] || key,
 };
 
-export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [language, setLanguage] = useState<Language>('en');
-
-  const toggleLanguage = () => {
-    setLanguage(prev => {
-      const nextLanguage = prev === 'en' ? 'ar' : 'en';
-      document.dir = nextLanguage === 'ar' ? 'rtl' : 'ltr';
-      return nextLanguage;
-    });
-  };
-
-  const t = (key: string): string => {
-    return translations[language][key as keyof typeof translations['en']] || key;
-  };
-
-  return (
-    <LanguageContext.Provider value={{ language, toggleLanguage, t }}>
-      <div dir={language === 'ar' ? 'rtl' : 'ltr'} className={language === 'ar' ? 'font-cairo' : 'font-poppins'}>
-        {children}
-      </div>
-    </LanguageContext.Provider>
-  );
-};
+export const LanguageProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => (
+  <LanguageContext.Provider value={fallbackLanguageContext}>{children}</LanguageContext.Provider>
+);
 
 export const useLanguage = () => {
   const context = useContext(LanguageContext);

@@ -1,10 +1,10 @@
 import { motion } from 'framer-motion';
-import { Code2, Cpu, Sparkles } from 'lucide-react';
+import { Code2, Cpu, Target } from 'lucide-react';
 
 const groups = [
   { icon: Code2, title: 'Programming & Development', items: ['Python', 'C++', 'Web Development', 'AI-Assisted Development', 'Rapid Prototyping'] },
   { icon: Cpu, title: 'IoT & Robotics', items: ['Embedded Systems', 'Arduino / ESP32', 'Sensor Integration', 'Robotics Control'] },
-  { icon: Sparkles, title: 'Focus Areas & Interests', items: ['Cybersecurity', 'Artificial Intelligence (AI)', 'Competitive Computer Science', 'Hardware Innovation'] },
+  { icon: Target, title: 'Focus Areas & Interests', items: ['Cybersecurity', 'Artificial Intelligence (AI)', 'Competitive Computer Science', 'Hardware Innovation'] },
 ];
 
 export const SkillsSection = () => (

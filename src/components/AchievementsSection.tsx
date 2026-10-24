@@ -1,5 +1,5 @@
 import { motion } from 'framer-motion';
-import { Award, Bot, ExternalLink } from 'lucide-react';
+import { Award, Cog, ExternalLink } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 export const AchievementsSection = () => (
@@ -18,7 +18,7 @@ export const AchievementsSection = () => (
         </motion.div>
         <motion.div initial={{ opacity: 0, y: 30 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ duration: 0.5, delay: 0.1 }}
           className="rounded-2xl border border-primary/60 bg-background/70 p-8 hover:shadow-[0_0_35px_hsl(var(--primary)/0.45)] transition-shadow">
-          <Bot className="w-8 h-8 text-primary mb-4" />
+          <Cog className="w-8 h-8 text-primary mb-4" />
           <h3 className="font-display text-3xl mb-3 text-foreground">Team Sudan – FIRST Global Challenge (FGC)</h3>
           <p className="text-muted-foreground">Representing Sudan in the FIRST Global Challenge, building and programming a competition robot with the national team.</p>
         </motion.div>

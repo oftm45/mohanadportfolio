@@ -9,6 +9,7 @@ import {
   Instagram, 
   Linkedin, 
   Copy,
+  Check,
   ExternalLink 
 } from 'lucide-react';
 
@@ -58,8 +59,12 @@ export const ContactSection = () => {
         description: email,
       });
       setTimeout(() => setCopiedEmail(null), 2000);
-    } catch (err) {
-      console.error('Failed to copy email:', err);
+    } catch {
+      toast({
+        title: "Couldn't copy the email",
+        description: `Please copy it manually: ${email}`,
+        variant: 'destructive',
+      });
     }
   };
 
@@ -91,7 +96,7 @@ export const ContactSection = () => {
         >
           {/* Email Section */}
           <motion.div variants={cardVariants}>
-          <Card className="glass glow-blue hover:glow-green transition-smooth h-full">
+          <Card className="glass glow-primary hover:glow-primary transition-smooth h-full">
             <CardContent className="p-8">
               <h3 className="text-2xl font-bold mb-6 flex items-center text-primary">
                 <Mail className="w-6 h-6 mr-3" />
@@ -117,7 +122,7 @@ export const ContactSection = () => {
                         className="ml-3 rtl:mr-3 rtl:ml-0 hover:bg-primary/10 group-hover:scale-110 transition-spring"
                       >
                         {copiedEmail === email ? (
-                          <span className="text-green-500 text-xs">✓</span>
+                          <Check className="w-4 h-4 text-primary" aria-label="Copied" />
                         ) : (
                           <Copy className="w-4 h-4" />
                         )}
@@ -132,7 +137,7 @@ export const ContactSection = () => {
 
           {/* Social Media Section */}
           <motion.div variants={cardVariantsRight}>
-            <Card className="glass glow-purple hover:glow-blue transition-smooth h-full">
+            <Card className="glass glow-primary hover:glow-primary transition-smooth h-full">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold mb-6 flex items-center text-accent">
                   <ExternalLink className="w-6 h-6 mr-3" />
@@ -148,7 +153,7 @@ export const ContactSection = () => {
                       className="glass p-4 rounded-lg border border-border/50 hover:border-primary/30 transition-smooth group flex items-center justify-between hover:scale-105"
                     >
                       <div className="flex items-center space-x-4 rtl:space-x-reverse">
-                        <div className="w-12 h-12 rounded-full glass flex items-center justify-center group-hover:glow-blue">
+                        <div className="w-12 h-12 rounded-full glass flex items-center justify-center group-hover:glow-primary">
                           <social.icon className={`w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth ${social.color}`} />
                         </div>
                         <div>
