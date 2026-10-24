@@ -9,6 +9,7 @@ import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
 import { lazy, Suspense } from "react";
 const SmartGreenhouse = lazy(() => import("./pages/SmartGreenhouse"));
+const ProjectPage = lazy(() => import("./pages/ProjectPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
 import ShapeWaves from "@/components/ui/ShapeWaves";
 
@@ -50,6 +51,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/projects/smart-greenhouse" element={<SmartGreenhouse />} />
+            <Route path="/projects/:slug" element={<ProjectPage />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
