@@ -1,7 +1,11 @@
 import agriShieldPrototype from '@/assets/agri-shield-prototype.webp';
 
-const SILO_MODEL_URL = '/models/agri-shield-silo.glb';
-const ROBOT_MODEL_URL = '/models/team-sudan-robot.glb';
+import siloModel from '@/assets/models/agri-shield-silo.glb.asset.json';
+import robotModel from '@/assets/models/team-sudan-robot.glb.asset.json';
+
+// Built by scripts/models/build-models.ts
+const SILO_MODEL_URL = siloModel.url;
+const ROBOT_MODEL_URL = robotModel.url;
 
 export type ProjectSection = {
   heading: string;

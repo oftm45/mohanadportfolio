@@ -115,7 +115,7 @@ function buildSilo() {
   const steel = mat('GalvanizedSteel', '#c6cacf', 0.8, 0.34);
   const steelDark = mat('SteelBand', '#8d939a', 0.85, 0.4);
   const roofM = mat('RoofSteel', '#b3b8be', 0.8, 0.3);
-  const concrete = mat('Concrete', '#7b7b78', 0, 0.95);
+  const concrete = mat('Concrete', '#55554f', 0, 0.95);
   const burgundy = mat('AgriShieldBurgundy', '#800020', 0.2, 0.45);
   const black = mat('BlackPlastic', '#1a1a1c', 0, 0.55);
   const darkGrey = mat('FanHousing', '#3a3d42', 0.4, 0.5);
@@ -260,11 +260,11 @@ function buildSilo() {
 function buildRobot() {
   const root = new THREE.Group();
   root.name = 'TeamSudanRobot';
-  const alu = mat('Extrusion', '#b9bec6', 0.85, 0.3);
+  const alu = mat('Extrusion', '#c4c9d0', 0.55, 0.38);
   const groove = mat('Groove', '#3c4047', 0.6, 0.5);
   const plate = mat('BasePlate', '#24262b', 0.2, 0.6);
   const rubber = mat('Rubber', '#141416', 0, 0.85);
-  const hubM = mat('WheelHub', '#8e949b', 0.7, 0.35);
+  const hubM = mat('WheelHub', '#9aa0a8', 0.5, 0.4);
   const motor = mat('Motor', '#1c1c1f', 0.5, 0.4);
   const orange = mat('ControlHub', '#e8701a', 0.1, 0.45);
   const black = mat('BlackPlastic', '#18181a', 0, 0.55);
