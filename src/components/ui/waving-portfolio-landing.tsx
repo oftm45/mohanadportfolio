@@ -584,10 +584,6 @@ export default function WavingPortfolioLanding({
             </svg>
           </button>
         ))}
-
-        <button type="button" className="wpl-sign" aria-label={playing ? "Replay the intro" : "Wave again"} onClick={replay}>
-          <Signature lines={sig} color={accent} />
-        </button>
       </div>
 
       {bursts.map((b) => (
