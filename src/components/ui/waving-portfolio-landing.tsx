@@ -300,6 +300,20 @@ export default function WavingPortfolioLanding({
   }, [])
 
   const playing = intro && !reduced
+  // Letters start scattered and fly into place each time the poster enters the screen.
+  const [assembled, setAssembled] = React.useState(false)
+  React.useEffect(() => {
+    const el = rootRef.current
+    if (!el || typeof IntersectionObserver === "undefined") return setAssembled(true)
+    let t: ReturnType<typeof setTimeout> | undefined
+    const io = new IntersectionObserver(([e]) => {
+      clearTimeout(t)
+      if (e.isIntersecting) t = setTimeout(() => setAssembled(true), 250)
+      else setAssembled(false)
+    }, { threshold: 0.35 })
+    io.observe(el)
+    return () => { clearTimeout(t); io.disconnect() }
+  }, [])
   React.useEffect(() => {
     if (!playing) {
       setReady(true)
@@ -481,7 +495,9 @@ export default function WavingPortfolioLanding({
                 c={c}
                 i={i}
                 roll={rolls[i] ?? 0}
-                intro={playing}
+                intro={false}
+                scattered={!reduced && !assembled}
+                order={i}
                 delay={c.giant ? 1.75 : 1 + (c.x / L.width) * 0.55 + c.row * 0.1}
                 color={accent}
                 onEnter={() => reroll(i)}
@@ -643,7 +659,11 @@ function LetterCell({
   delay,
   color,
   onEnter,
+  scattered = false,
+  order = 0,
 }: {
+  scattered?: boolean
+  order?: number
   c: Cell
   i: number
   roll: number
@@ -670,7 +690,16 @@ function LetterCell({
     "--dur": roll > 0 ? "0.7s" : c.giant ? "0.85s" : "1s",
   } as React.CSSProperties
   return (
-    <g className={"wpl-cell" + (c.giant ? " wpl-giant" : "")} onPointerEnter={onEnter}>
+    <g
+      className={"wpl-cell wpl-scatter" + (c.giant ? " wpl-giant" : "") + (scattered ? " is-scattered" : "")}
+      onPointerEnter={scattered ? undefined : onEnter}
+      style={{
+        "--sx": ((hash(i * 7 + 3) - 0.5) * 900).toFixed(0) + "px",
+        "--sy": ((hash(i * 11 + 5) - 0.5) * 420).toFixed(0) + "px",
+        "--sr": ((hash(i * 17 + 1) - 0.5) * 80).toFixed(0) + "deg",
+        "--sd": (hash(order * 23 + 9) * 0.9).toFixed(2) + "s",
+      } as React.CSSProperties}
+    >
       <rect x={c.x} y={c.y} width={c.w} height={c.h} fill="transparent" />
       <svg
         x={c.x - pad}
@@ -890,6 +919,8 @@ const WPL_CSS = `
 .wpl-dot{transform-box:fill-box;transform-origin:center}
 .wpl-reel.is-rolling{animation:wpl-roll var(--dur,1s) var(--delay,0s) both}
 .wpl-cell{cursor:crosshair}
+.wpl-scatter{transform-box:fill-box;transform-origin:center;transition:transform 1s cubic-bezier(.34,1.45,.5,1) var(--sd,0s),opacity .5s ease var(--sd,0s)}
+.wpl-scatter.is-scattered{transform:translate(var(--sx),var(--sy)) rotate(var(--sr)) scale(.7);opacity:.55;transition:none}
 .wpl-char{cursor:pointer;outline:none}
 .wpl-char:focus-visible .wpl-head{filter:drop-shadow(0 0 6px var(--wpl-accent))}
 .wpl-tilt{transform-box:view-box;transform-origin:205px 600px;transform:rotate(-7deg)}
@@ -984,7 +1015,7 @@ const WPL_CSS = `
 @keyframes wpl-marq-r{from{transform:translateX(-50%)}to{transform:translateX(0)}}
 @keyframes wpl-bit{from{transform:translate(0,0) rotate(0deg) scale(.4);opacity:1}to{transform:translate(var(--dx),var(--dy)) rotate(var(--rot)) scale(1);opacity:0}}
 
-@media (prefers-reduced-motion:reduce){
+@media (prefers-reduced-motion:reduce){.wpl-scatter{transition:none!important;transform:none!important;opacity:1!important}
 .wpl-root *,.wpl-root *::before,.wpl-root *::after{animation:none!important;transition:none!important}
 }
 `
