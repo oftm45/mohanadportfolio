@@ -5,7 +5,6 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { TypingWords } from '@/components/ui/typing-effect';
 import TechText from '@/components/ui/TechText';
-import CrystalizedBall from '@/components/ui/CrystalizedBall';
 
 export const HeroSection = () => {
   const { t } = useLanguage();
