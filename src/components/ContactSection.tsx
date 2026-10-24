@@ -45,7 +45,7 @@ export const ContactSection = () => {
       name: 'Instagram',
       icon: Instagram,
       url: 'https://www.instagram.com/mo_n5d',
-      color: 'hover:text-pink-500',
+      color: '',
       username: '@mo_n5d'
     }
   ];
@@ -168,22 +168,24 @@ export const ContactSection = () => {
                       <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth" />
                     </a>
                   ))}
-                  <Button
-                    asChild
-                    size="lg"
-                    className="mt-2 w-full gap-3 bg-primary text-primary-foreground hover:bg-primary/90 transition-smooth"
+                  <a
+                    href="https://www.linkedin.com/in/mohanadabubakerabdallh/"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    aria-label="Open Mohanad Abubaker's LinkedIn profile in a new tab"
+                    className="group flex items-center justify-between gap-4 rounded-lg border border-primary/70 bg-primary/15 p-4 transition-smooth hover:scale-105 hover:border-accent hover:bg-primary/25 hover:shadow-[0_0_30px_hsl(var(--primary)/0.45)]"
                   >
-                    <a
-                      href="https://www.linkedin.com/in/mohanadabubakerabdallh/"
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      aria-label="Open Mohanad Abubaker's LinkedIn profile in a new tab"
-                    >
-                      <Linkedin className="h-5 w-5 flex-shrink-0" />
-                      <span className="truncate">Connect on LinkedIn</span>
-                      <ExternalLink className="h-4 w-4 flex-shrink-0 opacity-80" />
-                    </a>
-                  </Button>
+                    <div className="flex min-w-0 items-center gap-4">
+                      <div className="flex h-12 w-12 flex-shrink-0 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                        <Linkedin className="h-6 w-6" />
+                      </div>
+                      <div className="min-w-0">
+                        <p className="font-semibold text-foreground">Connect on LinkedIn</p>
+                        <p className="truncate text-sm text-muted-foreground">in/mohanadabubakerabdallh</p>
+                      </div>
+                    </div>
+                    <ExternalLink className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-smooth group-hover:text-accent" />
+                  </a>
                 </div>
               </CardContent>
             </Card>
