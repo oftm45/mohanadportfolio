@@ -5,4 +5,4 @@
 - [x] Share image for link previews (WhatsApp / LinkedIn)
 - [ ] Project photos for AFAQ and NOVA City (waiting on pictures from the user)
 - [x] Interactive 3D models (.glb) of the Agri-Shield silo and the Team Sudan robot on their project pages
-- [ ] Real details/photos of the Team Sudan robot to make the 3D model match it (waiting on the user)
+- [x] Replace the robot concept with the team's real CAD model

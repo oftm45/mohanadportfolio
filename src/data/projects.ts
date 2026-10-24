@@ -306,12 +306,12 @@ export const PROJECTS: Project[] = [
     slug: 'team-sudan-robot',
     title: 'Team Sudan Robot',
     subtitle: 'FIRST Global Challenge competition robot',
-    desc: 'The robot behind Team Sudan at the FIRST Global Challenge, where the team won the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement. Explore an interactive 3D model of a FIRST Global-style robot right in your browser.',
-    tags: ['Robotics', 'FIRST Global', 'Team Sudan', '3D Model', 'Teamwork'],
+    desc: 'The robot behind Team Sudan at the FIRST Global Challenge, where the team won the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement. Explore the team’s real CAD design as an interactive 3D model right in your browser.',
+    tags: ['Robotics', 'FIRST Global', 'Team Sudan', '3D Model', 'CAD', 'Teamwork'],
     metaTitle: 'Team Sudan Robot: FIRST Global Challenge in 3D | Mohanad Abubaker',
     metaDescription:
-      'An interactive 3D model of Team Sudan’s FIRST Global Challenge robot. Team Sudan won the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement.',
-    keywords: 'first global challenge, team sudan, robotics competition, competition robot, 3d robot model',
+      'An interactive 3D model of Team Sudan’s FIRST Global Challenge robot, from the team’s own CAD design. Team Sudan won the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement.',
+    keywords: 'first global challenge, team sudan, robotics competition, competition robot, 3d robot model, robot cad',
     status: 'Competed at the FIRST Global Challenge',
     team: 'Team Sudan',
     intro:
@@ -320,9 +320,9 @@ export const PROJECTS: Project[] = [
       url: ROBOT_MODEL_URL,
       title: 'Team Sudan competition robot',
       caption:
-        'Concept 3D model of a FIRST Global-style robot: aluminium chassis, omni wheels, control hub, linear-slide lift with a claw, and the Sudan flag.',
+        'The team’s full robot assembly from its SOLIDWORKS design: drivetrain, roller intake, top shooter wheels and frame.',
       downloadName: 'team-sudan-robot.glb',
-      motion: 'lift',
+      motion: 'none',
     },
     sections: [
       {
@@ -341,8 +341,8 @@ export const PROJECTS: Project[] = [
         heading: 'About this 3D model',
         bullets: [
           'Drag to turn the robot, and scroll or pinch to zoom in on the details.',
-          'The lift moves up and down to show how the claw would raise game pieces.',
-          'It is a concept model built for this site, not an exact copy of the competition robot.',
+          'It comes from the team’s own SOLIDWORKS assembly of the robot — more than 800 parts.',
+          'The detail was lightened so it loads quickly on phones while keeping the robot’s real shape.',
           'You can download the .glb file and open it in any 3D viewer.',
         ],
       },
