@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
 import { motion, AnimatePresence, useScroll, useSpring } from 'framer-motion';
+import { Logo } from '@/components/Logo';
 
 
 export const Navigation = () => {
@@ -83,9 +84,10 @@ export const Navigation = () => {
             {/* Logo */}
             <button
               onClick={() => scrollToSection('hero')}
-              className="text-2xl font-bold gradient-primary bg-clip-text text-transparent hover:scale-105 transition-spring"
+              aria-label="Mohanad - back to top"
+              className="flex items-center"
             >
-              Mohanad
+              <Logo className="h-10 w-auto" />
             </button>
 
             {/* Desktop Navigation Links */}
