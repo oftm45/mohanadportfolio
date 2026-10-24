@@ -336,8 +336,8 @@ function buildRobot() {
   beam(root, 0.65, 'x', [0, FY + TH + S / 2, TZ]);
   // Diagonal braces
   for (const sx of [-1, 1]) {
-    const len = Math.hypot(0.4, 0.5);
-    add(root, box(0.035, len, 0.035), alu, [sx * 0.3, FY + 0.27, TZ - 0.22], [Math.atan2(0.4, 0.5), 0, 0]);
+    const len = Math.hypot(0.18, 0.4);
+    add(root, box(0.035, len, 0.035), alu, [sx * 0.3, FY + 0.2, TZ - 0.09], [Math.atan2(0.18, 0.4), 0, 0]);
   }
   const lift = group(root, [0, FY + 0.32, TZ + 0.04], [0, 0, 0], 'Lift');
   add(lift, box(0.72, 0.14, 0.03), burgundy);
