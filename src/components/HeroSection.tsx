@@ -1,9 +1,9 @@
+import SplitFlapText from '@/components/ui/split-flap/SplitFlapText';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Mail } from 'lucide-react';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
-import { TypingWords } from '@/components/ui/typing-effect';
 import TechText from '@/components/ui/TechText';
 
 export const HeroSection = () => {
@@ -84,9 +84,31 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="text-xl md:text-2xl text-secondary font-medium mb-4 h-10"
+            className="mb-6 flex justify-center"
           >
-            <TypingWords words={typingWords} speed={100} pauseDuration={2000} className="text-secondary" />
+            <span className="sr-only">{typingWords.join(', ')}</span>
+            <SplitFlapText
+              aria-hidden="true"
+              words={typingWords.map((w) => w.toUpperCase())}
+              flipDuration={0.1}
+              stagger={0.03}
+              cycleDelay={2600}
+              charset="alpha"
+              flipsPerChar={6}
+              order="left"
+              align="center"
+              tileStyle="board"
+              tileColor="hsl(var(--primary))"
+              textColor="hsl(var(--foreground))"
+              glare={0.3}
+              depth={0.5}
+              tileRadius={4}
+              gap="clamp(2px, 0.35vw, 5px)"
+              fontSize="clamp(11px, 3vw, 30px)"
+              padTo={0}
+              loop
+              intro
+            />
           </motion.div>
 
           <motion.p 
