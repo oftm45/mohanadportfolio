@@ -7,7 +7,7 @@ import { TypingWords } from '@/components/ui/typing-effect';
 import TechText from '@/components/ui/TechText';
 
 export const HeroSection = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const ref = useRef<HTMLDivElement>(null);
   
   const { scrollYProgress } = useScroll({
@@ -26,9 +26,7 @@ export const HeroSection = () => {
     }
   };
 
-  const typingWords = language === 'ar' 
-    ? ['مطور IoT', 'مبتكر', 'مهندس إلكترونيات', 'مبرمج']
-    : ['IoT Developer', 'Innovator', 'Robotics Builder'];
+  const typingWords = ['IoT Developer', 'Innovator', 'Robotics Builder'];
 
   return (
     <section ref={ref} id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
@@ -126,14 +124,14 @@ export const HeroSection = () => {
             className="flex flex-col items-center"
           >
             <p className="text-sm text-muted-foreground mb-2">
-              {language === 'ar' ? 'اسحب للاستكشاف' : 'Scroll to explore'}
+              Scroll to explore
             </p>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => scrollToSection('about')}
-              aria-label={language === 'ar' ? 'انتقل إلى قسم نبذة عني' : 'Scroll to about section'}
-              className="p-2 rounded-full glass hover:glow-blue transition-smooth animate-bounce"
+              aria-label="Scroll to about section"
+              className="p-2 rounded-full glass hover:glow-primary transition-smooth animate-bounce"
             >
               <ArrowDown className="w-6 h-6 text-primary" />
             </motion.button>

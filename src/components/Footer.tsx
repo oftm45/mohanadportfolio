@@ -40,20 +40,9 @@ export const Footer = () => {
           <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent mb-8" />
 
           {/* Copyright */}
-          <div className="text-center space-y-3">
-            <p className="text-muted-foreground text-sm flex items-center justify-center gap-2">
-              {language === 'ar' ? 'صُنع بـ' : 'Made with'} 
-              <Heart className="w-4 h-4 text-red-500 fill-red-500 animate-pulse" /> 
-              {language === 'ar' ? 'بواسطة مهند' : 'by Mohanad'}
-            </p>
-            <p className="text-muted-foreground/80 text-sm">
-              © {currentYear} Mohanad Abubaker. {language === 'ar' ? 'جميع الحقوق محفوظة' : 'All rights reserved'}.
-            </p>
-            <p className="text-muted-foreground/50 text-xs flex items-center justify-center gap-2">
-              <Code2 className="w-3 h-3" />
-              
-            </p>
-          </div>
+          <p className="text-center text-muted-foreground/80 text-sm">
+            © {currentYear} Mohanad Abubaker. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>

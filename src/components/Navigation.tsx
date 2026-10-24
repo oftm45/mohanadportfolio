@@ -6,7 +6,7 @@ import { Logo } from '@/components/Logo';
 
 
 export const Navigation = () => {
-  const { t, language } = useLanguage();
+  const { t } = useLanguage();
   const [activeSection, setActiveSection] = useState('hero');
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -163,7 +163,7 @@ export const Navigation = () => {
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.id}
-                    initial={{ opacity: 0, x: language === 'ar' ? 20 : -20 }}
+                    initial={{ opacity: 0, x: -20 }}
                     animate={{ opacity: 1, x: 0 }}
                     transition={{ delay: index * 0.1 }}
                     onClick={() => scrollToSection(item.id)}
