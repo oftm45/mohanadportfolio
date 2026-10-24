@@ -310,7 +310,7 @@ export default function WavingPortfolioLanding({
       clearTimeout(t)
       if (e.isIntersecting) t = setTimeout(() => setAssembled(true), 250)
       else setAssembled(false)
-    }, { threshold: 0.35 })
+    }, { threshold: 0.6 })
     io.observe(el)
     return () => { clearTimeout(t); io.disconnect() }
   }, [])
