@@ -79,9 +79,7 @@ export const Navigation = () => {
       />
 
       <nav
-        className={`fixed top-1 left-0 right-0 z-50 transition-smooth ${
-          isScrolled ? 'glass backdrop-blur-xl shadow-lg' : 'bg-transparent'
-        }`}
+        className="fixed top-1 left-0 right-0 z-50 bg-transparent"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
@@ -107,13 +105,6 @@ export const Navigation = () => {
                   }`}
                 >
                   {item.label}
-                  {activeSection === item.id && (
-                    <motion.div 
-                      layoutId="activeNav"
-                      className="absolute inset-0 bg-primary/10 rounded-lg border border-primary/20"
-                      transition={{ type: "spring", bounce: 0.2, duration: 0.6 }}
-                    />
-                  )}
                 </button>
               ))}
               
