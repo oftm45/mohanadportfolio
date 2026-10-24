@@ -181,7 +181,7 @@ export const ContactSection = () => {
                       </div>
                       <div className="min-w-0">
                         <p className="font-semibold text-foreground">Connect on LinkedIn</p>
-                        <p className="truncate text-sm text-muted-foreground">in/mohanadabubakerabdallh</p>
+                        <p className="truncate text-sm text-muted-foreground">Mohanad Abubaker</p>
                       </div>
                     </div>
                     <ExternalLink className="h-5 w-5 flex-shrink-0 text-muted-foreground transition-smooth group-hover:text-accent" />
