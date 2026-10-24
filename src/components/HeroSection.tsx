@@ -30,7 +30,7 @@ export const HeroSection = () => {
   const typingWords = ['Grade 12 STEM Innovator', 'AI, Robotics & IoT', 'FIRST Global Gold Medalist', 'ICSC Ambassador'];
 
   return (
-    <section ref={ref} id="hero" className="min-h-screen flex items-center justify-center relative overflow-hidden">
+    <section ref={ref} id="hero" className="min-h-screen pt-28 pb-12 flex items-center justify-center relative overflow-hidden">
       <motion.div 
         style={{}}
         className="container mx-auto px-6 text-center relative z-10"
