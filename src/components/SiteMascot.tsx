@@ -341,14 +341,15 @@ export default function SiteMascot() {
   if (!size.w) return null;
 
   const hidden = key === 'hide';
-  const side = (SPOTS[hidden ? prevSideKey(bubble) : key] ?? SPOTS.default).side;
+  // While hidden, keep facing the way it last arrived.
+  const side: Side = hidden ? bubble?.side ?? 'right' : (SPOTS[key] ?? SPOTS.default).side;
   const mobile = size.w < 768;
 
   return (
     <motion.div
       ref={rootRef}
       aria-hidden="true"
-      data-side={hidden && bubble ? bubble.side : side}
+      data-side={side}
       className={'site-mascot' + (hidden ? ' is-hidden' : '') + (near ? ' is-near' : '') + (mobile ? ' is-mobile' : '')}
       style={{ x, y: yAll }}
     >
@@ -383,6 +384,3 @@ export default function SiteMascot() {
     </motion.div>
   );
 }
-
-// While hidden, keep facing the way it last arrived.
-const prevSideKey = (b: Bubble | null) => (b?.side === 'left' ? 'hero' : 'default');
