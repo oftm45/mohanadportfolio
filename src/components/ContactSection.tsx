@@ -37,7 +37,7 @@ export const ContactSection = () => {
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
 
   const emails = [
-    'MohanadAbubaker1@gmail.com'
+    'MohanadAbubaker5@gmail.com'
   ];
 
   const socialLinks = [
