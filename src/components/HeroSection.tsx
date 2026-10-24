@@ -49,7 +49,7 @@ export const HeroSection = () => {
                 <CrystalizedBall
                   preset="plasma"
                   color="#800020"
-                  size={0.66}
+                  size={0.74}
                   crackle={0.85}
                   fill={0.5}
                   particleCount={6000}
