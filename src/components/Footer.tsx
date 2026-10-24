@@ -20,6 +20,7 @@ export const Footer = () => {
           <div className="flex justify-center gap-4 mb-10">
             <a
               href="https://www.instagram.com/mo_n5d"
+              aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
               className="group w-12 h-12 rounded-full glass flex items-center justify-center hover:glow-primary transition-smooth border border-primary/30 hover:border-primary"
@@ -28,6 +29,7 @@ export const Footer = () => {
             </a>
             <a
               href="https://www.linkedin.com/in/mohanadabubakerabdallh/"
+              aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
               className="group w-12 h-12 rounded-full glass flex items-center justify-center hover:glow-primary transition-smooth border border-primary/30 hover:border-primary"
