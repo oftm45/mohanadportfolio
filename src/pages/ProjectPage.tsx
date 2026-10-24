@@ -1,6 +1,8 @@
+import { useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
-import { getProject, PROJECTS, type ProjectSection } from '@/data/projects';
+import { getProject, PROJECTS, type Project, type ProjectSection } from '@/data/projects';
+import { scrollToSection } from '@/lib/scrollToSection';
 import { usePageMeta } from '@/lib/usePageMeta';
 import NotFound from './NotFound';
 
@@ -59,13 +61,22 @@ const Section = ({ s }: { s: ProjectSection }) => (
 const ProjectPage = () => {
   const { slug } = useParams();
   const project = getProject(slug);
-  const url = `${SITE}/projects/${project?.slug ?? slug ?? ''}`;
+  if (!project) return <NotFound />;
+  return <ProjectDetail key={project.slug} project={project} />;
+};
+
+const ProjectDetail = ({ project }: { project: Project }) => {
+  const url = `${SITE}/projects/${project.slug}`;
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
 
   usePageMeta({
-    title: project?.metaTitle ?? 'Project not found | Mohanad Abubaker',
-    description: project?.metaDescription ?? '',
+    title: project.metaTitle,
+    description: project.metaDescription,
     url,
-    jsonLd: project && {
+    jsonLd: {
       '@context': 'https://schema.org',
       '@type': 'CreativeWork',
       name: project.title,
@@ -78,8 +89,6 @@ const ProjectPage = () => {
     },
   });
 
-  if (!project) return <NotFound />;
-
   const others = PROJECTS.filter((p) => p.slug !== project.slug);
 
   return (
@@ -87,7 +96,8 @@ const ProjectPage = () => {
       <article className="container mx-auto max-w-4xl px-6 py-16">
         <nav aria-label="Breadcrumb" className="mb-10">
           <Link
-            to="/#projects"
+            to="/"
+            onClick={() => scrollToSection('projects')}
             className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to portfolio
