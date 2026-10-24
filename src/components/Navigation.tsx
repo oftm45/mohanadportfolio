@@ -79,7 +79,7 @@ export const Navigation = () => {
       />
 
       <nav
-        className="fixed top-1 left-0 right-0 z-50 bg-transparent"
+        className="fixed top-1 left-0 right-0 z-50 pb-6 bg-gradient-to-b from-background/90 via-background/60 to-transparent"
       >
         <div className="container mx-auto px-6 py-4">
           <div className="flex justify-between items-center">
