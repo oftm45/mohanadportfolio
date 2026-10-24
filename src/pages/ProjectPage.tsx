@@ -146,7 +146,7 @@ const ProjectDetail = ({ project }: { project: Project }) => {
               height={project.image.height}
               loading="lazy"
               decoding="async"
-              className="mx-auto max-h-[80vh] w-auto rounded-2xl border border-primary/50"
+              className="mx-auto max-h-[560px] w-auto rounded-2xl border border-primary/50"
             />
             <figcaption className="mt-3 text-center text-sm text-muted-foreground">{project.image.caption}</figcaption>
           </figure>

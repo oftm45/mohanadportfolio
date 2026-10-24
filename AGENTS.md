@@ -8,3 +8,6 @@
 - Certificates are shown as FolderFloat (matter-js) folders grouped by category; pills open files through the certificate backend function, and a screen-reader-only list keeps every certificate link indexable.
 - Sections below the hero and secondary pages are lazy-loaded; in-page jumps must go through `src/lib/scrollToSection.ts`, which waits for the target to mount, so early clicks still work.
 - Routes are wrapped in an ErrorBoundary (reset on path change) that shares the themed `ErrorScreen` with the 404 page, so crashes or failed chunk loads never show a blank page.
+- Project content lives once in `src/data/projects.ts`; the home cards and the `/projects/:slug` page both read it, so a new project needs only a data entry plus a line in `public/sitemap.xml` and `public/llms.txt`.
+- Per-page title, description, canonical and share tags go through `usePageMeta`, which restores the previous values on leave so the home page never keeps a sub-page's canonical.
+- The share preview image is a static 1200x630 file in `public/` referenced by absolute URL in `index.html`, because link-preview crawlers don't run JavaScript.
