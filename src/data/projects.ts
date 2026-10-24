@@ -31,7 +31,15 @@ export type Project = {
   intro: string;
   image?: { src: string; alt: string; caption: string; width: number; height: number };
   /** Interactive 3D model (.glb) shown on the project page. */
-  model?: { url: string; title: string; caption: string; downloadName: string; motion?: 'fan' | 'lift' | 'none' };
+  model?: {
+    url: string;
+    title: string;
+    caption: string;
+    downloadName: string;
+    motion?: 'fan' | 'lift' | 'none';
+    camera?: [number, number, number];
+    target?: [number, number, number];
+  };
   sections: ProjectSection[];
 };
 
@@ -59,11 +67,13 @@ export const PROJECTS: Project[] = [
     },
     model: {
       url: SILO_MODEL_URL,
-      title: 'Agri-Shield 4.0 smart silo',
+      title: 'Agri-Shield 4.0 prototype',
       caption:
-        '3D model of the Agri-Shield 4.0 silo: corrugated steel silo, ventilation fan, wall sensors, floodlight, control box and solar panel.',
+        '3D model of the Agri-Shield 4.0 prototype as built: model silo, fan unit, solar panel, charge controller, relays, breadboards with the ESP32, buzzer box and PIR sensor.',
       downloadName: 'agri-shield-silo.glb',
       motion: 'fan',
+      camera: [2.6, 3.4, 3.8],
+      target: [0, 0.25, 0],
     },
     sections: [
       {

@@ -1,11 +1,11 @@
 {
   "version": 1,
-  "asset_id": "59c7ea9b-13ef-4bd4-b071-3c26a8a950bb",
+  "asset_id": "f84c1d94-1609-4796-a2ef-f958d616ad82",
   "project_id": "22ed6f3e-f1d0-45a5-8980-f21d3994a548",
-  "url": "/__l5e/assets-v1/59c7ea9b-13ef-4bd4-b071-3c26a8a950bb/agri-shield-silo.glb",
-  "r2_key": "a/v1/22ed6f3e-f1d0-45a5-8980-f21d3994a548/59c7ea9b-13ef-4bd4-b071-3c26a8a950bb/agri-shield-silo.glb",
+  "url": "/__l5e/assets-v1/f84c1d94-1609-4796-a2ef-f958d616ad82/agri-shield-silo.glb",
+  "r2_key": "a/v1/22ed6f3e-f1d0-45a5-8980-f21d3994a548/f84c1d94-1609-4796-a2ef-f958d616ad82/agri-shield-silo.glb",
   "original_filename": "agri-shield-silo.glb",
-  "size": 838884,
+  "size": 561216,
   "content_type": "model/gltf-binary",
-  "created_at": "2026-10-24T16:12:01Z"
+  "created_at": "2026-10-24T16:37:00Z"
 }
