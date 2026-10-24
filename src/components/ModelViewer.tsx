@@ -15,10 +15,13 @@ type Props = {
   caption: string;
   downloadName: string;
   motion?: ModelMotion;
+  camera?: [number, number, number];
+  target?: [number, number, number];
 };
 
 const SIZE = 3; // the model is scaled so its largest side is this many units
 const CAMERA: [number, number, number] = [4.2, 2.6, 4.6];
+const TARGET: [number, number, number] = [0, 1.1, 0];
 
 const token = (name: string, fallback: string) => {
   const v = getComputedStyle(document.documentElement).getPropertyValue(name).trim();
@@ -81,7 +84,7 @@ class ViewerBoundary extends Component<{ fallback: ReactNode; children: ReactNod
   }
 }
 
-export default function ModelViewer({ url, title, caption, downloadName, motion = 'none' }: Props) {
+export default function ModelViewer({ url, title, caption, downloadName, motion = 'none', camera = CAMERA, target = TARGET }: Props) {
   const wrapRef = useRef<HTMLDivElement>(null);
   const controls = useRef<OrbitControlsImpl>(null);
   const [visible, setVisible] = useState(false);
@@ -106,8 +109,8 @@ export default function ModelViewer({ url, title, caption, downloadName, motion 
   const reset = () => {
     const c = controls.current;
     if (!c) return;
-    c.object.position.set(...CAMERA);
-    c.target.set(0, 1.1, 0);
+    c.object.position.set(...camera);
+    c.target.set(...target);
     c.update();
     setAuto(true);
   };
@@ -133,7 +136,7 @@ export default function ModelViewer({ url, title, caption, downloadName, motion 
               shadows
               dpr={[1, 1.75]}
               frameloop={visible ? 'always' : 'never'}
-              camera={{ position: CAMERA, fov: 38, near: 0.1, far: 60 }}
+              camera={{ position: camera, fov: 38, near: 0.1, far: 60 }}
               gl={{ antialias: true, alpha: true }}
             >
               <ambientLight intensity={0.45} />
@@ -164,7 +167,7 @@ export default function ModelViewer({ url, title, caption, downloadName, motion 
               <OrbitControls
                 ref={controls}
                 makeDefault
-                target={[0, 1.1, 0]}
+                target={target}
                 enablePan={false}
                 enableDamping
                 minDistance={2.4}
