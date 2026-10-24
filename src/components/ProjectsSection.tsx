@@ -40,7 +40,7 @@ export const ProjectsSection = () => (
             className="flex flex-col rounded-2xl border border-primary/50 bg-background/70 p-6 transition-all hover:-translate-y-1 hover:border-primary hover:shadow-[0_0_35px_hsl(var(--primary)/0.5)]"
           >
             <h3 className="font-display text-3xl text-foreground">{p.title}</h3>
-            <p className="text-sm text-primary mb-3">{p.subtitle}</p>
+            <p className="text-sm text-accent mb-3">{p.subtitle}</p>
             <p className="text-muted-foreground mb-5 flex-1">{p.desc}</p>
             <div className="flex flex-wrap gap-2">
               {p.tags.map((t) => (
