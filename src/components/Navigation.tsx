@@ -1,3 +1,4 @@
+import { scrollToSection as goToSection } from '@/lib/scrollToSection';
 import { useState, useEffect } from 'react';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Menu, X } from 'lucide-react';
@@ -67,10 +68,7 @@ export const Navigation = () => {
   }, []);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    goToSection(sectionId);
     setIsMobileMenuOpen(false);
   };
 

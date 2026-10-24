@@ -1,3 +1,4 @@
+import { scrollToSection as goToSection } from '@/lib/scrollToSection';
 import TextType from '@/components/ui/text-type/TextType';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -20,10 +21,7 @@ export const HeroSection = () => {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    goToSection(sectionId);
   };
 
   const typingWords = ['Grade 12 STEM Innovator', 'AI, Robotics & IoT', 'FIRST Global Gold Medalist', 'ICSC Ambassador'];
