@@ -2,7 +2,8 @@ import { ContainerScroll } from '@/components/ui/container-scroll-animation';
 import WavingPortfolioLanding from '@/components/ui/waving-portfolio-landing';
 
 export const ShowcaseSection = () => (
-  <section aria-label="Interactive showcase" className="overflow-hidden">
+  // data-mascot-hide: the travelling character steps aside while its poster twin is on screen.
+  <section aria-label="Interactive showcase" data-mascot-hide className="overflow-hidden">
     <ContainerScroll
       titleComponent={
         <h2 className="font-display text-4xl md:text-6xl text-foreground">

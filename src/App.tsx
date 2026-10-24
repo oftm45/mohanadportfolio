@@ -11,6 +11,7 @@ import { lazy, Suspense } from "react";
 const SmartGreenhouse = lazy(() => import("./pages/SmartGreenhouse"));
 const ProjectPage = lazy(() => import("./pages/ProjectPage"));
 const NotFound = lazy(() => import("./pages/NotFound"));
+const SiteMascot = lazy(() => import("@/components/SiteMascot"));
 import ShapeWaves from "@/components/ui/ShapeWaves";
 
 const queryClient = new QueryClient();
@@ -58,6 +59,9 @@ const App = () => (
           </Suspense>
           </RouteErrorBoundary>
             </div>
+            <Suspense fallback={null}>
+              <SiteMascot />
+            </Suspense>
           </div>
         </BrowserRouter>
       </LanguageProvider>

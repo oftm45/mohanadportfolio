@@ -12,3 +12,4 @@
 - Per-page title, description, canonical and share tags go through `usePageMeta`, which restores the previous values on leave so the home page never keeps a sub-page's canonical.
 - The share preview image is a static 1200x630 file in `public/` referenced by absolute URL in `index.html`, because link-preview crawlers don't run JavaScript.
 - Contact form messages go through the `contact-submit` backend function (validation, honeypot, per-IP rate limit) into `contact_submissions`, which has no client access; email forwarding is optional via a Formspree form ID secret so stored messages never depend on a third party.
+- The poster character also travels the whole site as one lazy-loaded, aria-hidden, pointer-transparent `SiteMascot` at the app shell; its per-section side/size/speech live in its own spot table, and it hides over any `[data-mascot-hide]` area so it never doubles with the poster.
