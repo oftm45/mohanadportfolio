@@ -36,15 +36,14 @@ export const ContactSection = () => {
   const [copiedEmail, setCopiedEmail] = useState<string | null>(null);
 
   const emails = [
-    'MohanadAbubaker1@gmail.com',
-    'Mohanadabubaker5@gmail.com'
+    'MohanadAbubaker1@gmail.com'
   ];
 
   const socialLinks = [
     {
       name: 'Instagram',
       icon: Instagram,
-      url: 'https://www.instagram.com/mo_n5d?igsh=MXM3d2xtajlvMHBscw==',
+      url: 'https://www.instagram.com/mo_n5d',
       color: 'hover:text-pink-500',
       username: '@mo_n5d'
     }

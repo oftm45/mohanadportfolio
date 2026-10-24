@@ -1,4 +1,5 @@
 import { useLanguage } from '@/contexts/LanguageContext';
+import { Logo } from '@/components/Logo';
 import { Instagram, Linkedin, Heart, Code2 } from 'lucide-react';
 
 export const Footer = () => {
@@ -17,6 +18,7 @@ export const Footer = () => {
         <div className="max-w-4xl mx-auto">
           {/* Main Footer Content */}
           <div className="text-center mb-10">
+            <Logo className="h-14 w-auto mx-auto mb-4" />
             <h3 className="text-3xl font-bold gradient-primary bg-clip-text text-transparent mb-3">
               Mohanad Abubaker
             </h3>
