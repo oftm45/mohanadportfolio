@@ -7,7 +7,8 @@ The site showcases his background, skills, projects, achievements, certificates 
 ## Pages
 
 - [Home](/): About Mohanad, skills, featured projects, achievements, certificates and contact info.
-- [Agri-Shield 4.0](/projects/agri-shield): Solar-powered ESP32 IoT system that protects grain silos against spoilage and theft.
+- [Agri-Shield 4.0](/projects/agri-shield): Solar-powered ESP32 IoT system that protects grain silos against spoilage and theft, with an interactive 3D model of the silo.
 - [AFAQ](/projects/afaq): AI learning platform built around the UAE and Arab school curriculum.
 - [NOVA City](/projects/nova-city): Hybrid renewable energy, water and food city concept for Sudan, inspired by UAE projects.
+- [Team Sudan Robot](/projects/team-sudan-robot): Interactive 3D model of Team Sudan's FIRST Global Challenge robot and the team's Gold Medal award.
 - [Smart Greenhouse Guide](/projects/smart-greenhouse): Technical walkthrough for an Arduino/ESP32 + DHT22 smart greenhouse with MQTT.

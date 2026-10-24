@@ -1,5 +1,8 @@
 import agriShieldPrototype from '@/assets/agri-shield-prototype.webp';
 
+const SILO_MODEL_URL = '/models/agri-shield-silo.glb';
+const ROBOT_MODEL_URL = '/models/team-sudan-robot.glb';
+
 export type ProjectSection = {
   heading: string;
   paragraphs?: string[];
@@ -23,6 +26,8 @@ export type Project = {
   team?: string;
   intro: string;
   image?: { src: string; alt: string; caption: string; width: number; height: number };
+  /** Interactive 3D model (.glb) shown on the project page. */
+  model?: { url: string; title: string; caption: string; downloadName: string; motion?: 'fan' | 'lift' | 'none' };
   sections: ProjectSection[];
 };
 
@@ -47,6 +52,14 @@ export const PROJECTS: Project[] = [
       caption: 'The working prototype: solar panel, charge controller, model silo with fan, relays, sensors and the ESP32.',
       width: 858,
       height: 1085,
+    },
+    model: {
+      url: SILO_MODEL_URL,
+      title: 'Agri-Shield 4.0 smart silo',
+      caption:
+        '3D model of the Agri-Shield 4.0 silo: corrugated steel silo, ventilation fan, wall sensors, floodlight, control box and solar panel.',
+      downloadName: 'agri-shield-silo.glb',
+      motion: 'fan',
     },
     sections: [
       {
@@ -281,6 +294,52 @@ export const PROJECTS: Project[] = [
           'Use multi-objective optimisation to size every component.',
           'Assess environmental, economic and social impact, including new jobs.',
           'Encourage student projects in sustainability.',
+        ],
+      },
+    ],
+  },
+  {
+    slug: 'team-sudan-robot',
+    title: 'Team Sudan Robot',
+    subtitle: 'FIRST Global Challenge competition robot',
+    desc: 'The robot behind Team Sudan at the FIRST Global Challenge, where the team won the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement. Explore an interactive 3D model of a FIRST Global-style robot right in your browser.',
+    tags: ['Robotics', 'FIRST Global', 'Team Sudan', '3D Model', 'Teamwork'],
+    metaTitle: 'Team Sudan Robot: FIRST Global Challenge in 3D | Mohanad Abubaker',
+    metaDescription:
+      'An interactive 3D model of Team Sudan’s FIRST Global Challenge robot. Team Sudan won the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement.',
+    keywords: 'first global challenge, team sudan, robotics competition, competition robot, 3d robot model',
+    status: 'Competed at the FIRST Global Challenge',
+    team: 'Team Sudan',
+    intro:
+      'Mohanad represented Sudan at the FIRST Global Challenge, an international robotics competition where national teams design, build and drive their own robots. Team Sudan won the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement.',
+    model: {
+      url: ROBOT_MODEL_URL,
+      title: 'Team Sudan competition robot',
+      caption:
+        'Concept 3D model of a FIRST Global-style robot: aluminium chassis, omni wheels, control hub, linear-slide lift with a claw, and the Sudan flag.',
+      downloadName: 'team-sudan-robot.glb',
+      motion: 'lift',
+    },
+    sections: [
+      {
+        heading: 'The competition',
+        paragraphs: [
+          'The FIRST Global Challenge brings together teams from countries around the world. Each team builds a robot to complete the season’s game, then plays matches in alliances with other nations — so teamwork and cooperation count as much as engineering.',
+        ],
+      },
+      {
+        heading: 'The award',
+        paragraphs: [
+          'Team Sudan received the Gold Medal for the Rajaâ Cherkaoui El Moursli Award for Courageous Achievement, which honours a team that keeps going and performs with courage in the face of challenges.',
+        ],
+      },
+      {
+        heading: 'About this 3D model',
+        bullets: [
+          'Drag to turn the robot, and scroll or pinch to zoom in on the details.',
+          'The lift moves up and down to show how the claw would raise game pieces.',
+          'It is a concept model built for this site, not an exact copy of the competition robot.',
+          'You can download the .glb file and open it in any 3D viewer.',
         ],
       },
     ],

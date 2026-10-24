@@ -7,7 +7,7 @@ export const ProjectsSection = () => (
   <section id="projects" className="py-20">
     <div className="container mx-auto px-6 max-w-6xl">
       <h2 className="font-display text-4xl md:text-5xl text-center mb-12 text-foreground">Featured Projects</h2>
-      <div className="grid md:grid-cols-3 gap-6">
+      <div className="grid md:grid-cols-2 gap-6">
         {PROJECTS.map((p, i) => (
           <motion.article
             key={p.slug}
