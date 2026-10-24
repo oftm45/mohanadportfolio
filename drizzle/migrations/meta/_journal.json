@@ -8,6 +8,13 @@
       "when": 1792840663115,
       "tag": "0000_public_read_certificates",
       "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792841125418,
+      "tag": "0001_drop_public_certificate_read",
+      "breakpoints": true
     }
   ]
 }

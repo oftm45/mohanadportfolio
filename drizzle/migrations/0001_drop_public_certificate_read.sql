@@ -1,0 +1,1 @@
+DROP POLICY IF EXISTS "Anyone can read certificate files" ON storage.objects;
