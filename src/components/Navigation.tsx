@@ -23,7 +23,7 @@ export const Navigation = () => {
       setIsScrolled(window.scrollY > 50);
 
       // Update active section based on scroll position
-      const sections = ['hero', 'about', 'contact'];
+      const sections = ['hero', 'about', 'skills', 'projects', 'achievements', 'contact'];
       const current = sections.find(section => {
         const element = document.getElementById(section);
         if (element) {
@@ -63,6 +63,9 @@ export const Navigation = () => {
 
   const navItems = [
     { id: 'about', label: t('about') },
+    { id: 'skills', label: 'Skills' },
+    { id: 'projects', label: 'Projects' },
+    { id: 'achievements', label: 'Achievements' },
     { id: 'contact', label: t('contact') },
   ];
 
@@ -87,7 +90,7 @@ export const Navigation = () => {
               aria-label="Mohanad - back to top"
               className="flex items-center"
             >
-              <Logo className="h-10 w-auto" />
+              <Logo className="h-10 w-auto" /><span className="ml-2 font-display text-2xl text-foreground">Mohanad</span>
             </button>
 
             {/* Desktop Navigation Links */}

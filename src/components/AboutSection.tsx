@@ -84,6 +84,7 @@ export const AboutSection = () => {
             </Card>
 
 
+          </motion.div>
 
           {/* Education Timeline */}
           <motion.div variants={itemVariants}>
