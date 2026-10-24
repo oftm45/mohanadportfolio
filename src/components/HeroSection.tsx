@@ -47,7 +47,7 @@ export const HeroSection = () => {
                 alt="Mohanad Abubaker"
                 width={176}
                 height={176}
-                fetchPriority="high"
+                {...{ fetchpriority: "high" }}
                 decoding="async"
                 className="w-full h-full object-cover"
               />
