@@ -1,4 +1,4 @@
-import SplitFlapText from '@/components/ui/split-flap/SplitFlapText';
+import TextType from '@/components/ui/text-type/TextType';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
 import { ArrowDown, Mail } from 'lucide-react';
@@ -84,31 +84,21 @@ export const HeroSection = () => {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.3 }}
-            className="mb-6 flex justify-center"
+            className="mb-4 flex h-10 items-center justify-center text-xl font-medium text-foreground md:text-2xl"
           >
-            <span className="sr-only">{typingWords.join(', ')}</span>
-            <SplitFlapText
-              aria-hidden="true"
-              words={typingWords.map((w) => w.toUpperCase())}
-              flipDuration={0.1}
-              stagger={0.03}
-              cycleDelay={2600}
-              charset="alpha"
-              flipsPerChar={6}
-              order="left"
-              align="center"
-              tileStyle="board"
-              tileColor="hsl(var(--card))"
-              textColor="hsl(var(--foreground))"
-              glare={0.15}
-              depth={0.5}
-              tileRadius={6}
-              gap="clamp(2px, 0.35vw, 5px)"
-              fontSize="clamp(12px, 3vw, 30px)"
-              className="split-flap--site"
-              padTo={0}
-              loop
-              intro
+            <TextType
+              as="span"
+              text={typingWords}
+              typingSpeed={70}
+              pauseDuration={1800}
+              deletingSpeed={40}
+              deleteMode="select"
+              typeEffect="blur"
+              mistakes={0.15}
+              cursorStyle="bar"
+              cursorColor="hsl(var(--primary))"
+              cursorGlide
+              showCursor
             />
           </motion.div>
 
