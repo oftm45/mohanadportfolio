@@ -2,6 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { PROJECTS } from '@/data/projects';
+import { RightsNotice } from '@/components/RightsNotice';
 
 export const ProjectsSection = () => (
   <section id="projects" className="py-20">
@@ -47,6 +48,7 @@ export const ProjectsSection = () => (
           </motion.article>
         ))}
       </div>
+      <RightsNotice owner="Mohanad Abubaker and project teams" className="mx-auto mt-8 max-w-3xl" />
     </div>
   </section>
 );

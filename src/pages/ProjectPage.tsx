@@ -2,6 +2,7 @@ import { lazy, Suspense, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
 import { getProject, PROJECTS, type Project, type ProjectSection } from '@/data/projects';
+import { RightsNotice } from '@/components/RightsNotice';
 import { scrollToSection } from '@/lib/scrollToSection';
 import { usePageMeta } from '@/lib/usePageMeta';
 import NotFound from './NotFound';
@@ -168,6 +169,8 @@ const ProjectDetail = ({ project }: { project: Project }) => {
             <Section key={s.heading} s={s} />
           ))}
         </div>
+
+        <RightsNotice owner={project.team ?? 'Mohanad Abubaker'} className="mt-12" />
 
         <footer className="mt-16 border-t border-primary/30 pt-8">
           <h2 className="font-display text-2xl mb-4">More projects</h2>
