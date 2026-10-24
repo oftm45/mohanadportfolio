@@ -458,7 +458,7 @@ export default function WavingPortfolioLanding({
       onPointerDown={onDown}
     >
       <style>{WPL_CSS}</style>
-      <h1 className="wpl-sr">{title}</h1>
+      <p className="wpl-sr">{title}</p>
       <p className="wpl-sr">
         {name}, {roles.filter(Boolean).join(" and ")}, {year}
       </p>

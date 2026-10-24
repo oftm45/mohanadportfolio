@@ -16,9 +16,9 @@ export const ShowcaseSection = () => (
         roles={["IoT Developer", "ICSC Ambassador"]}
         signature="MO/OSMAN"
         greeting="Hi, I'm Mohanad!"
-        accent="hsl(var(--primary))"
-        paper="hsl(var(--background))"
-        ink="hsl(var(--foreground))"
+        accent="#800020"
+        paper="#000000"
+        ink="#F5F5F5"
         height="100%"
       />
     </ContainerScroll>
