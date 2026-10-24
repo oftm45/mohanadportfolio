@@ -43,7 +43,7 @@ export const HeroSection = () => {
             transition={{ duration: 0.6 }}
             className="mb-8"
           >
-            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-[0_0_30px_hsl(var(--primary)/0.6)]">
+            <div className="w-44 h-44 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-[0_0_30px_hsl(var(--primary)/0.6)]">
               <img 
                 src="/lovable-uploads/7c770d56-ebca-4630-9789-ff6c8fc90bbf.png"
                 alt="Mohanad Abubaker"
