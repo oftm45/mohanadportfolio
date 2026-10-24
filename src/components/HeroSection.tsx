@@ -5,6 +5,7 @@ import { motion, useScroll, useTransform } from 'framer-motion';
 import { useRef } from 'react';
 import { TypingWords } from '@/components/ui/typing-effect';
 import TechText from '@/components/ui/TechText';
+import CrystalizedBall from '@/components/ui/CrystalizedBall';
 
 export const HeroSection = () => {
   const { t } = useLanguage();
@@ -41,14 +42,28 @@ export const HeroSection = () => {
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{ opacity: 1, scale: 1 }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="mb-4"
           >
-            <div className="w-32 h-32 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-[0_0_30px_hsl(var(--primary)/0.6)]">
-              <img 
-                src="/lovable-uploads/7c770d56-ebca-4630-9789-ff6c8fc90bbf.png"
-                alt="Mohanad Abubaker"
-                className="w-full h-full object-cover"
-              />
+            <div className="relative mx-auto h-56 w-56">
+              <div aria-hidden="true" className="pointer-events-none absolute inset-0">
+                <CrystalizedBall
+                  preset="plasma"
+                  color="#800020"
+                  size={0.66}
+                  crackle={0.85}
+                  fill={0.5}
+                  particleCount={6000}
+                  interactive
+                  hoverStrength={0.7}
+                />
+              </div>
+              <div className="absolute left-1/2 top-1/2 h-32 w-32 -translate-x-1/2 -translate-y-1/2 overflow-hidden rounded-full border-2 border-primary shadow-[0_0_30px_hsl(var(--primary)/0.6)]">
+                <img 
+                  src="/lovable-uploads/7c770d56-ebca-4630-9789-ff6c8fc90bbf.png"
+                  alt="Mohanad Abubaker"
+                  className="w-full h-full object-cover"
+                />
+              </div>
             </div>
           </motion.div>
 
