@@ -1,6 +1,6 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
-import { User, MapPin, Calendar, GraduationCap, Award } from 'lucide-react';
+import { User, MapPin, Calendar, Award } from 'lucide-react';
 
 import { motion } from 'framer-motion';
 
@@ -31,11 +31,6 @@ export const AboutSection = () => {
   ];
 
 
-  const educationSteps = [
-    { text: t('grade1to3') },
-    { text: t('grade9to10') },
-  ];
-
   return (
     <section id="about" className="py-20 relative">
       <div className="container mx-auto px-6">
@@ -60,7 +55,7 @@ export const AboutSection = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, margin: "-100px" }}
-          className="grid lg:grid-cols-2 gap-6 sm:gap-12 max-w-6xl mx-auto"
+          className="max-w-3xl mx-auto"
         >
           {/* Personal Information */}
           <motion.div variants={itemVariants} className="space-y-8">
@@ -87,36 +82,6 @@ export const AboutSection = () => {
 
           </motion.div>
 
-          {/* Education Timeline */}
-          <motion.div variants={itemVariants}>
-          <Card className="glass glow-primary hover:glow-primary transition-smooth">
-            <CardContent className="p-5 sm:p-8">
-              <h3 className="text-xl sm:text-2xl font-bold mb-6 flex items-center break-words text-secondary">
-                <GraduationCap className="w-6 h-6 mr-3" />
-                {t('educationTitle')}
-              </h3>
-              <div className="space-y-6">
-                {educationSteps.map((step, index) => (
-                  <div key={index} className="relative">
-                    {/* Timeline dot */}
-                    <div className="flex items-start space-x-3 sm:space-x-4 rtl:space-x-reverse">
-                      <div className="flex-shrink-0 w-4 h-4 rounded-full bg-primary glow-primary mt-2" />
-                      <div className="flex-1 min-w-0">
-                        <div className="bg-primary/10 border border-primary/20 rounded-lg p-3 sm:p-4">
-                          <p className="text-foreground text-sm sm:text-base break-words leading-relaxed">{step.text}</p>
-                        </div>
-                      </div>
-                    </div>
-                    {/* Timeline line */}
-                    {index < educationSteps.length - 1 && (
-                      <div className="absolute left-2 rtl:right-2 top-6 w-0.5 h-8 bg-gradient-to-b from-primary to-transparent" />
-                    )}
-                  </div>
-                ))}
-              </div>
-            </CardContent>
-          </Card>
-          </motion.div>
         </motion.div>
       </div>
 
