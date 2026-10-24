@@ -17,24 +17,24 @@ export const Footer = () => {
           </div>
 
           {/* Social Links */}
-          <div className="flex justify-center gap-4 mb-10">
+          <div className="flex justify-center gap-5 mb-10">
             <a
               href="https://www.instagram.com/mo_n5d"
               aria-label="Instagram"
               target="_blank"
               rel="noopener noreferrer"
-              className="group w-12 h-12 rounded-full glass flex items-center justify-center hover:glow-primary transition-smooth border border-primary/30 hover:border-primary"
+              className="group flex h-14 w-14 items-center justify-center rounded-full border border-primary bg-primary/20 transition-smooth hover:-translate-y-1 hover:bg-primary hover:shadow-[0_0_30px_hsl(var(--primary)/0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <Instagram className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              <Instagram className="h-6 w-6 text-foreground transition-colors group-hover:text-primary-foreground" />
             </a>
             <a
               href="https://www.linkedin.com/in/mohanadabubakerabdallh/"
               aria-label="LinkedIn"
               target="_blank"
               rel="noopener noreferrer"
-              className="group w-12 h-12 rounded-full glass flex items-center justify-center hover:glow-primary transition-smooth border border-primary/30 hover:border-primary"
+              className="group flex h-14 w-14 items-center justify-center rounded-full border border-primary bg-primary/20 transition-smooth hover:-translate-y-1 hover:bg-primary hover:shadow-[0_0_30px_hsl(var(--primary)/0.55)] focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
             >
-              <Linkedin className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-colors" />
+              <Linkedin className="h-6 w-6 text-foreground transition-colors group-hover:text-primary-foreground" />
             </a>
           </div>
 
