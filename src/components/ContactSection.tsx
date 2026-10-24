@@ -119,6 +119,8 @@ export const ContactSection = () => {
                         size="sm"
                         variant="ghost"
                         onClick={() => copyToClipboard(email)}
+                        aria-label={copiedEmail === email ? 'Email copied' : 'Copy email address'}
+                        title="Copy email address"
                         className="ml-3 rtl:mr-3 rtl:ml-0 hover:bg-primary/10 group-hover:scale-110 transition-spring"
                       >
                         {copiedEmail === email ? (

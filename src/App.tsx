@@ -5,8 +5,9 @@ import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { LanguageProvider } from "@/contexts/LanguageContext";
 import Index from "./pages/Index";
-import SmartGreenhouse from "./pages/SmartGreenhouse";
-import NotFound from "./pages/NotFound";
+import { lazy, Suspense } from "react";
+const SmartGreenhouse = lazy(() => import("./pages/SmartGreenhouse"));
+const NotFound = lazy(() => import("./pages/NotFound"));
 import ShapeWaves from "@/components/ui/ShapeWaves";
 
 const queryClient = new QueryClient();
@@ -37,12 +38,14 @@ const App = () => (
               />
             </div>
             <div className="site-content">
+          <Suspense fallback={null}>
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/projects/smart-greenhouse" element={<SmartGreenhouse />} />
             {/* ADD ALL CUSTOM ROUTES ABOVE THE CATCH-ALL "*" ROUTE */}
             <Route path="*" element={<NotFound />} />
           </Routes>
+          </Suspense>
             </div>
           </div>
         </BrowserRouter>

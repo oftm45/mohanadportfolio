@@ -1,3 +1,4 @@
+import { scrollToSection as goToSection } from '@/lib/scrollToSection';
 import TextType from '@/components/ui/text-type/TextType';
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Button } from '@/components/ui/button';
@@ -20,10 +21,7 @@ export const HeroSection = () => {
   const scale = useTransform(scrollYProgress, [0, 0.5], [1, 0.8]);
 
   const scrollToSection = (sectionId: string) => {
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
+    goToSection(sectionId);
   };
 
   const typingWords = ['Grade 12 STEM Innovator', 'AI, Robotics & IoT', 'FIRST Global Gold Medalist', 'ICSC Ambassador'];
@@ -45,8 +43,12 @@ export const HeroSection = () => {
           >
             <div className="w-44 h-44 mx-auto rounded-full overflow-hidden border-2 border-primary shadow-[0_0_30px_hsl(var(--primary)/0.6)]">
               <img 
-                src="/lovable-uploads/7c770d56-ebca-4630-9789-ff6c8fc90bbf.png"
+                src="/lovable-uploads/profile.webp"
                 alt="Mohanad Abubaker"
+                width={176}
+                height={176}
+                fetchPriority="high"
+                decoding="async"
                 className="w-full h-full object-cover"
               />
             </div>
