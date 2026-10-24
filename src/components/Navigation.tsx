@@ -42,6 +42,19 @@ export const Navigation = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  // While the mobile menu is open: lock page scroll and close on Escape
+  useEffect(() => {
+    if (!isMobileMenuOpen) return;
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const onKey = (e: KeyboardEvent) => e.key === 'Escape' && setIsMobileMenuOpen(false);
+    window.addEventListener('keydown', onKey);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      window.removeEventListener('keydown', onKey);
+    };
+  }, [isMobileMenuOpen]);
+
   // Close mobile menu on resize
   useEffect(() => {
     const handleResize = () => {
@@ -74,22 +87,22 @@ export const Navigation = () => {
     <>
       {/* Progress Bar */}
       <motion.div
-        className="fixed top-0 left-0 right-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary origin-left z-[60]"
+        className="fixed top-0 inset-x-0 h-1 bg-gradient-to-r from-primary via-secondary to-primary origin-left z-[60]"
         style={{ scaleX }}
       />
 
       <nav
-        className="fixed top-1 left-0 right-0 z-50 pb-6 bg-gradient-to-b from-background/90 via-background/60 to-transparent"
+        className="fixed top-1 inset-x-0 z-50 pb-6 bg-gradient-to-b from-background/90 via-background/60 to-transparent"
       >
-        <div className="container mx-auto px-6 py-4">
+        <div className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex justify-between items-center">
             {/* Logo */}
             <button
               onClick={() => scrollToSection('hero')}
               aria-label="Mohanad - back to top"
-              className="flex items-center"
+              className="flex items-center gap-2 min-w-0"
             >
-              <Logo className="h-10 w-auto" /><span className="ml-2 font-display text-2xl text-foreground">Mohanad</span>
+              <Logo className="h-9 sm:h-10 w-auto shrink-0" /><span className="font-display text-xl sm:text-2xl text-foreground truncate">Mohanad</span>
             </button>
 
             {/* Desktop Navigation Links */}
@@ -110,19 +123,21 @@ export const Navigation = () => {
               
             </div>
 
-            {/* Right side: Language Toggle + Mobile Menu */}
+            {/* Mobile menu button */}
             <div className="flex items-center gap-4">
               
               {/* Mobile Menu Button */}
               <button
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden p-2 rounded-lg glass border-primary/30 hover:border-primary transition-smooth"
-                aria-label="Toggle menu"
+                className="md:hidden inline-flex h-11 w-11 items-center justify-center rounded-xl border border-primary/60 bg-card/90 text-foreground transition-smooth hover:border-primary focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent"
+                aria-label={isMobileMenuOpen ? 'Close menu' : 'Open menu'}
+                aria-expanded={isMobileMenuOpen}
+                aria-controls="mobile-menu"
               >
                 {isMobileMenuOpen ? (
-                  <X className="w-5 h-5 text-primary" />
+                  <X className="w-6 h-6" />
                 ) : (
-                  <Menu className="w-5 h-5 text-primary" />
+                  <Menu className="w-6 h-6" />
                 )}
               </button>
             </div>
@@ -149,27 +164,28 @@ export const Navigation = () => {
               animate={{ opacity: 1, y: 0 }}
               exit={{ opacity: 0, y: -20 }}
               transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
-              className="fixed top-20 left-4 right-4 glass rounded-2xl border border-primary/20 p-6 z-50 md:hidden"
+              id="mobile-menu"
+              className="fixed top-[4.75rem] inset-x-4 max-h-[calc(100dvh-6rem)] overflow-y-auto rounded-2xl border border-primary/50 bg-card/95 p-3 shadow-[0_0_35px_hsl(var(--primary)/0.35)] z-50 md:hidden"
             >
-              <div className="flex flex-col gap-2">
+              <nav aria-label="Mobile" className="flex flex-col gap-1">
                 {navItems.map((item, index) => (
                   <motion.button
                     key={item.id}
-                    initial={{ opacity: 0, x: -20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: index * 0.1 }}
+                    initial={{ opacity: 0, y: -8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: index * 0.04 }}
                     onClick={() => scrollToSection(item.id)}
-                    className={`px-4 py-3 rounded-xl text-lg font-medium transition-smooth text-start ${
+                    aria-current={activeSection === item.id ? 'true' : undefined}
+                    className={`flex min-h-12 w-full items-center rounded-xl border-s-4 px-4 text-start text-lg font-medium transition-smooth focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent ${
                       activeSection === item.id
-                        ? 'bg-primary/20 text-primary border border-primary/30'
-                        : 'text-foreground/80 hover:bg-primary/10 hover:text-primary'
+                        ? 'border-accent bg-primary/25 text-foreground'
+                        : 'border-transparent text-foreground/85 hover:bg-primary/15 hover:text-foreground'
                     }`}
                   >
                     {item.label}
                   </motion.button>
                 ))}
-                
-              </div>
+              </nav>
             </motion.div>
           </>
         )}
