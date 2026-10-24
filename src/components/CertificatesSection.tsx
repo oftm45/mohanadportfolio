@@ -29,7 +29,7 @@ const CERTIFICATES: Certificate[] = [
   { title: 'University of Fujairah Sustainability Research Competitions', issuer: 'University of Fujairah', date: 'May 22, 2025', sort: '2025-05-22', file: 'UOF.pdf' },
   { title: '28th Al Shola Innovation Exhibition', issuer: 'Al Shola Education Foundation', date: '2024 – 2025', sort: '2025-05-01', file: 'SEED 2025.pdf' },
   { title: 'AI National Championship 2024–2025 – Appreciation', issuer: 'UAE Ministry of Education & ICT Fund', date: '2025', sort: '2025-04-01', file: 'AINC.pdf' },
-  { title: '1 Million Prompters – Completion', issuer: 'Dubai Centre for Artificial Intelligence', date: '2025', sort: '2025-01-01', file: 'mohanad-abubaker-certificate.pdf' },
+  { title: '1 Million Prompters – Completion', issuer: 'Dubai Centre for Artificial Intelligence', date: '2026\n\n', sort: '2025-01-01', file: 'mohanad-abubaker-certificate.pdf' },
 ];
 
 /** Awards first, then newest first. */
