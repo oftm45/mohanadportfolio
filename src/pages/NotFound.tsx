@@ -1,68 +1,47 @@
-import { useLocation, Link } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
-import { ArrowLeft, ArrowRight } from "lucide-react";
-import { useLanguage } from "@/contexts/LanguageContext";
+import { ArrowLeft, Home } from "lucide-react";
+import { ErrorScreen, errorGhostBtn, errorPrimaryBtn } from "@/components/ErrorScreen";
 
 const NotFound = () => {
   const location = useLocation();
-  const { t, language } = useLanguage();
+  const navigate = useNavigate();
 
   useEffect(() => {
-    console.error(
-      "404 Error: User attempted to access non-existent route:",
-      location.pathname
-    );
-  }, [location.pathname]);
+    document.title = "Page not found | Mohanad Abubaker";
+    const robots = document.createElement("meta");
+    robots.name = "robots";
+    robots.content = "noindex";
+    document.head.appendChild(robots);
+    return () => {
+      robots.remove();
+      document.title = "Mohanad Abubaker - Personal Portfolio";
+    };
+  }, []);
 
   return (
-    <div className="relative min-h-screen flex items-center justify-center overflow-hidden bg-background">
-      {/* Ambient glow */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 flex items-center justify-center"
-      >
-        <div className="w-[42rem] h-[42rem] rounded-full bg-primary/5 blur-[120px]" />
-      </div>
-
-      {/* Subtle grid backdrop */}
-      <div
-        aria-hidden
-        className="pointer-events-none absolute inset-0 opacity-[0.06]"
-        style={{
-          backgroundImage:
-            "linear-gradient(hsl(var(--foreground)) 1px, transparent 1px), linear-gradient(90deg, hsl(var(--foreground)) 1px, transparent 1px)",
-          backgroundSize: "64px 64px",
-          maskImage:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, black 30%, transparent 100%)",
-          WebkitMaskImage:
-            "radial-gradient(ellipse 60% 50% at 50% 50%, black 30%, transparent 100%)",
-        }}
-      />
-
-      <div className="relative z-10 px-6 text-center animate-fade-in-up">
-        {/* Giant 404 */}
-        <h1 className="font-display text-[26vw] sm:text-[12rem] leading-none select-none bg-gradient-to-b from-foreground via-foreground/70 to-foreground/10 bg-clip-text text-transparent tracking-tight">
-          {t("notFoundCode")}
-        </h1>
-
-        <div className="mx-auto mt-2 mb-6 h-px w-24 bg-gradient-to-r from-transparent via-foreground/40 to-transparent" />
-
-        <h2 className="font-display text-3xl sm:text-4xl text-foreground mb-3">
-          {t("notFoundTitle")}
-        </h2>
-        <p className="text-muted-foreground max-w-md mx-auto mb-10 leading-relaxed">
-          {t("notFoundDesc")}
-        </p>
-
-        <Link
-          to="/"
-          className="group inline-flex items-center gap-2.5 rounded-full border border-border bg-card/80 px-8 py-3.5 text-sm font-medium text-foreground backdrop-blur-sm transition-all duration-300 hover:bg-primary hover:text-primary-foreground hover:border-primary hover:shadow-[0_10px_30px_-10px_hsl(0_0%_100%/0.25)]"
-        >
-          <ArrowLeft className="h-4 w-4 transition-transform duration-300 group-hover:-translate-x-1" />
-          <span>{t("notFoundCta")}</span>
-        </Link>
-      </div>
-    </div>
+    <ErrorScreen
+      code="404"
+      title="Page not found"
+      description={
+        <>
+          <p>This page doesn't exist or has moved.</p>
+          <p className="mt-2 break-all font-mono text-xs text-muted-foreground/70">{location.pathname}</p>
+        </>
+      }
+      actions={
+        <>
+          <Link to="/" className={errorPrimaryBtn}>
+            <Home className="h-4 w-4" />
+            Back to home
+          </Link>
+          <button type="button" onClick={() => navigate(-1)} className={errorGhostBtn}>
+            <ArrowLeft className="h-4 w-4 transition-transform group-hover:-translate-x-1" />
+            Go back
+          </button>
+        </>
+      }
+    />
   );
 };
 
