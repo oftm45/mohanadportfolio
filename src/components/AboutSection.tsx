@@ -1,8 +1,8 @@
 import { useLanguage } from '@/contexts/LanguageContext';
 import { Card, CardContent } from '@/components/ui/card';
 import { User, MapPin, Calendar, Award } from 'lucide-react';
-
 import { motion } from 'framer-motion';
+import { TextScrollTitle } from '@/components/ui/text-scroll-animation';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -30,7 +30,6 @@ export const AboutSection = () => {
     { icon: User, label: t('fullName'), value: t('nameValue') },
     { icon: MapPin, label: t('nationality'), value: t('nationalityValue') },
     { icon: Calendar, label: t('age'), value: t('ageValue') },
-    // { icon: Calendar, label: t('dateOfBirth'), value: t('dobValue') },
     { icon: Award, label: 'Current Status', value: 'Grade 12 Advanced STEM Student – Class of 2027' },
     { icon: Award, label: t('role'), value: t('roleValue') },
     { icon: Award, label: t('role2'), value: t('role2Value') },
@@ -48,9 +47,13 @@ export const AboutSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-primary bg-clip-text text-transparent">
-            {t('aboutTitle')}
-          </h2>
+          <div className="mb-4">
+            <TextScrollTitle
+              text={t('aboutTitle')}
+              gradient
+              className="text-4xl md:text-5xl font-bold font-display"
+            />
+          </div>
           <p className="text-xl text-muted-foreground">
             {t('aboutSubtitle')}
           </p>
@@ -75,14 +78,14 @@ export const AboutSection = () => {
 
             <Card className="glass glow-primary hover:glow-primary transition-smooth">
               <CardContent className="p-5 sm:p-8">
-                <h3 className="text-xl sm:text-2xl font-bold mb-6 flex items-center break-words text-primary">
+                <h3 className="text-xl sm:text-2xl font-bold mb-6 flex items-center break-words text-accent">
                   <User className="w-6 h-6 mr-3" />
                   {t('personalInfo')}
                 </h3>
                 <div className="space-y-4">
                   {personalInfo.map((info, index) => (
                     <div key={index} className="flex items-start space-x-3 sm:space-x-4 rtl:space-x-reverse">
-                      <info.icon className="w-5 h-5 text-secondary mt-1 flex-shrink-0" />
+                      <info.icon className="w-5 h-5 text-accent mt-1 flex-shrink-0" />
                       <div className="flex-1 min-w-0">
                         <p className="font-medium text-foreground">{info.label}:</p>
                         <p className="text-muted-foreground break-words leading-relaxed">{info.value}</p>

@@ -182,7 +182,7 @@ export default function ModelViewer({ url, title, caption, downloadName, motion 
         )}
 
         <div className="pointer-events-none absolute inset-x-0 top-0 flex items-center gap-2 p-3 text-xs text-muted-foreground">
-          <Move3d className="h-4 w-4 text-primary" aria-hidden="true" />
+          <Move3d className="h-4 w-4 text-accent" aria-hidden="true" />
           <span>Drag to rotate · Scroll or pinch to zoom</span>
         </div>
         <div className="absolute bottom-3 end-3 flex gap-2">

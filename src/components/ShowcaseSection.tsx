@@ -7,7 +7,7 @@ export const ShowcaseSection = () => (
     <ContainerScroll
       titleComponent={
         <h2 className="font-display text-4xl md:text-6xl text-foreground">
-          IoT & Robotics <span className="text-primary">Command Center</span>
+          IoT & Robotics <span className="text-accent">Command Center</span>
         </h2>
       }
     >
@@ -15,7 +15,6 @@ export const ShowcaseSection = () => (
         name="Mohanad Abubaker"
         year="2026"
         roles={["IoT Developer", "ICSC Ambassador"]}
-        signature="MO/OSMAN"
         greeting="Hi, I'm Mohanad!"
         accent="#800020"
         paper="#000000"

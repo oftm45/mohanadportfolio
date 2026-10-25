@@ -15,6 +15,7 @@ import {
   X
 } from 'lucide-react';
 import { ContactForm } from '@/components/ContactForm';
+import { TextScrollTitle } from '@/components/ui/text-scroll-animation';
 
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -83,9 +84,13 @@ export const ContactSection = () => {
           viewport={{ once: true, margin: "-100px" }}
           className="text-center mb-16"
         >
-          <h2 className="text-4xl md:text-5xl font-bold mb-4 gradient-primary bg-clip-text text-transparent">
-            {t('contactTitle')}
-          </h2>
+          <div className="mb-4">
+            <TextScrollTitle
+              text={t('contactTitle')}
+              gradient
+              className="text-4xl md:text-5xl font-bold font-display"
+            />
+          </div>
           <p className="text-xl text-muted-foreground">
             {t('contactSubtitle')}
           </p>
@@ -102,7 +107,7 @@ export const ContactSection = () => {
           <motion.div variants={cardVariants}>
           <Card className="glass glow-primary hover:glow-primary transition-smooth h-full">
             <CardContent className="p-8">
-              <h3 className="text-2xl font-bold mb-6 flex items-center text-primary">
+              <h3 className="text-2xl font-bold mb-6 flex items-center text-accent">
                 <Mail className="w-6 h-6 mr-3" />
                 {t('emailTitle')}
               </h3>
@@ -114,7 +119,7 @@ export const ContactSection = () => {
                   >
                     <div className="flex items-center justify-between">
                       <div className="flex items-center space-x-3 rtl:space-x-reverse flex-1">
-                        <Mail className="w-5 h-5 text-secondary flex-shrink-0" />
+                        <Mail className="w-5 h-5 text-accent flex-shrink-0" />
                         <span className="text-foreground font-mono text-sm md:text-base break-all">
                           {email}
                         </span>
@@ -128,7 +133,7 @@ export const ContactSection = () => {
                         className="ml-3 rtl:mr-3 rtl:ml-0 hover:bg-primary/10 group-hover:scale-110 transition-spring"
                       >
                         {copiedEmail === email ? (
-                          <Check className="w-4 h-4 text-primary" aria-label="Copied" />
+                          <Check className="w-4 h-4 text-accent" aria-label="Copied" />
                         ) : (
                           <Copy className="w-4 h-4" />
                         )}
@@ -160,10 +165,10 @@ export const ContactSection = () => {
                     >
                       <div className="flex items-center space-x-4 rtl:space-x-reverse">
                         <div className="w-12 h-12 rounded-full glass flex items-center justify-center group-hover:glow-primary">
-                          <social.icon className={`w-6 h-6 text-muted-foreground group-hover:text-primary transition-smooth ${social.color}`} />
+                          <social.icon className={`w-6 h-6 text-muted-foreground group-hover:text-accent transition-smooth ${social.color}`} />
                         </div>
                         <div>
-                          <p className="font-semibold text-foreground group-hover:text-primary transition-smooth">
+                          <p className="font-semibold text-foreground group-hover:text-accent transition-smooth">
                             {social.name}
                           </p>
                           <p className="text-sm text-muted-foreground">
@@ -171,7 +176,7 @@ export const ContactSection = () => {
                           </p>
                         </div>
                       </div>
-                      <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-primary transition-smooth" />
+                      <ExternalLink className="w-5 h-5 text-muted-foreground group-hover:text-accent transition-smooth" />
                     </a>
                   ))}
                   <a
@@ -234,7 +239,7 @@ export const ContactSection = () => {
                 <Card className="glass glow-primary transition-smooth">
                   <CardContent className="p-6 sm:p-8">
                     <div className="mb-2 flex items-start justify-between gap-4">
-                      <h3 className="text-2xl font-bold flex items-center text-primary">
+                      <h3 className="text-2xl font-bold flex items-center text-accent">
                         <Send className="w-6 h-6 mr-3" />
                         Send a message
                       </h3>

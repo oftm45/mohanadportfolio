@@ -360,3 +360,20 @@ export const PROJECTS: Project[] = [
 ];
 
 export const getProject = (slug: string | undefined) => PROJECTS.find((p) => p.slug === slug);
+
+/** What a home-page card (and the "More projects" list) needs. */
+export type ProjectCard = Pick<Project, 'slug' | 'title' | 'subtitle' | 'desc' | 'tags' | 'link'>;
+
+/** Projects with their own hand-built page under /projects/<slug> (not rendered by ProjectPage). */
+const STANDALONE_PROJECT_CARDS: ProjectCard[] = [
+  {
+    slug: 'smart-greenhouse',
+    title: 'Smart Greenhouse',
+    subtitle: '1st Place school project · ESP32 IoT build guide',
+    desc: 'A self-monitoring greenhouse that reads temperature, humidity and soil moisture, waters the plants automatically through a relay-driven pump and streams live data over MQTT. Won 1st place at Manarat Al Sharjah School (2024–2025); the page is a full build guide with wiring and firmware.',
+    tags: ['ESP32', 'IoT', 'DHT22', 'Soil Moisture', 'MQTT', 'Automation'],
+  },
+];
+
+/** Every project card shown on the site, in display order. */
+export const PROJECT_CARDS: ProjectCard[] = [...PROJECTS, ...STANDALONE_PROJECT_CARDS];

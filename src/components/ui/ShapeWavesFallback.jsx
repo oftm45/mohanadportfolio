@@ -34,7 +34,7 @@ export default function ShapeWavesFallback({ speed = 0.7, interactive = true }) 
     const readColors = () => {
       const styles = getComputedStyle(document.documentElement);
       color = `hsl(${styles.getPropertyValue('--secondary').trim()})`;
-      hover = `hsl(${styles.getPropertyValue('--accent').trim()})`;
+      hover = `hsl(${styles.getPropertyValue('--wave-hover').trim()})`;
     };
 
     const resize = () => {

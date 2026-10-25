@@ -1,7 +1,7 @@
 import { lazy, Suspense, useEffect } from 'react';
 import { Link, useParams } from 'react-router-dom';
 import { ArrowLeft, ExternalLink } from 'lucide-react';
-import { getProject, PROJECTS, type Project, type ProjectSection } from '@/data/projects';
+import { getProject, PROJECT_CARDS, type Project, type ProjectSection } from '@/data/projects';
 import { RightsNotice } from '@/components/RightsNotice';
 import { scrollToSection } from '@/lib/scrollToSection';
 import { usePageMeta } from '@/lib/usePageMeta';
@@ -93,7 +93,7 @@ const ProjectDetail = ({ project }: { project: Project }) => {
     },
   });
 
-  const others = PROJECTS.filter((p) => p.slug !== project.slug);
+  const others = PROJECT_CARDS.filter((p) => p.slug !== project.slug);
 
   return (
     <main className="min-h-screen text-foreground">
@@ -102,7 +102,7 @@ const ProjectDetail = ({ project }: { project: Project }) => {
           <Link
             to="/"
             onClick={() => scrollToSection('projects')}
-            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-primary"
+            className="inline-flex items-center gap-2 text-sm text-muted-foreground transition-colors hover:text-accent"
           >
             <ArrowLeft className="h-4 w-4" aria-hidden="true" /> Back to portfolio
           </Link>

@@ -36,8 +36,6 @@ const translations = {
     nationalityValue: 'Sudan (Based in Sharjah, UAE)',
     age: 'Age',
     ageValue: '18 years old',
-    dateOfBirth: 'Date of Birth',
-    dobValue: '30/11/2008',
     role: 'Official Role',
     roleValue: 'Official ICSC Ambassador (International Computer Science Competition)',
     role2: 'Robotics Team',

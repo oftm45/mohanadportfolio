@@ -13,7 +13,7 @@ export const RightsNotice = ({ owner, className = '' }: Props) => (
     aria-label="Rights notice"
     className={`flex items-start gap-3 rounded-xl border border-primary/40 bg-primary/10 p-4 text-sm text-muted-foreground ${className}`}
   >
-    <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-primary" aria-hidden="true" />
+    <ShieldCheck className="mt-0.5 h-5 w-5 shrink-0 text-accent" aria-hidden="true" />
     <p>
       <span className="font-medium text-foreground">
         © {new Date().getFullYear()} {owner ?? OWNER}. All rights reserved to the project owner.
@@ -35,7 +35,7 @@ export function useRightsToast<T extends Element>() {
         io.disconnect();
         toast(`© ${new Date().getFullYear()} ${OWNER} — All rights reserved`, {
           description: `All rights belong to the project owners. ${NOTICE}`,
-          icon: <ShieldCheck className="h-5 w-5 text-primary" aria-hidden="true" />,
+          icon: <ShieldCheck className="h-5 w-5 text-accent" aria-hidden="true" />,
           duration: 9000,
           closeButton: true,
           className: '!border-primary/60 !shadow-[0_0_30px_hsl(var(--primary)/0.35)]',

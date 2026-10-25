@@ -282,7 +282,7 @@ export default function ShapeWaves({
   cellSize = 10,
   dotSize = 0.75,
   color = 'hsl(var(--secondary))',
-  hoverColor = 'hsl(var(--accent))',
+  hoverColor = 'hsl(var(--wave-hover))',
   backgroundColor = 'hsl(var(--background))',
   speed = 1,
   scale = 1,

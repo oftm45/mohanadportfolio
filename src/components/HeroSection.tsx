@@ -148,7 +148,7 @@ export const HeroSection = () => {
               aria-label="Scroll to about section"
               className="p-2 rounded-full glass hover:glow-primary transition-smooth animate-bounce"
             >
-              <ArrowDown className="w-6 h-6 text-primary" />
+              <ArrowDown className="w-6 h-6 text-accent" />
             </motion.button>
           </motion.div>
         </div>

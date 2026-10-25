@@ -19,7 +19,8 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
     --primary-foreground: 0 0% 98%;
     --secondary: 345 100% 25%;
     --secondary-foreground: 0 0% 98%;
-    --accent: 345 70% 45%;
+    /* Lighter burgundy for text, icons and focus rings: ~6:1 contrast on black (WCAG AA). */
+    --accent: 345 75% 62%;
     --accent-foreground: 0 0% 98%;
     --muted: 345 30% 8%;
     --muted-foreground: 0 0% 70%;
@@ -29,6 +30,7 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
     --input: 345 30% 8%;
     --ring: 345 100% 25%;
     --site-waves-opacity: 0.4;
+    --wave-hover: 345 70% 45%; /* pointer splash colour of the background waves */
     --radius: 0.75rem;
 
     --electric-blue: 345 100% 25%;
@@ -42,7 +44,8 @@ All colors MUST be HSL. Minimalist monochrome theme with subtle gray accents.
 
     --glow-primary: 0 0 30px hsl(var(--primary) / 0.4);
 
-    --gradient-primary: linear-gradient(135deg, hsl(345 70% 45%), hsl(345 100% 25%), hsl(345 100% 15%));
+    /* Used only as gradient text on headings, so every stop stays readable on black. */
+    --gradient-primary: linear-gradient(135deg, hsl(345 80% 72%), hsl(345 75% 60%), hsl(345 75% 50%));
     --gradient-purple: linear-gradient(135deg, hsl(345 100% 25%), hsl(345 100% 12%));
     --gradient-dark: linear-gradient(135deg, hsl(0 0% 0%), hsl(345 40% 5%));
 

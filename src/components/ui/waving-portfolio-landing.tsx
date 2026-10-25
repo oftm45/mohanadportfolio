@@ -232,7 +232,7 @@ export default function WavingPortfolioLanding({
   giantLetter = "O",
   lettersRight = ["RT", "LIO"],
   title = "Mohanad Portfolio",
-  signature = "MO/OSMAN",
+  signature,
   greeting = "Hi, I'm Mohanad!",
   accent = "#800020",
   paper = "#000000",
@@ -271,9 +271,10 @@ export default function WavingPortfolioLanding({
     const sync = () => setReduced(mq.matches)
     sync()
     mq.addEventListener("change", sync)
+    const activeTimers = timers.current
     return () => {
       mq.removeEventListener("change", sync)
-      timers.current.forEach(clearTimeout)
+      activeTimers.forEach(clearTimeout)
       cancelAnimationFrame(frame.current)
     }
   }, [])
@@ -300,19 +301,37 @@ export default function WavingPortfolioLanding({
   }, [])
 
   const playing = intro && !reduced
-  // Letters start scattered and fly into place each time the poster enters the screen.
+  // Letters start scattered & mutating, then sequentially assemble into "PORTFOLIO"
   const [assembled, setAssembled] = React.useState(false)
+  const [scrambleKey, setScrambleKey] = React.useState(0)
+
   React.useEffect(() => {
     const el = rootRef.current
-    if (!el || typeof IntersectionObserver === "undefined") return setAssembled(true)
+    if (!el || typeof IntersectionObserver === "undefined") {
+      setAssembled(true)
+      return
+    }
     let t: ReturnType<typeof setTimeout> | undefined
-    const io = new IntersectionObserver(([e]) => {
-      clearTimeout(t)
-      if (e.isIntersecting) t = setTimeout(() => setAssembled(true), 250)
-      else setAssembled(false)
-    }, { threshold: 0.6 })
+    const io = new IntersectionObserver(
+      ([e]) => {
+        clearTimeout(t)
+        if (e.isIntersecting) {
+          // Start with letters scattered & scrambling for 500ms, then assemble
+          setAssembled(false)
+          t = setTimeout(() => {
+            setAssembled(true)
+          }, 500)
+        } else {
+          setAssembled(false)
+        }
+      },
+      { threshold: 0.25 },
+    )
     io.observe(el)
-    return () => { clearTimeout(t); io.disconnect() }
+    return () => {
+      clearTimeout(t)
+      io.disconnect()
+    }
   }, [])
   React.useEffect(() => {
     if (!playing) {
@@ -328,9 +347,11 @@ export default function WavingPortfolioLanding({
     }
   }, [run, playing, wave])
 
+  const leftKey = lettersLeft.join("|")
+  const rightKey = lettersRight.join("|")
   const L = React.useMemo(
     () => layoutPoster(lettersLeft, giantLetter, lettersRight, compact),
-    [lettersLeft.join("|"), giantLetter, lettersRight.join("|"), compact],
+    [leftKey, rightKey, giantLetter, compact, lettersLeft, lettersRight],
   )
   const letters = L.cells.map((c) => c.ch).join("") || "ABC"
 
@@ -425,6 +446,20 @@ export default function WavingPortfolioLanding({
     })
   }
 
+  const replay = React.useCallback(() => {
+    setRolls([])
+    setBursts([])
+    wavingRef.current = false
+    setWaving(false)
+    setAssembled(false)
+    setScrambleKey((k) => k + 1)
+    setTimeout(() => {
+      setAssembled(true)
+    }, 550)
+    later(wave, 2400)
+    if (playing) setRun((r) => r + 1)
+  }, [playing, wave])
+
   const rollDie = (k: 0 | 1) => {
     setDice((d) => {
       const n: [number, number] = [d[0], d[1]]
@@ -434,15 +469,7 @@ export default function WavingPortfolioLanding({
       return n
     })
     setDiceSpin((s) => (k === 0 ? [s[0] + 1, s[1]] : [s[0], s[1] + 1]))
-  }
-
-  const replay = () => {
-    setRolls([])
-    setBursts([])
-    wavingRef.current = false
-    setWaving(false)
-    if (playing) setRun((r) => r + 1)
-    else wave()
+    replay()
   }
 
   const onCharKey = (e: React.KeyboardEvent) => {
@@ -491,16 +518,17 @@ export default function WavingPortfolioLanding({
           <g className="wpl-par-letters" aria-hidden="true">
             {L.cells.map((c, i) => (
               <LetterCell
-                key={i}
+                key={`${i}-${scrambleKey}`}
                 c={c}
                 i={i}
                 roll={rolls[i] ?? 0}
                 intro={false}
                 scattered={!reduced && !assembled}
-                order={i}
-                delay={c.giant ? 1.75 : 1 + (c.x / L.width) * 0.55 + c.row * 0.1}
+                scrambleKey={scrambleKey}
+                reduced={reduced}
                 color={accent}
                 onEnter={() => reroll(i)}
+                onReplay={replay}
               />
             ))}
           </g>
@@ -651,27 +679,89 @@ function Rule({ a, b, y, mid, delay, color }: { a: number; b: number; y: number;
   )
 }
 
+const SCATTER_PRESETS = [
+  // 0: 'P' (top-left) - flung down-left, rotated -28deg, scale 0.82
+  { dx: -130, dy: 160, rot: -28, scale: 0.82, order: 0 },
+  // 1: 'F' (bottom-left) - flung far left-up, rotated 34deg, scale 1.18
+  { dx: 180, dy: -180, rot: 34, scale: 1.18, order: 4 },
+  // 2: 'R' (top-right 1) - flung mid-left-down, rotated -36deg, scale 0.75
+  { dx: -240, dy: 130, rot: -36, scale: 0.75, order: 2 },
+  // 3: 'T' (top-right 2) - flung down-right, rotated 28deg, scale 0.88
+  { dx: 120, dy: 190, rot: 28, scale: 0.88, order: 3 },
+  // 4: 'L' (bottom-right 1) - flung up-left, rotated -24deg, scale 1.12
+  { dx: -160, dy: -190, rot: -24, scale: 1.12, order: 5 },
+  // 5: 'I' (bottom-right 2) - flung up-right, rotated 42deg, scale 0.68
+  { dx: 130, dy: -130, rot: 42, scale: 0.68, order: 6 },
+  // 6: 'O' (bottom-right 3) - flung down-right, rotated -18deg, scale 1.05
+  { dx: -90, dy: -220, rot: -18, scale: 1.05, order: 7 },
+  // 7: Giant 'O' (center) - flung up-center, rotated 22deg, scale 0.62
+  { dx: 260, dy: -90, rot: 22, scale: 0.62, order: 1 },
+]
+
 function LetterCell({
   c,
   i,
   roll,
   intro,
-  delay,
   color,
   onEnter,
+  onReplay,
   scattered = false,
-  order = 0,
+  scrambleKey = 0,
+  reduced = false,
 }: {
-  scattered?: boolean
-  order?: number
   c: Cell
   i: number
   roll: number
   intro: boolean
-  delay: number
   color: string
   onEnter: () => void
+  onReplay?: () => void
+  scattered?: boolean
+  scrambleKey?: number
+  reduced?: boolean
 }) {
+  const preset = SCATTER_PRESETS[i % SCATTER_PRESETS.length] ?? { dx: 0, dy: 0, rot: 0, scale: 1, order: i }
+  const [displayChar, setDisplayChar] = React.useState(c.ch)
+  const [isLocked, setIsLocked] = React.useState(!scattered)
+
+  React.useEffect(() => {
+    if (reduced) {
+      setDisplayChar(c.ch)
+      setIsLocked(true)
+      return
+    }
+
+    const GLYPH_POOL = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+    if (scattered) {
+      setIsLocked(false)
+      const interval = setInterval(() => {
+        const randomChar = GLYPH_POOL[Math.floor(Math.random() * GLYPH_POOL.length)]
+        setDisplayChar(randomChar)
+      }, 65)
+      return () => clearInterval(interval)
+    } else {
+      const flightDelayMs = preset.order * 130
+      const lockTimeMs = flightDelayMs + 380
+
+      const interval = setInterval(() => {
+        const randomChar = GLYPH_POOL[Math.floor(Math.random() * GLYPH_POOL.length)]
+        setDisplayChar(randomChar)
+      }, 75)
+
+      const timer = setTimeout(() => {
+        clearInterval(interval)
+        setDisplayChar(c.ch)
+        setIsLocked(true)
+      }, lockTimeMs)
+
+      return () => {
+        clearInterval(interval)
+        clearTimeout(timer)
+      }
+    }
+  }, [scattered, c.ch, scrambleKey, reduced, preset.order])
+
   const pad = c.s
   const pitch = c.h + c.s * 2 + 24
   const n = roll > 0 ? 6 : c.giant ? 14 : 10
@@ -684,21 +774,36 @@ function LetterCell({
       reel.push({ ch, w: Math.min(glyphWidth(ch, base, c.s), c.w * 1.25) })
     }
   }
+
+  const charToRender = displayChar || c.ch
+  const currentWidth = c.giant ? c.w : Math.min(glyphWidth(charToRender, LW, c.s), c.w * 1.3)
+  const xOffset = (c.w - currentWidth) / 2
+
   const style = {
     "--dist": (n - 1) * pitch + "px",
-    "--delay": (roll > 0 ? 0 : delay) + "s",
+    "--delay": "0s",
     "--dur": roll > 0 ? "0.7s" : c.giant ? "0.85s" : "1s",
   } as React.CSSProperties
+
   return (
     <g
-      className={"wpl-cell wpl-scatter" + (c.giant ? " wpl-giant" : "") + (scattered ? " is-scattered" : "")}
+      className={
+        "wpl-cell wpl-scatter" +
+        (c.giant ? " wpl-giant" : "") +
+        (scattered ? " is-scattered" : "") +
+        (isLocked ? " is-locked" : "")
+      }
       onPointerEnter={scattered ? undefined : onEnter}
-      style={{
-        "--sx": ((hash(i * 7 + 3) - 0.5) * 900).toFixed(0) + "px",
-        "--sy": ((hash(i * 11 + 5) - 0.5) * 420).toFixed(0) + "px",
-        "--sr": ((hash(i * 17 + 1) - 0.5) * 80).toFixed(0) + "deg",
-        "--sd": (hash(order * 23 + 9) * 0.9).toFixed(2) + "s",
-      } as React.CSSProperties}
+      onClick={onReplay}
+      style={
+        {
+          "--sx": preset.dx + "px",
+          "--sy": preset.dy + "px",
+          "--sr": preset.rot + "deg",
+          "--ss": preset.scale,
+          "--sd": (preset.order * 0.13).toFixed(2) + "s",
+        } as React.CSSProperties
+      }
     >
       <rect x={c.x} y={c.y} width={c.w} height={c.h} fill="transparent" />
       <svg
@@ -719,9 +824,15 @@ function LetterCell({
           strokeLinecap="square"
           strokeMiterlimit={4}
         >
-          <path d={glyphPath(c.ch, c.w, c.h, c.s)} />
+          <g transform={"translate(" + xOffset + " 0)"}>
+            <path d={glyphPath(charToRender, currentWidth, c.h, c.s)} />
+          </g>
           {reel.map((g, k) => (
-            <path key={k} transform={"translate(" + (c.w - g.w) / 2 + " " + -(k + 1) * pitch + ")"} d={glyphPath(g.ch, g.w, c.h, c.s)} />
+            <path
+              key={k}
+              transform={"translate(" + (c.w - g.w) / 2 + " " + -(k + 1) * pitch + ")"}
+              d={glyphPath(g.ch, g.w, c.h, c.s)}
+            />
           ))}
         </g>
       </svg>
@@ -918,9 +1029,11 @@ const WPL_CSS = `
 .wpl-draw{stroke-dasharray:1;stroke-dashoffset:0}
 .wpl-dot{transform-box:fill-box;transform-origin:center}
 .wpl-reel.is-rolling{animation:wpl-roll var(--dur,1s) var(--delay,0s) both}
-.wpl-cell{cursor:crosshair}
-.wpl-scatter{transform-box:fill-box;transform-origin:center;transition:transform 1s cubic-bezier(.34,1.45,.5,1) var(--sd,0s),opacity .5s ease var(--sd,0s)}
-.wpl-scatter.is-scattered{transform:translate(var(--sx),var(--sy)) rotate(var(--sr)) scale(.7);opacity:.55;transition:none}
+.wpl-cell{cursor:pointer}
+.wpl-scatter{transform-box:fill-box;transform-origin:center;transition:transform .85s cubic-bezier(.34,1.56,.64,1) var(--sd,0s),opacity .6s ease var(--sd,0s),filter .4s ease var(--sd,0s);will-change:transform,opacity}
+.wpl-scatter.is-scattered{transform:translate(var(--sx),var(--sy)) rotate(var(--sr)) scale(var(--ss,.75));opacity:.6;filter:drop-shadow(0 0 10px hsl(var(--primary)/.5));transition:none!important}
+.wpl-scatter.is-locked{animation:wpl-lock-pulse .45s ease-out}
+@keyframes wpl-lock-pulse{0%{filter:drop-shadow(0 0 16px var(--wpl-accent))}100%{filter:drop-shadow(0 0 0px transparent)}}
 .wpl-char{cursor:pointer;outline:none}
 .wpl-char:focus-visible .wpl-head{filter:drop-shadow(0 0 6px var(--wpl-accent))}
 .wpl-tilt{transform-box:view-box;transform-origin:205px 600px;transform:rotate(-7deg)}

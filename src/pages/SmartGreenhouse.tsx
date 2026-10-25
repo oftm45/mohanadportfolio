@@ -1,74 +1,46 @@
 import { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { usePageMeta } from "@/lib/usePageMeta";
+import { scrollToSection } from "@/lib/scrollToSection";
 
 const CANONICAL = "https://mohanadportfolio.lovable.app/projects/smart-greenhouse";
 const TITLE = "Smart Greenhouse: Arduino IoT Projects Guide (ESP32 + DHT22)";
 const DESCRIPTION =
   "Step-by-step technical guide to building a smart greenhouse — one of the most practical arduino iot projects — using ESP32, DHT22, soil moisture sensors, and MQTT.";
 
-function setMeta(attr: "name" | "property", key: string, value: string) {
-  let el = document.head.querySelector<HTMLMetaElement>(`meta[${attr}="${key}"]`);
-  if (!el) {
-    el = document.createElement("meta");
-    el.setAttribute(attr, key);
-    document.head.appendChild(el);
-  }
-  el.setAttribute("content", value);
-}
-
-function setCanonical(href: string) {
-  let el = document.head.querySelector<HTMLLinkElement>('link[rel="canonical"]');
-  if (!el) {
-    el = document.createElement("link");
-    el.setAttribute("rel", "canonical");
-    document.head.appendChild(el);
-  }
-  el.setAttribute("href", href);
-}
-
 const SmartGreenhouse = () => {
   useEffect(() => {
-    const prevTitle = document.title;
-    document.title = TITLE;
-    setMeta("name", "description", DESCRIPTION);
-    setMeta("property", "og:title", TITLE);
-    setMeta("property", "og:description", DESCRIPTION);
-    setMeta("property", "og:url", CANONICAL);
-    setMeta("property", "og:type", "article");
-    setMeta("name", "twitter:title", TITLE);
-    setMeta("name", "twitter:description", DESCRIPTION);
-    setCanonical(CANONICAL);
+    window.scrollTo(0, 0);
+  }, []);
 
-    const ld = document.createElement("script");
-    ld.type = "application/ld+json";
-    ld.text = JSON.stringify({
+  // Restores the home page's title, description, canonical and share tags on leave.
+  usePageMeta({
+    title: TITLE,
+    description: DESCRIPTION,
+    url: CANONICAL,
+    type: "article",
+    jsonLd: {
       "@context": "https://schema.org",
       "@type": "TechArticle",
       headline: TITLE,
       description: DESCRIPTION,
-      author: { "@type": "Person", name: "Mohanad Abubaker" },
+      author: { "@type": "Person", name: "Mohanad Abubaker", url: "https://mohanadportfolio.lovable.app/" },
       mainEntityOfPage: CANONICAL,
       keywords: "arduino iot projects, esp32, dht22, smart greenhouse, mqtt",
-    });
-    document.head.appendChild(ld);
-
-    return () => {
-      document.title = prevTitle;
-      ld.remove();
-    };
-  }, []);
+    },
+  });
 
   return (
     <main className="min-h-screen bg-background text-foreground">
       <article className="container mx-auto max-w-3xl px-6 py-16">
-        <nav className="mb-8 text-sm text-muted-foreground">
-          <Link to="/" className="hover:text-primary transition-smooth">
-            ← Home
+        <nav aria-label="Breadcrumb" className="mb-8 text-sm text-muted-foreground">
+          <Link to="/" onClick={() => scrollToSection("projects")} className="hover:text-accent transition-smooth">
+            ← Back to portfolio
           </Link>
         </nav>
 
         <header className="mb-10">
-          <p className="text-sm uppercase tracking-widest text-primary mb-3">
+          <p className="text-sm uppercase tracking-widest text-accent mb-3">
             Arduino IoT Projects
           </p>
           <h1 className="text-4xl md:text-5xl font-bold mb-4 leading-tight">
@@ -241,7 +213,7 @@ void loop() {
         </section>
 
         <footer className="mt-16 pt-8 border-t border-border text-sm text-muted-foreground">
-          <Link to="/" className="hover:text-primary transition-smooth">
+          <Link to="/" onClick={() => scrollToSection("projects")} className="hover:text-accent transition-smooth">
             ← Back to portfolio
           </Link>
         </footer>

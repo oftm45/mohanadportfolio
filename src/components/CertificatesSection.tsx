@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from 'react';
 import { motion } from 'framer-motion';
 import FolderFloat from '@/components/ui/FolderFloat';
+import { TextScrollTitle } from '@/components/ui/text-scroll-animation';
 
 type Group = 'awards' | 'tech' | 'activities';
 
@@ -164,7 +165,12 @@ export const CertificatesSection = () => {
   return (
     <section id="certificates" className="py-20">
       <div className="container mx-auto px-6 max-w-6xl">
-        <h2 className="font-display text-4xl md:text-5xl text-center mb-4 text-foreground">Certificates</h2>
+        <div className="text-center mb-4">
+          <TextScrollTitle
+            text="Certificates"
+            className="font-display text-4xl md:text-5xl text-foreground"
+          />
+        </div>
         <p className="text-center text-muted-foreground mb-4">
           Tap a folder to open it, then tap a certificate to view it. You can drag them around too.
         </p>

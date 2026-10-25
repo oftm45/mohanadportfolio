@@ -111,8 +111,8 @@ export const Navigation = () => {
                   onClick={() => scrollToSection(item.id)}
                   className={`relative px-4 py-2 rounded-lg transition-smooth ${
                     activeSection === item.id
-                      ? 'text-primary font-medium'
-                      : 'text-foreground/80 hover:text-primary'
+                      ? 'text-accent font-medium'
+                      : 'text-foreground/80 hover:text-accent'
                   }`}
                 >
                   {item.label}
