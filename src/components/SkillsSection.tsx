@@ -2,8 +2,8 @@ import { motion } from 'framer-motion';
 import { Code2, Cpu, Target } from 'lucide-react';
 
 const groups = [
-  { icon: Code2, title: 'Programming & Development', items: ['Python', 'C++', 'HTML/CSS', 'AI Prompt Engineering', 'AI-Assisted Development'] },
-  { icon: Cpu, title: 'IoT & Robotics', items: ['IoT Prototyping', 'Arduino / ESP32', 'Sensor Integration', 'Robotics Control', 'SOLIDWORKS (CAD)'] },
+  { icon: Code2, title: 'Programming & Development', items: ['Python', 'C++', '\n', 'AI Prompt Engineering', 'AI-Assisted Development'] },
+  { icon: Cpu, title: 'IoT & Robotics', items: ['IoT Prototyping', 'Arduino / ESP32', 'Sensor Integration', 'Robotics Control', 'SOLIDWORKS  \n'] },
   { icon: Target, title: 'Focus Areas & Interests', items: ['Cybersecurity', 'Artificial Intelligence (AI)', 'Competitive Computer Science', 'Hardware Innovation'] },
 ];
 
