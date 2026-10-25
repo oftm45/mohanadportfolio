@@ -4,11 +4,10 @@ import { toast } from 'sonner';
 
 const OWNER = 'Mohanad Abubaker';
 const NOTICE = 'These ideas, designs and models may not be used, copied or imitated without prior permission or notice.';
-const SEEN_KEY = 'rights-notice-seen';
 
 type Props = { owner?: string; className?: string };
 
-// Static rights notice shown at the bottom of every project page.
+// Static rights notice shown under the home projects grid and at the bottom of every project page.
 export const RightsNotice = ({ owner, className = '' }: Props) => (
   <aside
     aria-label="Rights notice"
@@ -24,26 +23,16 @@ export const RightsNotice = ({ owner, className = '' }: Props) => (
   </aside>
 );
 
-/** Shows the rights notice as a pop-up the first time (per visit) the returned element scrolls into view. */
+/** Shows the rights notice as a pop-up the first time (per page load) the returned element scrolls into view. */
 export function useRightsToast<T extends Element>() {
   const ref = useRef<T>(null);
   useEffect(() => {
     const el = ref.current;
     if (!el) return;
-    try {
-      if (sessionStorage.getItem(SEEN_KEY)) return;
-    } catch {
-      /* storage blocked: still show it once for this page view */
-    }
     const io = new IntersectionObserver(
       ([e]) => {
         if (!e.isIntersecting) return;
         io.disconnect();
-        try {
-          sessionStorage.setItem(SEEN_KEY, '1');
-        } catch {
-          /* ignore */
-        }
         toast(`© ${new Date().getFullYear()} ${OWNER} — All rights reserved`, {
           description: `All rights belong to the project owners. ${NOTICE}`,
           icon: <ShieldCheck className="h-5 w-5 text-primary" aria-hidden="true" />,
