@@ -50,7 +50,6 @@ export const PROJECTS: Project[] = [
     subtitle: 'Smart, solar-powered grain silo',
     desc: 'An ESP32 IoT system that turns traditional grain silos into smart, off-grid units. It watches temperature, humidity and fermentation gases, switches on ventilation automatically, sounds an alarm and floodlight on intrusion, and gives farmers remote monitoring — all running on solar power to cut post-harvest losses.',
     tags: ['ESP32', 'IoT', 'Solar Energy', 'DHT22', 'MQ-135', 'PIR', 'Food Security'],
-    link: { label: 'Live Demo', url: 'https://agri-shield4.lovable.app/' },
     metaTitle: 'Agri-Shield 4.0: Solar ESP32 IoT Smart Grain Silo | Mohanad Abubaker',
     metaDescription:
       'Agri-Shield 4.0 is a solar-powered ESP32 IoT system that protects grain silos: it monitors temperature, humidity and gases, ventilates automatically and alerts farmers to intruders.',
