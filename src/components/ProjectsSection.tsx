@@ -2,7 +2,7 @@ import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { ArrowRight, ExternalLink } from 'lucide-react';
 import { PROJECTS } from '@/data/projects';
-import { useRightsToast } from '@/components/RightsNotice';
+import { RightsNotice, useRightsToast } from '@/components/RightsNotice';
 
 export const ProjectsSection = () => {
   const sectionRef = useRightsToast<HTMLElement>();
@@ -50,6 +50,7 @@ export const ProjectsSection = () => {
           </motion.article>
         ))}
       </div>
+      <RightsNotice owner="Mohanad Abubaker & project teams" className="mt-10" />
     </div>
   </section>
 );
